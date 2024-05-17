@@ -14,6 +14,14 @@
 		DCB7D2A72BF747830017CEBC /* DayStoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D2A62BF747830017CEBC /* DayStoryTests.swift */; };
 		DCB7D2B12BF747840017CEBC /* DayStoryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D2B02BF747840017CEBC /* DayStoryUITests.swift */; };
 		DCB7D2B32BF747840017CEBC /* DayStoryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D2B22BF747840017CEBC /* DayStoryUITestsLaunchTests.swift */; };
+		DCB7D2C52BF74F620017CEBC /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D2C42BF74F620017CEBC /* RequestMethod.swift */; };
+		DCB7D2C72BF754A60017CEBC /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D2C62BF754A60017CEBC /* Response.swift */; };
+		DCB7D2CA2BF755520017CEBC /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D2C92BF755520017CEBC /* Bundle+Extensions.swift */; };
+		DCB7D2CC2BF756880017CEBC /* NSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D2CB2BF756880017CEBC /* NSError.swift */; };
+		DCB7D2CE2BF757220017CEBC /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D2CD2BF757220017CEBC /* URL+Extension.swift */; };
+		DCB7D2D02BF75ABF0017CEBC /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D2CF2BF75ABF0017CEBC /* API.swift */; };
+		DCB7D2D22BF75C2A0017CEBC /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D2D12BF75C2A0017CEBC /* ContentType.swift */; };
+		DCB7D2D42BF75DD00017CEBC /* Networkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D2D32BF75DD00017CEBC /* Networkable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +52,17 @@
 		DCB7D2AC2BF747830017CEBC /* DayStoryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DayStoryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCB7D2B02BF747840017CEBC /* DayStoryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayStoryUITests.swift; sourceTree = "<group>"; };
 		DCB7D2B22BF747840017CEBC /* DayStoryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayStoryUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DCB7D2BF2BF74BB10017CEBC /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
+		DCB7D2C02BF74BBB0017CEBC /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
+		DCB7D2C12BF74DBD0017CEBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DCB7D2C42BF74F620017CEBC /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
+		DCB7D2C62BF754A60017CEBC /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		DCB7D2C92BF755520017CEBC /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
+		DCB7D2CB2BF756880017CEBC /* NSError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSError.swift; sourceTree = "<group>"; };
+		DCB7D2CD2BF757220017CEBC /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
+		DCB7D2CF2BF75ABF0017CEBC /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		DCB7D2D12BF75C2A0017CEBC /* ContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentType.swift; sourceTree = "<group>"; };
+		DCB7D2D32BF75DD00017CEBC /* Networkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networkable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +93,9 @@
 		DCB7D2892BF747820017CEBC = {
 			isa = PBXGroup;
 			children = (
+				DCB7D2BF2BF74BB10017CEBC /* Production.xcconfig */,
+				DCB7D2C02BF74BBB0017CEBC /* Development.xcconfig */,
+				DCB7D2C22BF74F330017CEBC /* Networking */,
 				DCB7D2942BF747820017CEBC /* DayStory */,
 				DCB7D2A52BF747830017CEBC /* DayStoryTests */,
 				DCB7D2AF2BF747840017CEBC /* DayStoryUITests */,
@@ -94,6 +116,7 @@
 		DCB7D2942BF747820017CEBC /* DayStory */ = {
 			isa = PBXGroup;
 			children = (
+				DCB7D2C12BF74DBD0017CEBC /* Info.plist */,
 				DCB7D2952BF747820017CEBC /* DayStoryApp.swift */,
 				DCB7D2972BF747820017CEBC /* ContentView.swift */,
 				DCB7D2992BF747830017CEBC /* Assets.xcassets */,
@@ -125,6 +148,37 @@
 				DCB7D2B22BF747840017CEBC /* DayStoryUITestsLaunchTests.swift */,
 			);
 			path = DayStoryUITests;
+			sourceTree = "<group>";
+		};
+		DCB7D2C22BF74F330017CEBC /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				DCB7D2C82BF7551F0017CEBC /* Extensions */,
+				DCB7D2C32BF74F580017CEBC /* Base */,
+				DCB7D2CF2BF75ABF0017CEBC /* API.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		DCB7D2C32BF74F580017CEBC /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				DCB7D2C42BF74F620017CEBC /* RequestMethod.swift */,
+				DCB7D2C62BF754A60017CEBC /* Response.swift */,
+				DCB7D2D32BF75DD00017CEBC /* Networkable.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		DCB7D2C82BF7551F0017CEBC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DCB7D2C92BF755520017CEBC /* Bundle+Extensions.swift */,
+				DCB7D2CB2BF756880017CEBC /* NSError.swift */,
+				DCB7D2CD2BF757220017CEBC /* URL+Extension.swift */,
+				DCB7D2D12BF75C2A0017CEBC /* ContentType.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +311,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCB7D2C72BF754A60017CEBC /* Response.swift in Sources */,
+				DCB7D2CA2BF755520017CEBC /* Bundle+Extensions.swift in Sources */,
 				DCB7D2982BF747820017CEBC /* ContentView.swift in Sources */,
+				DCB7D2C52BF74F620017CEBC /* RequestMethod.swift in Sources */,
 				DCB7D2962BF747820017CEBC /* DayStoryApp.swift in Sources */,
+				DCB7D2CE2BF757220017CEBC /* URL+Extension.swift in Sources */,
+				DCB7D2D02BF75ABF0017CEBC /* API.swift in Sources */,
+				DCB7D2CC2BF756880017CEBC /* NSError.swift in Sources */,
+				DCB7D2D42BF75DD00017CEBC /* Networkable.swift in Sources */,
+				DCB7D2D22BF75C2A0017CEBC /* ContentType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +359,7 @@
 /* Begin XCBuildConfiguration section */
 		DCB7D2B42BF747840017CEBC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCB7D2C02BF74BBB0017CEBC /* Development.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -360,6 +423,7 @@
 		};
 		DCB7D2B52BF747840017CEBC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCB7D2BF2BF74BB10017CEBC /* Production.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -425,6 +489,7 @@
 				DEVELOPMENT_TEAM = M9BG9J9LFY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DayStory/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -454,6 +519,7 @@
 				DEVELOPMENT_TEAM = M9BG9J9LFY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DayStory/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
