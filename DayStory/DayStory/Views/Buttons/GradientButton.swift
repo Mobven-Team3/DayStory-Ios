@@ -11,6 +11,11 @@ struct GradientButton: View {
     
     let title: LocalizedStringKey
     
+    
+    let gradient = LinearGradient(gradient: Gradient(colors: [Color.buttonPink, Color.buttonPurple]),
+                                  startPoint: .leading,
+                                  endPoint: .center)
+    
     var body: some View {
         Text(title)
             .font(Font.system(size: 15))
@@ -18,7 +23,7 @@ struct GradientButton: View {
             .foregroundStyle(.white)
             .frame(height: 46)
             .frame(minWidth: 0, maxWidth: .infinity)
-            .background(LinearGradient.actionButton)
+            .background(gradient)
             .clipShape(.capsule)
             .padding()
     }

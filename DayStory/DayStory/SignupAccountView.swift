@@ -48,93 +48,21 @@ struct SignupAccountView: View {
                 .padding()
             
             Form {
-                ZStack(alignment: .trailing) {
-                    TextField("Emailinizi Yazınız", text: $email)
-                        .padding()
-                        .cornerRadius(10)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.black, lineWidth: 1)
-                        )
-                        .keyboardType(.emailAddress)
-                        .textInputAutocapitalization(.none)
-                    
-                    Button {
-                        email = ""
-                    } label: {
-                        Image(systemName: "x.circle")
-                            .imageScale(.large)
-                            .frame(width: 44, height: 44)
-                            .foregroundColor(.dayStoryPurple)
-                    }
-                }
+                ReusableTextField(text: $email,
+                                  placeholder: "Emailinizi Yazınız",
+                                  keyboardType: .emailAddress)
                 
-                Spacer().frame(height: 40)
+                ReusableTextField(text: $userName,
+                                  placeholder: "Kullanıcı Adı Belirleyiniz")
                 
-                ZStack(alignment: .trailing) {
-                    TextField("Kullanıcı Adı Belirleyiniz", text: $userName)
-                        .padding()
-                        .cornerRadius(10)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.black, lineWidth: 1)
-                        )
-                        .textInputAutocapitalization(.none)
-                    
-                    Button {
-                        userName = ""
-                    } label: {
-                        Image(systemName: "x.circle")
-                            .imageScale(.large)
-                            .frame(width: 44, height: 44)
-                            .foregroundColor(.dayStoryPurple)
-                    }
-                }
+                ReusableTextField(text: $password,
+                                  placeholder: "Şifre Belirleyiniz",
+                                  isSecure: true)
                 
-                
-                Spacer().frame(height: 40)
-                
-                ZStack(alignment: .trailing) {
-                    SecureField("Şifre Belirleyiniz", text: $password)
-                        .padding()
-                        .cornerRadius(10)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.black, lineWidth: 1)
-                        )
-                    
-                    Button {
-                        password = ""
-                    } label: {
-                        Image(systemName: "x.circle")
-                            .imageScale(.large)
-                            .frame(width: 44, height: 44)
-                            .foregroundColor(.dayStoryPurple)
-                    }
-                }
-                
-                Spacer().frame(height: 40)
-                
-                ZStack(alignment: .trailing) {
-                    SecureField("Şifrenizi Onaylayınız", text: $confirmPassword)
-                        .padding()
-                        .cornerRadius(10)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.black, lineWidth: 1)
-                        )
-                    
-                    Button {
-                        confirmPassword = ""
-                    } label: {
-                        Image(systemName: "x.circle")
-                            .imageScale(.large)
-                            .frame(width: 44, height: 44)
-                            .foregroundColor(.dayStoryPurple)
-                    }
-                }
+                ReusableTextField(text: $confirmPassword,
+                                  placeholder: "Şifrenizi Onaylayınız",
+                                  isSecure: true)
             }
-            .padding()
             .formStyle(.columns)
             
             Button {
@@ -164,12 +92,6 @@ struct SignupAccountView: View {
             Spacer()
         }
     }
-}
-
-extension LinearGradient {
-    static let actionButton = LinearGradient(gradient: Gradient(colors: [Color.buttonPink, Color.buttonPurple]),
-                                             startPoint: .leading,
-                                             endPoint: .center)
 }
 
 #Preview {

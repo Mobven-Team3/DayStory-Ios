@@ -51,49 +51,14 @@ struct LoginView: View {
             }
             
             Form {
-                ZStack(alignment: .trailing) {
-                    TextField("Kullanıcı Adınızı Giriniz", text: $userName)
-                        .padding()
-                        .cornerRadius(10)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.black, lineWidth: 1)
-                        )
-                        .textInputAutocapitalization(.none)
-                    
-                    Button {
-                        userName = ""
-                    } label: {
-                        Image(systemName: "x.circle")
-                            .imageScale(.large)
-                            .frame(width: 44, height: 44)
-                            .foregroundColor(.dayStoryPurple)
-                    }
-                }
+                ReusableTextField(text: $userName,
+                                  placeholder: "Kullanıcı Adınızı Giriniz")
                 
-                Spacer().frame(height: 40)
-                
-                ZStack(alignment: .trailing) {
-                    SecureField("Şifrenizi Giriniz", text: $password)
-                        .padding()
-                        .cornerRadius(10)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.black, lineWidth: 1)
-                        )
-                    
-                    Button {
-                        password = ""
-                    } label: {
-                        Image(systemName: "x.circle")
-                            .imageScale(.large)
-                            .frame(width: 44, height: 44)
-                            .foregroundColor(.dayStoryPurple)
-                    }
-                }
+                ReusableTextField(text: $password,
+                                  placeholder: "Şifrenizi Giriniz",
+                                  isSecure: true)
             }
             .formStyle(.columns)
-            .padding()
             
             Button {
                 print("tapped")
