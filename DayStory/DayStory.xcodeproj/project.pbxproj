@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DCB4A4802BFB33DE00EEE970 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB4A47F2BFB33DE00EEE970 /* ContentViewModel.swift */; };
 		DCB4A4832BFB347C00EEE970 /* GetMoviesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB4A4822BFB347C00EEE970 /* GetMoviesResponse.swift */; };
 		DCB7D2962BF747820017CEBC /* DayStoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D2952BF747820017CEBC /* DayStoryApp.swift */; };
 		DCB7D2982BF747820017CEBC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D2972BF747820017CEBC /* ContentView.swift */; };
@@ -46,7 +45,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		DCB4A47F2BFB33DE00EEE970 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		DCB4A4822BFB347C00EEE970 /* GetMoviesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoviesResponse.swift; sourceTree = "<group>"; };
 		DCB7D2922BF747820017CEBC /* DayStory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayStory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCB7D2952BF747820017CEBC /* DayStoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayStoryApp.swift; sourceTree = "<group>"; };
@@ -135,7 +133,6 @@
 				DCB7D2C12BF74DBD0017CEBC /* Info.plist */,
 				DCB7D2952BF747820017CEBC /* DayStoryApp.swift */,
 				DCB7D2972BF747820017CEBC /* ContentView.swift */,
-				DCB4A47F2BFB33DE00EEE970 /* ContentViewModel.swift */,
 				DCB7D2992BF747830017CEBC /* Assets.xcassets */,
 				DCB7D29B2BF747830017CEBC /* Preview Content */,
 			);
@@ -349,7 +346,6 @@
 			files = (
 				DCB4A4832BFB347C00EEE970 /* GetMoviesResponse.swift in Sources */,
 				DCB7D2D92BF7792F0017CEBC /* Networkable+Extensions.swift in Sources */,
-				DCB4A4802BFB33DE00EEE970 /* ContentViewModel.swift in Sources */,
 				DCB7D2C72BF754A60017CEBC /* Response.swift in Sources */,
 				DCB7D2CA2BF755520017CEBC /* Bundle+Extensions.swift in Sources */,
 				DCB7D2982BF747820017CEBC /* ContentView.swift in Sources */,
