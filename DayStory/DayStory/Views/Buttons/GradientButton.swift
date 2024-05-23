@@ -22,7 +22,7 @@ struct GradientButton: View {
             .fontWeight(.semibold)
             .foregroundStyle(.white)
             .frame(height: 46)
-            .frame(minWidth: 0, maxWidth: .infinity)
+            .frame(maxWidth: .infinity)
             .background(gradient)
             .clipShape(.capsule)
             .padding()
