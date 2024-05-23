@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC7F3AA62BFFC61A0020291C /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F3AA52BFFC61A0020291C /* GradientButton.swift */; };
 		DCB4A4832BFB347C00EEE970 /* GetMoviesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB4A4822BFB347C00EEE970 /* GetMoviesResponse.swift */; };
 		DCB7D2962BF747820017CEBC /* DayStoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D2952BF747820017CEBC /* DayStoryApp.swift */; };
 		DCB7D2982BF747820017CEBC /* SignupAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D2972BF747820017CEBC /* SignupAccountView.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DC7F3AA52BFFC61A0020291C /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		DCB4A4822BFB347C00EEE970 /* GetMoviesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoviesResponse.swift; sourceTree = "<group>"; };
 		DCB7D2922BF747820017CEBC /* DayStory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayStory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCB7D2952BF747820017CEBC /* DayStoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayStoryApp.swift; sourceTree = "<group>"; };
@@ -98,6 +100,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC7F3AA32BFFC5F80020291C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DC7F3AA42BFFC6000020291C /* Buttons */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DC7F3AA42BFFC6000020291C /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				DC7F3AA52BFFC61A0020291C /* GradientButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 		DCB4A4812BFB343F00EEE970 /* Response */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +150,7 @@
 		DCB7D2942BF747820017CEBC /* DayStory */ = {
 			isa = PBXGroup;
 			children = (
+				DC7F3AA32BFFC5F80020291C /* Views */,
 				DCB7D2C12BF74DBD0017CEBC /* Info.plist */,
 				DCB7D2952BF747820017CEBC /* DayStoryApp.swift */,
 				DCB7D2972BF747820017CEBC /* SignupAccountView.swift */,
@@ -357,6 +376,7 @@
 				DCB7D2CE2BF757220017CEBC /* URL+Extension.swift in Sources */,
 				DCFD54F12BFFBB620096D24A /* LoginView.swift in Sources */,
 				DCB7D2D02BF75ABF0017CEBC /* API.swift in Sources */,
+				DC7F3AA62BFFC61A0020291C /* GradientButton.swift in Sources */,
 				DCB7D2CC2BF756880017CEBC /* NSError.swift in Sources */,
 				DCB7D2D42BF75DD00017CEBC /* Networkable.swift in Sources */,
 				DCB7D2D72BF7770D0017CEBC /* Movie.swift in Sources */,

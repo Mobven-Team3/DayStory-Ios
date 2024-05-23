@@ -8,11 +8,22 @@
 import SwiftUI
 
 struct GradientButton: View {
+    
+    let title: LocalizedStringKey
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(title)
+            .font(Font.system(size: 15))
+            .fontWeight(.semibold)
+            .foregroundStyle(.white)
+            .frame(height: 46)
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .background(LinearGradient.actionButton)
+            .clipShape(.capsule)
+            .padding()
     }
 }
 
 #Preview {
-    GradientButton()
+    GradientButton(title: "Test Title")
 }

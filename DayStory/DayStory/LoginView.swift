@@ -29,6 +29,7 @@ struct LoginView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(height: 374)
+                    .offset(y: -30)
                 
                 HStack {
                     Text("Day")
@@ -51,7 +52,7 @@ struct LoginView: View {
             
             Form {
                 ZStack(alignment: .trailing) {
-                    TextField("Kullanıcı Adı Belirleyiniz", text: $userName)
+                    TextField("Kullanıcı Adınızı Giriniz", text: $userName)
                         .padding()
                         .cornerRadius(10)
                         .overlay(
@@ -73,7 +74,7 @@ struct LoginView: View {
                 Spacer().frame(height: 40)
                 
                 ZStack(alignment: .trailing) {
-                    SecureField("Şifre Belirleyiniz", text: $password)
+                    SecureField("Şifrenizi Giriniz", text: $password)
                         .padding()
                         .cornerRadius(10)
                         .overlay(
@@ -97,27 +98,19 @@ struct LoginView: View {
             Button {
                 print("tapped")
             } label: {
-                Text("Kayıt Ol")
-                    .font(Font.system(size: 15))
-                    .fontWeight(.semibold)
-                    .foregroundStyle(.white)
-                    .frame(height: 46)
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .background(LinearGradient.actionButton)
-                    .clipShape(.capsule)
+                GradientButton(title: "Giriş Yap")
             }
-            .padding()
             
             HStack {
-                Text("Zaten hesabın var mı?")
+                Text("Henüz hesabın yok mu?")
                     .foregroundStyle(.dayStoryPurple)
                     .font(.system(size: 14))
                     .fontWeight(.semibold)
                 
                 Button {
-                    print("Giriş Yap")
+                    print("Kayıt Ol")
                 } label: {
-                    Text("Giriş Yap")
+                    Text("Kayıt Ol")
                         .font(Font.system(size: 14))
                         .fontWeight(.bold)
                         .foregroundStyle(.dayStoryPurple)

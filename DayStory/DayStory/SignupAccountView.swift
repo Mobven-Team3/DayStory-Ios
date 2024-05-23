@@ -39,13 +39,13 @@ struct SignupAccountView: View {
                     .foregroundColor(.dayStoryPurple)
                     .clipShape(.capsule)
             }
-            .padding(.top)
+            .padding()
             
             Text("Hesap Bilgilerinizi Oluşturunuz.")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .font(.system(size: 16))
                 .fontWeight(.semibold)
-                .padding(.top, 40)
+                .padding()
             
             Form {
                 ZStack(alignment: .trailing) {
@@ -134,22 +134,14 @@ struct SignupAccountView: View {
                     }
                 }
             }
-            .padding(.top, 40)
+            .padding()
             .formStyle(.columns)
             
             Button {
                 print("tapped")
             } label: {
-                Text("Kayıt Ol")
-                    .font(Font.system(size: 15))
-                    .fontWeight(.semibold)
-                    .foregroundStyle(.white)
-                    .frame(height: 46)
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .background(LinearGradient.actionButton)
-                    .clipShape(.capsule)
+                GradientButton(title: "Kayıt Ol")
             }
-            .padding(.top, 40)
             
             HStack {
                 Text("Zaten hesabın var mı?")
@@ -171,7 +163,6 @@ struct SignupAccountView: View {
             
             Spacer()
         }
-        .padding()
     }
 }
 
