@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		DCB4A4832BFB347C00EEE970 /* GetMoviesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB4A4822BFB347C00EEE970 /* GetMoviesResponse.swift */; };
 		DCB7D2962BF747820017CEBC /* DayStoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D2952BF747820017CEBC /* DayStoryApp.swift */; };
-		DCB7D2982BF747820017CEBC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D2972BF747820017CEBC /* ContentView.swift */; };
+		DCB7D2982BF747820017CEBC /* SignupAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D2972BF747820017CEBC /* SignupAccountView.swift */; };
 		DCB7D29A2BF747830017CEBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCB7D2992BF747830017CEBC /* Assets.xcassets */; };
 		DCB7D29D2BF747830017CEBC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCB7D29C2BF747830017CEBC /* Preview Assets.xcassets */; };
 		DCB7D2A72BF747830017CEBC /* DayStoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D2A62BF747830017CEBC /* DayStoryTests.swift */; };
@@ -25,6 +25,7 @@
 		DCB7D2D42BF75DD00017CEBC /* Networkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D2D32BF75DD00017CEBC /* Networkable.swift */; };
 		DCB7D2D72BF7770D0017CEBC /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D2D62BF7770D0017CEBC /* Movie.swift */; };
 		DCB7D2D92BF7792F0017CEBC /* Networkable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D2D82BF7792F0017CEBC /* Networkable+Extensions.swift */; };
+		DCFD54F12BFFBB620096D24A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFD54F02BFFBB620096D24A /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +49,7 @@
 		DCB4A4822BFB347C00EEE970 /* GetMoviesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoviesResponse.swift; sourceTree = "<group>"; };
 		DCB7D2922BF747820017CEBC /* DayStory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayStory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCB7D2952BF747820017CEBC /* DayStoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayStoryApp.swift; sourceTree = "<group>"; };
-		DCB7D2972BF747820017CEBC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DCB7D2972BF747820017CEBC /* SignupAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupAccountView.swift; sourceTree = "<group>"; };
 		DCB7D2992BF747830017CEBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCB7D29C2BF747830017CEBC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DCB7D2A22BF747830017CEBC /* DayStoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DayStoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +70,7 @@
 		DCB7D2D32BF75DD00017CEBC /* Networkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networkable.swift; sourceTree = "<group>"; };
 		DCB7D2D62BF7770D0017CEBC /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		DCB7D2D82BF7792F0017CEBC /* Networkable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Networkable+Extensions.swift"; sourceTree = "<group>"; };
+		DCFD54F02BFFBB620096D24A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,7 +134,8 @@
 			children = (
 				DCB7D2C12BF74DBD0017CEBC /* Info.plist */,
 				DCB7D2952BF747820017CEBC /* DayStoryApp.swift */,
-				DCB7D2972BF747820017CEBC /* ContentView.swift */,
+				DCB7D2972BF747820017CEBC /* SignupAccountView.swift */,
+				DCFD54F02BFFBB620096D24A /* LoginView.swift */,
 				DCB7D2992BF747830017CEBC /* Assets.xcassets */,
 				DCB7D29B2BF747830017CEBC /* Preview Content */,
 			);
@@ -348,10 +351,11 @@
 				DCB7D2D92BF7792F0017CEBC /* Networkable+Extensions.swift in Sources */,
 				DCB7D2C72BF754A60017CEBC /* Response.swift in Sources */,
 				DCB7D2CA2BF755520017CEBC /* Bundle+Extensions.swift in Sources */,
-				DCB7D2982BF747820017CEBC /* ContentView.swift in Sources */,
+				DCB7D2982BF747820017CEBC /* SignupAccountView.swift in Sources */,
 				DCB7D2C52BF74F620017CEBC /* RequestMethod.swift in Sources */,
 				DCB7D2962BF747820017CEBC /* DayStoryApp.swift in Sources */,
 				DCB7D2CE2BF757220017CEBC /* URL+Extension.swift in Sources */,
+				DCFD54F12BFFBB620096D24A /* LoginView.swift in Sources */,
 				DCB7D2D02BF75ABF0017CEBC /* API.swift in Sources */,
 				DCB7D2CC2BF756880017CEBC /* NSError.swift in Sources */,
 				DCB7D2D42BF75DD00017CEBC /* Networkable.swift in Sources */,
