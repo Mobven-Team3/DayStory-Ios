@@ -8,9 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		DC7F3AA62BFFC61A0020291C /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F3AA52BFFC61A0020291C /* GradientButton.swift */; };
-		DC7F3AAB2BFFDD760020291C /* ReusableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F3AAA2BFFDD760020291C /* ReusableTextField.swift */; };
+		DC7F3AAB2BFFDD760020291C /* DayStoryTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F3AAA2BFFDD760020291C /* DayStoryTextField.swift */; };
 		DC7F3AAD2BFFE7140020291C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC7F3AAC2BFFE7140020291C /* Colors.xcassets */; };
 		DC7F3AB12BFFF32C0020291C /* SignupSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F3AB02BFFF32C0020291C /* SignupSectionView.swift */; };
+		DC99B1932C00CFC300CDD857 /* DayStoryToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC99B1922C00CFC300CDD857 /* DayStoryToolbar.swift */; };
+		DC99B1952C00DC7400CDD857 /* AuthenticationHelperText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC99B1942C00DC7400CDD857 /* AuthenticationHelperText.swift */; };
+		DC99B1972C00DDBA00CDD857 /* LoginPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC99B1962C00DDBA00CDD857 /* LoginPrompt.swift */; };
 		DCB4A4832BFB347C00EEE970 /* GetMoviesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB4A4822BFB347C00EEE970 /* GetMoviesResponse.swift */; };
 		DCB7D2962BF747820017CEBC /* DayStoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D2952BF747820017CEBC /* DayStoryApp.swift */; };
 		DCB7D2982BF747820017CEBC /* SignupAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D2972BF747820017CEBC /* SignupAccountView.swift */; };
@@ -51,9 +54,12 @@
 
 /* Begin PBXFileReference section */
 		DC7F3AA52BFFC61A0020291C /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
-		DC7F3AAA2BFFDD760020291C /* ReusableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableTextField.swift; sourceTree = "<group>"; };
+		DC7F3AAA2BFFDD760020291C /* DayStoryTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayStoryTextField.swift; sourceTree = "<group>"; };
 		DC7F3AAC2BFFE7140020291C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		DC7F3AB02BFFF32C0020291C /* SignupSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupSectionView.swift; sourceTree = "<group>"; };
+		DC99B1922C00CFC300CDD857 /* DayStoryToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayStoryToolbar.swift; sourceTree = "<group>"; };
+		DC99B1942C00DC7400CDD857 /* AuthenticationHelperText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationHelperText.swift; sourceTree = "<group>"; };
+		DC99B1962C00DDBA00CDD857 /* LoginPrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPrompt.swift; sourceTree = "<group>"; };
 		DCB4A4822BFB347C00EEE970 /* GetMoviesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoviesResponse.swift; sourceTree = "<group>"; };
 		DCB7D2922BF747820017CEBC /* DayStory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayStory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCB7D2952BF747820017CEBC /* DayStoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayStoryApp.swift; sourceTree = "<group>"; };
@@ -109,6 +115,7 @@
 		DC7F3AA32BFFC5F80020291C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DC99B1912C00CFAF00CDD857 /* Toolbar */,
 				DC99B1822C00951800CDD857 /* Helpers */,
 				DC99B1812C00950300CDD857 /* TextFields */,
 				DC99B1802C0094FB00CDD857 /* Buttons */,
@@ -127,7 +134,7 @@
 		DC99B1812C00950300CDD857 /* TextFields */ = {
 			isa = PBXGroup;
 			children = (
-				DC7F3AAA2BFFDD760020291C /* ReusableTextField.swift */,
+				DC7F3AAA2BFFDD760020291C /* DayStoryTextField.swift */,
 			);
 			path = TextFields;
 			sourceTree = "<group>";
@@ -136,6 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				DC7F3AB02BFFF32C0020291C /* SignupSectionView.swift */,
+				DC99B1942C00DC7400CDD857 /* AuthenticationHelperText.swift */,
+				DC99B1962C00DDBA00CDD857 /* LoginPrompt.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -211,6 +220,14 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DC99B1912C00CFAF00CDD857 /* Toolbar */ = {
+			isa = PBXGroup;
+			children = (
+				DC99B1922C00CFC300CDD857 /* DayStoryToolbar.swift */,
+			);
+			path = Toolbar;
 			sourceTree = "<group>";
 		};
 		DCB4A4812BFB343F00EEE970 /* Response */ = {
@@ -464,6 +481,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC99B1952C00DC7400CDD857 /* AuthenticationHelperText.swift in Sources */,
 				DCB4A4832BFB347C00EEE970 /* GetMoviesResponse.swift in Sources */,
 				DCB7D2D92BF7792F0017CEBC /* Networkable+Extensions.swift in Sources */,
 				DCB7D2C72BF754A60017CEBC /* Response.swift in Sources */,
@@ -480,7 +498,9 @@
 				DCB7D2D42BF75DD00017CEBC /* Networkable.swift in Sources */,
 				DCB7D2D72BF7770D0017CEBC /* Movie.swift in Sources */,
 				DCB7D2D22BF75C2A0017CEBC /* ContentType.swift in Sources */,
-				DC7F3AAB2BFFDD760020291C /* ReusableTextField.swift in Sources */,
+				DC7F3AAB2BFFDD760020291C /* DayStoryTextField.swift in Sources */,
+				DC99B1932C00CFC300CDD857 /* DayStoryToolbar.swift in Sources */,
+				DC99B1972C00DDBA00CDD857 /* LoginPrompt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,68 +16,46 @@ struct SignupAccountView: View {
     
     var body: some View {
         NavigationStack {
-            VStack(spacing: 15) {
-                Text("Day")
-                    .foregroundStyle(.dayStoryPurple)
-                    .font(.system(size: 24))
-                    .fontWeight(.regular)
-                +
-                Text("Story")
-                    .foregroundStyle(.dayStoryPurple)
-                    .font(.system(size: 24))
-                    .fontWeight(.thin)
-                
-                SignupSectionView()
-                
-                Text("Hesap Bilgilerinizi Oluşturunuz.")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .font(.system(size: 16))
-                    .fontWeight(.semibold)
-                    .padding()
-                
-                Form {
-                    ReusableTextField(text: $email,
-                                      placeholder: "Emailinizi Yazınız",
-                                      keyboardType: .emailAddress)
+            ScrollView {
+                VStack() {
+                    SignupSectionView()
+
+                    AuthenticationHelperText(text: "Hesap Bilgilerinizi Oluşturunuz.")
                     
-                    ReusableTextField(text: $userName,
-                                      placeholder: "Kullanıcı Adı Belirleyiniz")
-                    
-                    ReusableTextField(text: $password,
-                                      placeholder: "Şifre Belirleyiniz",
-                                      isSecure: true)
-                    
-                    ReusableTextField(text: $confirmPassword,
-                                      placeholder: "Şifrenizi Onaylayınız",
-                                      isSecure: true)
-                }
-                .formStyle(.columns)
-                
-                Button {
-                    print("tapped")
-                } label: {
-                    GradientButton(title: "Kayıt Ol")
-                }
-                
-                HStack {
-                    Text("Zaten hesabın var mı?")
-                        .foregroundStyle(.dayStoryPurple)
-                        .font(.system(size: 14))
-                        .fontWeight(.semibold)
-                    
-                    NavigationLink(destination: LoginView()) {
-                        Text("Giriş Yap")
-                            .font(Font.system(size: 14))
-                            .fontWeight(.bold)
-                            .foregroundStyle(.dayStoryPurple)
-                            .underline(true)
+                    Form {
+                        DayStoryTextField(text: $email,
+                                          placeholder: "Emailinizi Yazınız",
+                                          keyboardType: .emailAddress)
+                        
+                        DayStoryTextField(text: $userName,
+                                          placeholder: "Kullanıcı Adı Belirleyiniz")
+                        
+                        DayStoryTextField(text: $password,
+                                          placeholder: "Şifre Belirleyiniz",
+                                          isSecure: true)
+                        
+                        DayStoryTextField(text: $confirmPassword,
+                                          placeholder: "Şifrenizi Onaylayınız",
+                                          isSecure: true)
                     }
+                    .formStyle(.columns)
+                    
+                    Button {
+                        print("tapped")
+                    } label: {
+                        GradientButton(title: "Kayıt Ol")
+                    }
+                    
+                    LoginPrompt(promptText: "Zaten bir hesabın var mı?",
+                                linkText: "Giriş Yap",
+                                linkDestination: LoginView())
                 }
-                .padding()
-                
-                Spacer()
+                .toolbar {
+                    DayStoryToolbar()
+                }
+                .padding([.trailing, .leading], 10)
             }
-            .padding([.trailing, .leading], 10)
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
