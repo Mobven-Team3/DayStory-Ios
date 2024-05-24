@@ -10,6 +10,7 @@
 		DC7F3AA62BFFC61A0020291C /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F3AA52BFFC61A0020291C /* GradientButton.swift */; };
 		DC7F3AAB2BFFDD760020291C /* ReusableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F3AAA2BFFDD760020291C /* ReusableTextField.swift */; };
 		DC7F3AAD2BFFE7140020291C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC7F3AAC2BFFE7140020291C /* Colors.xcassets */; };
+		DC7F3AB12BFFF32C0020291C /* SignupSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F3AB02BFFF32C0020291C /* SignupSectionView.swift */; };
 		DCB4A4832BFB347C00EEE970 /* GetMoviesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB4A4822BFB347C00EEE970 /* GetMoviesResponse.swift */; };
 		DCB7D2962BF747820017CEBC /* DayStoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D2952BF747820017CEBC /* DayStoryApp.swift */; };
 		DCB7D2982BF747820017CEBC /* SignupAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D2972BF747820017CEBC /* SignupAccountView.swift */; };
@@ -52,6 +53,7 @@
 		DC7F3AA52BFFC61A0020291C /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		DC7F3AAA2BFFDD760020291C /* ReusableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableTextField.swift; sourceTree = "<group>"; };
 		DC7F3AAC2BFFE7140020291C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		DC7F3AB02BFFF32C0020291C /* SignupSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupSectionView.swift; sourceTree = "<group>"; };
 		DCB4A4822BFB347C00EEE970 /* GetMoviesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoviesResponse.swift; sourceTree = "<group>"; };
 		DCB7D2922BF747820017CEBC /* DayStory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayStory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCB7D2952BF747820017CEBC /* DayStoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayStoryApp.swift; sourceTree = "<group>"; };
@@ -107,13 +109,14 @@
 		DC7F3AA32BFFC5F80020291C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DC7F3AA92BFFDD140020291C /* TextFields */,
-				DC7F3AA42BFFC6000020291C /* Buttons */,
+				DC99B1822C00951800CDD857 /* Helpers */,
+				DC99B1812C00950300CDD857 /* TextFields */,
+				DC99B1802C0094FB00CDD857 /* Buttons */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		DC7F3AA42BFFC6000020291C /* Buttons */ = {
+		DC99B1802C0094FB00CDD857 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
 				DC7F3AA52BFFC61A0020291C /* GradientButton.swift */,
@@ -121,12 +124,93 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
-		DC7F3AA92BFFDD140020291C /* TextFields */ = {
+		DC99B1812C00950300CDD857 /* TextFields */ = {
 			isa = PBXGroup;
 			children = (
 				DC7F3AAA2BFFDD760020291C /* ReusableTextField.swift */,
 			);
 			path = TextFields;
+			sourceTree = "<group>";
+		};
+		DC99B1822C00951800CDD857 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DC7F3AB02BFFF32C0020291C /* SignupSectionView.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		DC99B1832C00955400CDD857 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				DC99B1882C00959500CDD857 /* SignupAccountView */,
+				DC99B1842C00957100CDD857 /* LoginView */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		DC99B1842C00957100CDD857 /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				DC99B1852C00957900CDD857 /* Model */,
+				DC99B1862C00957D00CDD857 /* View */,
+				DC99B1872C00958200CDD857 /* ViewModel */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
+		DC99B1852C00957900CDD857 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DC99B1862C00957D00CDD857 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DCFD54F02BFFBB620096D24A /* LoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DC99B1872C00958200CDD857 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DC99B1882C00959500CDD857 /* SignupAccountView */ = {
+			isa = PBXGroup;
+			children = (
+				DC99B18B2C0095AE00CDD857 /* Model */,
+				DC99B18A2C0095AA00CDD857 /* View */,
+				DC99B1892C0095A400CDD857 /* ViewModel */,
+			);
+			path = SignupAccountView;
+			sourceTree = "<group>";
+		};
+		DC99B1892C0095A400CDD857 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DC99B18A2C0095AA00CDD857 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DCB7D2972BF747820017CEBC /* SignupAccountView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DC99B18B2C0095AE00CDD857 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		DCB4A4812BFB343F00EEE970 /* Response */ = {
@@ -163,11 +247,10 @@
 		DCB7D2942BF747820017CEBC /* DayStory */ = {
 			isa = PBXGroup;
 			children = (
+				DC99B1832C00955400CDD857 /* Screens */,
 				DC7F3AA32BFFC5F80020291C /* Views */,
 				DCB7D2C12BF74DBD0017CEBC /* Info.plist */,
 				DCB7D2952BF747820017CEBC /* DayStoryApp.swift */,
-				DCB7D2972BF747820017CEBC /* SignupAccountView.swift */,
-				DCFD54F02BFFBB620096D24A /* LoginView.swift */,
 				DCB7D2992BF747830017CEBC /* Assets.xcassets */,
 				DC7F3AAC2BFFE7140020291C /* Colors.xcassets */,
 				DCB7D29B2BF747830017CEBC /* Preview Content */,
@@ -387,6 +470,7 @@
 				DCB7D2CA2BF755520017CEBC /* Bundle+Extensions.swift in Sources */,
 				DCB7D2982BF747820017CEBC /* SignupAccountView.swift in Sources */,
 				DCB7D2C52BF74F620017CEBC /* RequestMethod.swift in Sources */,
+				DC7F3AB12BFFF32C0020291C /* SignupSectionView.swift in Sources */,
 				DCB7D2962BF747820017CEBC /* DayStoryApp.swift in Sources */,
 				DCB7D2CE2BF757220017CEBC /* URL+Extension.swift in Sources */,
 				DCFD54F12BFFBB620096D24A /* LoginView.swift in Sources */,
