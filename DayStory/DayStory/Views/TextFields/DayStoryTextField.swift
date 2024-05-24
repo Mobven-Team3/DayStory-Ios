@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ReusableTextField: View {
+struct DayStoryTextField: View {
     
     @Binding var text: String
     var placeholder: String
@@ -41,7 +41,7 @@ struct ReusableTextField: View {
             .cornerRadius(10)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
-                    .stroke(.dayStoryPurple, lineWidth: 1)
+                    .stroke(.textFieldBorder, lineWidth: 1)
             )
             .keyboardType(keyboardType)
             .textInputAutocapitalization(.never)
@@ -54,11 +54,11 @@ struct ReusableTextField: View {
             .cornerRadius(10)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
-                    .stroke(.dayStoryPurple, lineWidth: 1)
+                    .stroke(.textFieldBorder, lineWidth: 1)
             )
     }
 }
 
 #Preview {
-    ReusableTextField(text: .constant(""), placeholder: "Test Placeholder")
+    DayStoryTextField(text: .constant(""), placeholder: "Test Placeholder")
 }
