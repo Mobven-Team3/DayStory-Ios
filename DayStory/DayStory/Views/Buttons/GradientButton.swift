@@ -9,8 +9,7 @@ import SwiftUI
 
 struct GradientButton: View {
     
-    let title: LocalizedStringKey
-    
+    let title: String
     
     let gradient = LinearGradient(gradient: Gradient(colors: [Color.buttonPink, Color.buttonPurple]),
                                   startPoint: .leading,

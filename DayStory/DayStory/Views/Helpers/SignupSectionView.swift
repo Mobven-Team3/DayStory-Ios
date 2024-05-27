@@ -15,8 +15,6 @@ struct SignupSectionView: View {
                 .foregroundColor(.dayStoryPurple.opacity(0.5))
                 .clipShape(.capsule)
             
-            Spacer()
-            
             Rectangle()
                 .frame(height: 4)
                 .foregroundColor(.dayStoryPurple)

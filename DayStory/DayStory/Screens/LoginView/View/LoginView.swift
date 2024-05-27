@@ -16,7 +16,6 @@ struct LoginView: View {
         NavigationStack {
             ScrollView {
                 VStack {
-                    
                     welcomeBannerView
                     
                     Form {
@@ -35,7 +34,7 @@ struct LoginView: View {
                         GradientButton(title: "Giriş Yap")
                     }
                     
-                    LoginPrompt(promptText: "Henüz hesabn yok mu?",
+                    LoginPrompt(promptText: "Henüz hesabın yok mu?",
                                 linkText: "Kayıt Ol",
                                 linkDestination: SignupAccountView())
                 }

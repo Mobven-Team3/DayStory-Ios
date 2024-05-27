@@ -38,7 +38,6 @@ struct DayStoryTextField: View {
     private var textField: some View {
         TextField(placeholder, text: $text)
             .padding()
-            .cornerRadius(10)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(.textFieldBorder, lineWidth: 1)
@@ -51,7 +50,6 @@ struct DayStoryTextField: View {
     private var secureField: some View {
         SecureField(placeholder, text: $text)
             .padding()
-            .cornerRadius(10)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(.textFieldBorder, lineWidth: 1)
