@@ -43,8 +43,8 @@ struct WelcomeView: View {
                             .font(.body)
                     }
 //                    Button {
-//                        
-//                        
+//
+//
 //                    } label: {
 //                        Text("Yeni Hesap Oluştur")
 //                            .foregroundColor(.white)
