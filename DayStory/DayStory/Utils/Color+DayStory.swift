@@ -12,7 +12,6 @@ public extension Color {
     static var dayStoryTextColor: Color {
         return Color("dayStoryTextColor")
     }
-
     static var borderColor: Color {
         return Color("borderColor")
     }

@@ -14,6 +14,10 @@
 		192F48BA2C061BE60007BB7A /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192F48B82C061BE60007BB7A /* SignUp.swift */; };
 		192F48BB2C061BE60007BB7A /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192F48B82C061BE60007BB7A /* SignUp.swift */; };
 		197F9F582C06206E00D5D799 /* Color+DayStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197F9F572C06206E00D5D799 /* Color+DayStory.swift */; };
+		197F9F592C0626D300D5D799 /* Color+DayStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197F9F572C06206E00D5D799 /* Color+DayStory.swift */; };
+		197F9F5A2C0626D300D5D799 /* Color+DayStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197F9F572C06206E00D5D799 /* Color+DayStory.swift */; };
+		197F9F5B2C06276800D5D799 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCB7D2992BF747830017CEBC /* Assets.xcassets */; };
+		197F9F5C2C06276800D5D799 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCB7D2992BF747830017CEBC /* Assets.xcassets */; };
 		DCB4A4802BFB33DE00EEE970 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB4A47F2BFB33DE00EEE970 /* ContentViewModel.swift */; };
 		DCB4A4832BFB347C00EEE970 /* GetMoviesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB4A4822BFB347C00EEE970 /* GetMoviesResponse.swift */; };
 		DCB7D2962BF747820017CEBC /* DayStoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D2952BF747820017CEBC /* DayStoryApp.swift */; };
@@ -359,6 +363,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				197F9F5B2C06276800D5D799 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +371,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				197F9F5C2C06276800D5D799 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +406,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				197F9F592C0626D300D5D799 /* Color+DayStory.swift in Sources */,
 				DCB7D2A72BF747830017CEBC /* DayStoryTests.swift in Sources */,
 				192F48BA2C061BE60007BB7A /* SignUp.swift in Sources */,
 				192F48B62C061B8B0007BB7A /* WelcomeView.swift in Sources */,
@@ -412,6 +419,7 @@
 			files = (
 				DCB7D2B32BF747840017CEBC /* DayStoryUITestsLaunchTests.swift in Sources */,
 				192F48BB2C061BE60007BB7A /* SignUp.swift in Sources */,
+				197F9F5A2C0626D300D5D799 /* Color+DayStory.swift in Sources */,
 				192F48B72C061B8B0007BB7A /* WelcomeView.swift in Sources */,
 				DCB7D2B12BF747840017CEBC /* DayStoryUITests.swift in Sources */,
 			);

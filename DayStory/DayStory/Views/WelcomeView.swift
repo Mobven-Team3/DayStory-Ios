@@ -37,14 +37,20 @@ struct WelcomeView: View {
                 }
                 Spacer()
                 VStack(spacing: 15) {
-                    Button {
-                        
-                        
-                    } label: {
-                        Text("Yeni Hesap Oluştur")
+                    NavigationLink(destination: SignUp()){
+                        Text("Yeni hesap oluştur")
                             .foregroundColor(.white)
                             .font(.body)
                     }
+//                    Button {
+//                        
+//                        
+//                    } label: {
+//                        Text("Yeni Hesap Oluştur")
+//                            .foregroundColor(.white)
+//                            .font(.body)
+//                    }
+                    
                     .padding(.all)
                     .frame(width: 351, height: 46)
                     .background(LinearGradient(colors: [.buttonColor2, .buttonColor1], startPoint: .leading, endPoint: .trailing))
@@ -56,19 +62,8 @@ struct WelcomeView: View {
                             .font(.body)
                             .frame(width: 351, height: 46)
                             .overlay(RoundedRectangle(cornerRadius: 50).stroke(Color.buttonColor1))
-                        
                     }
-                    
-//                    Button {
-//
-//
-//                    } label: {
-//                        Text("Hesabım Var")
-//                            .foregroundColor(.buttonColor1)
-//                            .font(.body)
-//                    }
-//                    .frame(width: 351, height: 46)
-//                    .overlay(RoundedRectangle(cornerRadius: 50).stroke(Color.buttonColor1))
+
 
                 }
                 Spacer()
