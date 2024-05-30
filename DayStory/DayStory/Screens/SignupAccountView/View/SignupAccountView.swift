@@ -2,10 +2,7 @@ import SwiftUI
 
 struct SignupAccountView: View {
     
-    @State var email = ""
-    @State var userName = ""
-    @State var password = ""
-    @State var confirmPassword  = ""
+    @StateObject private var viewModel = SignupAccountViewModel()
     
     var body: some View {
         NavigationStack {
@@ -17,27 +14,31 @@ struct SignupAccountView: View {
                         AuthenticationHelperText(text: "Hesap Bilgilerinizi Oluşturunuz.")
                         
                         Form {
-                            DayStoryTextField(text: $email,
+                            DayStoryTextField(text: $viewModel.email,
                                               title: "Email",
                                               placeholder: "Emailinizi Yazınız",
-                                              keyboardType: .emailAddress)
+                                              keyboardType: .emailAddress,
+                                              errorMessage: viewModel.emailErrorMessage)
                             .padding(.vertical, 8)
                             
-                            DayStoryTextField(text: $userName,
+                            DayStoryTextField(text: $viewModel.userName,
                                               title: "Kullanıcı Adı",
-                                              placeholder: "Kullanıcı Adı Belirleyiniz")
+                                              placeholder: "Kullanıcı Adı Belirleyiniz",
+                                              errorMessage: viewModel.userNameErrorMessage)
                             .padding(.bottom, 8)
                             
-                            DayStoryTextField(text: $password,
+                            DayStoryTextField(text: $viewModel.password,
                                               title: "Şifre",
                                               placeholder: "Şifre Belirleyiniz",
-                                              isSecure: true)
+                                              isSecure: true,
+                                              errorMessage: viewModel.passwordErrorMessage)
                             .padding(.bottom, 8)
                             
-                            DayStoryTextField(text: $confirmPassword,
+                            DayStoryTextField(text: $viewModel.confirmPassword,
                                               title: "Şifre Tekrarı",
                                               placeholder: "Şifrenizi Onaylayınız",
-                                              isSecure: true)
+                                              isSecure: true,
+                                              errorMessage: viewModel.confirmPasswordErrorMessage)
                         }
                         .formStyle(.columns)
                     }
@@ -45,12 +46,14 @@ struct SignupAccountView: View {
                 }
                 
                 VStack {
-                    Button {
-                        print("tapped")
-                    } label: {
-                        GradientButton(title: "Kayıt Ol")
+                    NavigationLink(destination: EmptyView(), isActive: $viewModel.isValid) {}
+                    
+                    Button(action: {
+                        viewModel.validateFields()
+                    }) {
+                        GradientButton(title: "Devam")
                     }
-                    .padding(.bottom, 8)
+                    .padding(.bottom, 10)
                     
                     LoginPrompt(promptText: "Zaten bir hesabın var mı?",
                                 linkText: "Giriş Yap",
