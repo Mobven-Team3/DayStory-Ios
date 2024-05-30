@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  DayStory
-//
-//  Created by Recep Taha Aydın on 17.05.2024.
-//
-
 import SwiftUI
 
 struct SignupAccountView: View {
@@ -16,46 +9,60 @@ struct SignupAccountView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                VStack() {
-                    SignupSectionView()
+            VStack {
+                ScrollView {
+                    VStack {
+                        SignupSectionView(firstScreen: false)
 
-                    AuthenticationHelperText(text: "Hesap Bilgilerinizi Oluşturunuz.")
-                    
-                    Form {
-                        DayStoryTextField(text: $email,
-                                          placeholder: "Emailinizi Yazınız",
-                                          keyboardType: .emailAddress)
+                        AuthenticationHelperText(text: "Hesap Bilgilerinizi Oluşturunuz.")
                         
-                        DayStoryTextField(text: $userName,
-                                          placeholder: "Kullanıcı Adı Belirleyiniz")
-                        
-                        DayStoryTextField(text: $password,
-                                          placeholder: "Şifre Belirleyiniz",
-                                          isSecure: true)
-                        
-                        DayStoryTextField(text: $confirmPassword,
-                                          placeholder: "Şifrenizi Onaylayınız",
-                                          isSecure: true)
+                        Form {
+                            DayStoryTextField(text: $email,
+                                              title: "Email",
+                                              placeholder: "Emailinizi Yazınız",
+                                              keyboardType: .emailAddress)
+                            .padding(.vertical, 8)
+                            
+                            DayStoryTextField(text: $userName,
+                                              title: "Kullanıcı Adı",
+                                              placeholder: "Kullanıcı Adı Belirleyiniz")
+                            .padding(.bottom, 8)
+                            
+                            DayStoryTextField(text: $password,
+                                              title: "Şifre",
+                                              placeholder: "Şifre Belirleyiniz",
+                                              isSecure: true)
+                            .padding(.bottom, 8)
+                            
+                            DayStoryTextField(text: $confirmPassword,
+                                              title: "Şifre Tekrarı",
+                                              placeholder: "Şifrenizi Onaylayınız",
+                                              isSecure: true)
+                        }
+                        .formStyle(.columns)
                     }
-                    .formStyle(.columns)
-                    
+                    .padding([.trailing, .leading], 10)
+                }
+                
+                VStack {
                     Button {
                         print("tapped")
                     } label: {
                         GradientButton(title: "Kayıt Ol")
                     }
+                    .padding(.bottom, 8)
                     
                     LoginPrompt(promptText: "Zaten bir hesabın var mı?",
                                 linkText: "Giriş Yap",
                                 linkDestination: LoginView())
                 }
-                .toolbar {
-                    DayStoryToolbar()
-                }
-                .padding([.trailing, .leading], 10)
+                .padding(.bottom, 10)
+            }
+            .toolbar {
+                DayStoryToolbar()
             }
             .navigationBarTitleDisplayMode(.inline)
+            .toolbarRole(.editor)
         }
     }
 }

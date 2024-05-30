@@ -28,6 +28,7 @@ struct LoginPrompt<Destination: View>: View {
                     .underline(true)
             }
         }
-        .padding()
+        .padding(.horizontal)
+        .padding(.top, 5)
     }
 }
