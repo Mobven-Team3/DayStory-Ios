@@ -24,7 +24,8 @@ struct GradientButton: View {
             .frame(maxWidth: .infinity)
             .background(gradient)
             .clipShape(.capsule)
-            .padding()
+            .padding(.horizontal)
+            .padding(.top, 8)
     }
 }
 
