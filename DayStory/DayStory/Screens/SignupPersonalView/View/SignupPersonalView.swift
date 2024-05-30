@@ -2,19 +2,17 @@ import SwiftUI
 
 struct SignupPersonalView: View {
     
-    @State private var name: String = ""
-    @State private var lastName: String = ""
-    @State private var selectedGender: String = ""
-    @State private var dateOfBirth: Date = Date()
+    @StateObject private var viewModel = SignupPersonalViewModel()
     
-    let gender = ["Kadın", "Erkek", "Belirtme"]
+    let gender = ["Kadın", "Erkek", "Belirtme", "Diğer"]
     
-    enum Flavor: String, CaseIterable, Identifiable {
-        case chocolate, vanilla, strawberry
-        var id: Self { self }
+    var dateClosedRange: ClosedRange<Date> {
+        let currentDate = Date()
+        let calendar = Calendar.current
+        let minDate = calendar.date(byAdding: .year, value: -100, to: currentDate)!
+        let maxDate = calendar.date(byAdding: .year, value: -5, to: currentDate)!
+        return minDate...maxDate
     }
-    
-    @State private var selectedFlavor: Flavor = .chocolate
     
     var body: some View {
         NavigationStack {
@@ -26,14 +24,16 @@ struct SignupPersonalView: View {
                         AuthenticationHelperText(text: "Kişisel Bilgilerinizi Giriniz.")
                         
                         Form {
-                            DayStoryTextField(text: $name,
+                            DayStoryTextField(text: $viewModel.name,
                                               title: "İsim",
-                                              placeholder: "İsminizi Yazınız")
+                                              placeholder: "İsminizi Yazınız",
+                                              errorMessage: viewModel.nameErrorMessage)
                             .padding(.vertical)
                             
-                            DayStoryTextField(text: $lastName,
+                            DayStoryTextField(text: $viewModel.lastName,
                                               title: "Soyisim",
-                                              placeholder: "Soyisminizi Yazınız")
+                                              placeholder: "Soyisminizi Yazınız",
+                                              errorMessage: viewModel.lastNameErrorMessage)
                         }
                         .formStyle(.columns)
                         
@@ -48,7 +48,11 @@ struct SignupPersonalView: View {
                 }
                 
                 VStack {
-                    NavigationLink(destination: SignupAccountView()) {
+                    NavigationLink(destination: SignupAccountView(), isActive: $viewModel.isValid) {}
+                    
+                    Button(action: {
+                        viewModel.validateFields()
+                    }) {
                         GradientButton(title: "Devam")
                     }
                     .padding(.bottom, 10)
@@ -68,12 +72,12 @@ struct SignupPersonalView: View {
 // MARK: - Views
 private extension SignupPersonalView {
     var genderPicker: some View {
-        HStack {
+        HStack(alignment: .top) {
             Text("Cinsiyet")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .font(.subheadline)
             
-            Picker("Seçiniz", selection: $selectedGender) {
+            Picker("Seçiniz", selection: $viewModel.selectedGender) {
                 Text("Seçiniz").tag("")
                 ForEach(gender, id: \.self) { gender in
                     Text(gender).tag(gender)
@@ -88,12 +92,21 @@ private extension SignupPersonalView {
             .padding(.top, -8)
         }
         .padding()
+        .overlay(alignment: .bottomLeading) {
+            if let errorMessage = viewModel.genderErrorMessage, !errorMessage.isEmpty {
+                Text(errorMessage)
+                    .font(.footnote)
+                    .foregroundColor(.dayStoryPurple)
+                    .padding([.leading, .top], 16)
+            }
+        }
     }
     
     var datePicker: some View {
         DatePicker(
             "Doğum Tarihi",
-            selection: $dateOfBirth,
+            selection: $viewModel.dateOfBirth,
+            in: dateClosedRange,
             displayedComponents: [.date]
         )
         .font(.subheadline)
