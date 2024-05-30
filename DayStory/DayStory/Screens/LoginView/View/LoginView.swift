@@ -33,7 +33,7 @@ struct LoginView: View {
                         
                         LoginPrompt(promptText: "Henüz hesabın yok mu?",
                                     linkText: "Kayıt Ol",
-                                    linkDestination: SignUpPersonalView())
+                                    linkDestination: SignupPersonalView())
                     }
                     .toolbar {
                         DayStoryToolbar()
