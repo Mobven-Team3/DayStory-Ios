@@ -11,7 +11,7 @@ import SwiftUI
 struct DayStoryApp: App {
     var body: some Scene {
         WindowGroup {
-            SignupAccountView()
+            WelcomeView()
         }
     }
 }
