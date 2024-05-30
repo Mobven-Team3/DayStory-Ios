@@ -19,17 +19,9 @@ final class SignupPersonalViewModel: ObservableObject {
     @Published var lastNameErrorMessage: String? = nil
     @Published var genderErrorMessage: String? = nil
     
-    
     func validateFields() {
-        let nameRegex = "^[a-zA-Z]+$"
-        let nameTest = NSPredicate(format:"SELF MATCHES %@", nameRegex)
-        
-        nameErrorMessage = name.isEmpty ? "İsim boş olamaz." : nil
-        nameErrorMessage = !nameTest.evaluate(with: name) ? "İsimde geçersiz karakterler var." : nil
-        
-        lastNameErrorMessage = lastName.isEmpty ? "Soyisim boş olamaz." : nil
-        lastNameErrorMessage = !nameTest.evaluate(with: lastName) ? "Soyisimde geçersiz karakterler var." : nil
-        
+        nameErrorMessage = !name.isValidName ? "Geçerli bir isim giriniz." : nil
+        lastNameErrorMessage = !lastName.isValidName ? "Geçerli bir soyisim giriniz." : nil
         genderErrorMessage = selectedGender == "" ? "Lütfen bir cinsiyet seçiniz." : nil
         
         isValid = nameErrorMessage == nil && lastNameErrorMessage == nil && genderErrorMessage == nil

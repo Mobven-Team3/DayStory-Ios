@@ -25,6 +25,8 @@
 		DC99B1952C00DC7400CDD857 /* AuthenticationHelperText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC99B1942C00DC7400CDD857 /* AuthenticationHelperText.swift */; };
 		DC99B1972C00DDBA00CDD857 /* LoginPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC99B1962C00DDBA00CDD857 /* LoginPrompt.swift */; };
 		DCA93AAF2C08A74C00B63429 /* SignupPersonalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA93AAE2C08A74C00B63429 /* SignupPersonalViewModel.swift */; };
+		DCA93AB12C08D83700B63429 /* SignupAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA93AB02C08D83700B63429 /* SignupAccountViewModel.swift */; };
+		DCA93AB42C08DFE000B63429 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA93AB32C08DFE000B63429 /* String+Extensions.swift */; };
 		DCB4A4832BFB347C00EEE970 /* GetMoviesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB4A4822BFB347C00EEE970 /* GetMoviesResponse.swift */; };
 		DCB7D2962BF747820017CEBC /* DayStoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D2952BF747820017CEBC /* DayStoryApp.swift */; };
 		DCB7D2982BF747820017CEBC /* SignupAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D2972BF747820017CEBC /* SignupAccountView.swift */; };
@@ -77,6 +79,8 @@
 		DC99B1942C00DC7400CDD857 /* AuthenticationHelperText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationHelperText.swift; sourceTree = "<group>"; };
 		DC99B1962C00DDBA00CDD857 /* LoginPrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPrompt.swift; sourceTree = "<group>"; };
 		DCA93AAE2C08A74C00B63429 /* SignupPersonalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPersonalViewModel.swift; sourceTree = "<group>"; };
+		DCA93AB02C08D83700B63429 /* SignupAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupAccountViewModel.swift; sourceTree = "<group>"; };
+		DCA93AB32C08DFE000B63429 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		DCB4A4822BFB347C00EEE970 /* GetMoviesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoviesResponse.swift; sourceTree = "<group>"; };
 		DCB7D2922BF747820017CEBC /* DayStory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayStory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCB7D2952BF747820017CEBC /* DayStoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayStoryApp.swift; sourceTree = "<group>"; };
@@ -232,6 +236,7 @@
 		DC99B1892C0095A400CDD857 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				DCA93AB02C08D83700B63429 /* SignupAccountViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -282,6 +287,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		DCA93AB22C08DFD400B63429 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DCA93AB32C08DFE000B63429 /* String+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		DCB4A4812BFB343F00EEE970 /* Response */ = {
 			isa = PBXGroup;
 			children = (
@@ -317,6 +330,7 @@
 		DCB7D2942BF747820017CEBC /* DayStory */ = {
 			isa = PBXGroup;
 			children = (
+				DCA93AB22C08DFD400B63429 /* Extensions */,
 				DC99B1832C00955400CDD857 /* Screens */,
 				DC7F3AA32BFFC5F80020291C /* Views */,
 				DCB7D2C12BF74DBD0017CEBC /* Info.plist */,
@@ -560,6 +574,7 @@
 				DCB7D2C72BF754A60017CEBC /* Response.swift in Sources */,
 				DCB7D2CA2BF755520017CEBC /* Bundle+Extensions.swift in Sources */,
 				DCB7D2982BF747820017CEBC /* SignupAccountView.swift in Sources */,
+				DCA93AB12C08D83700B63429 /* SignupAccountViewModel.swift in Sources */,
 				DCB7D2C52BF74F620017CEBC /* RequestMethod.swift in Sources */,
 				DC7F3AB12BFFF32C0020291C /* SignupSectionView.swift in Sources */,
 				DCB7D2962BF747820017CEBC /* DayStoryApp.swift in Sources */,
@@ -568,6 +583,7 @@
 				DCA93AAF2C08A74C00B63429 /* SignupPersonalViewModel.swift in Sources */,
 				DCB7D2D02BF75ABF0017CEBC /* API.swift in Sources */,
 				DC7F3AA62BFFC61A0020291C /* GradientButton.swift in Sources */,
+				DCA93AB42C08DFE000B63429 /* String+Extensions.swift in Sources */,
 				DC5524E22C072A6000118CC3 /* SignupPersonalView.swift in Sources */,
 				DCB7D2CC2BF756880017CEBC /* NSError.swift in Sources */,
 				DCB7D2D42BF75DD00017CEBC /* Networkable.swift in Sources */,
