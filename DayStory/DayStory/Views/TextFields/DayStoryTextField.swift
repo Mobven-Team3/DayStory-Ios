@@ -10,6 +10,7 @@ import SwiftUI
 struct DayStoryTextField: View {
     
     @Binding var text: String
+    var title: String
     var placeholder: String
     var isSecure: Bool = false
     var keyboardType: UIKeyboardType = .default
@@ -28,10 +29,15 @@ struct DayStoryTextField: View {
                 Image(systemName: "x.circle")
                     .imageScale(.large)
                     .frame(width: 44, height: 44)
-                    .foregroundColor(.dayStoryPurple)
+                    .foregroundStyle(.dayStoryPurple)
             }
         }
         .padding()
+        .overlay(alignment: .topLeading) {
+            Text(title)
+                .font(.subheadline)
+                .offset(x: 17, y: -5)
+        }
     }
     
     @ViewBuilder
@@ -58,5 +64,5 @@ struct DayStoryTextField: View {
 }
 
 #Preview {
-    DayStoryTextField(text: .constant(""), placeholder: "Test Placeholder")
+    DayStoryTextField(text: .constant(""), title: "Test", placeholder: "Test Placeholder")
 }
