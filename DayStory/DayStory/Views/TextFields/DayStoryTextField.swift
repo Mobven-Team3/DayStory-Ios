@@ -14,7 +14,8 @@ struct DayStoryTextField: View {
     var placeholder: String
     var isSecure: Bool = false
     var keyboardType: UIKeyboardType = .default
-
+    var errorMessage: String? = nil
+    
     var body: some View {
         ZStack(alignment: .trailing) {
             if isSecure {
@@ -22,7 +23,7 @@ struct DayStoryTextField: View {
             } else {
                 textField
             }
-
+            
             Button {
                 text = ""
             } label: {
@@ -38,6 +39,14 @@ struct DayStoryTextField: View {
                 .font(.subheadline)
                 .offset(x: 17, y: -5)
         }
+        .overlay(alignment: .bottomLeading) {
+            if let errorMessage = errorMessage, !errorMessage.isEmpty {
+                Text(errorMessage)
+                    .font(.system(size: 11, weight: .semibold))
+                    .foregroundColor(.dayStoryPurple)
+                    .padding([.leading, .top], 16)
+            }
+        }
     }
     
     @ViewBuilder
@@ -51,7 +60,7 @@ struct DayStoryTextField: View {
             .keyboardType(keyboardType)
             .textInputAutocapitalization(.never)
     }
-
+    
     @ViewBuilder
     private var secureField: some View {
         SecureField(placeholder, text: $text)
