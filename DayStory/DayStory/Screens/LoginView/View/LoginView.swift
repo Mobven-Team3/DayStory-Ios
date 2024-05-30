@@ -1,10 +1,3 @@
-//
-//  LoginView.swift
-//  DayStory
-//
-//  Created by Recep Taha Aydın on 23.05.2024.
-//
-
 import SwiftUI
 
 struct LoginView: View {
@@ -14,49 +7,55 @@ struct LoginView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                VStack {
-                    welcomeBannerView
-                    
-                    Form {
-                        DayStoryTextField(text: $userName,
-                                          placeholder: "Kullanıcı Adınızı Giriniz")
+            GeometryReader { geometry in
+                ScrollView {
+                    VStack {
+                        welcomeBannerView(geometry: geometry)
                         
-                        DayStoryTextField(text: $password,
-                                          placeholder: "Şifrenizi Giriniz",
-                                          isSecure: true)
+                        Form {
+                            DayStoryTextField(text: $userName,
+                                              title: "Kullanıcı Adı",
+                                              placeholder: "Kullanıcı Adınızı Giriniz")
+                            .padding(.bottom)
+                            
+                            DayStoryTextField(text: $password,
+                                              title: "Şifre",
+                                              placeholder: "Şifrenizi Giriniz",
+                                              isSecure: true)
+                        }
+                        .formStyle(.columns)
+                        
+                        Button {
+                            print("tapped")
+                        } label: {
+                            GradientButton(title: "Giriş Yap")
+                        }
+                        
+                        LoginPrompt(promptText: "Henüz hesabın yok mu?",
+                                    linkText: "Kayıt Ol",
+                                    linkDestination: SignUpPersonalView())
                     }
-                    .formStyle(.columns)
-                    
-                    Button {
-                        print("tapped")
-                    } label: {
-                        GradientButton(title: "Giriş Yap")
+                    .toolbar {
+                        DayStoryToolbar()
                     }
-                    
-                    LoginPrompt(promptText: "Henüz hesabın yok mu?",
-                                linkText: "Kayıt Ol",
-                                linkDestination: SignupAccountView())
+                    .padding([.trailing, .leading], 10)
                 }
-                .toolbar {
-                    DayStoryToolbar()
-                }
-                .padding([.trailing, .leading], 10)
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarBackButtonHidden(true)
             }
-            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
 
 // MARK: - Views
 private extension LoginView {
-    var welcomeBannerView: some View {
+    func welcomeBannerView(geometry: GeometryProxy) -> some View {
         ZStack(alignment: .bottom) {
             Image("loginImage")
                 .resizable()
-                .scaledToFit()
-                .frame(height: 374)
-                .offset(y: -30)
+                .scaledToFill()
+                .frame(width: geometry.size.width, height: geometry.size.height * 0.5)
+                .position(x: geometry.size.width / 2.1, y: geometry.size.height / 4.2)
             
             HStack {
                 Text("Day")
@@ -75,6 +74,7 @@ private extension LoginView {
                     .fontWeight(.regular)
             }
             .padding()
+            .offset(y: -5)
         }
     }
 }
