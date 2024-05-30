@@ -8,16 +8,19 @@
 import SwiftUI
 
 struct SignupSectionView: View {
+    
+    var firstScreen: Bool
+    
     var body: some View {
         HStack {
             Rectangle()
                 .frame(height: 4)
-                .foregroundColor(.dayStoryPurple.opacity(0.5))
+                .foregroundStyle(firstScreen ? .dayStoryPurple : .dayStoryPurple.opacity(0.5))
                 .clipShape(.capsule)
             
             Rectangle()
                 .frame(height: 4)
-                .foregroundColor(.dayStoryPurple)
+                .foregroundStyle(firstScreen ? .dayStoryPurple.opacity(0.5) : .dayStoryPurple)
                 .clipShape(.capsule)
         }
         .padding()
@@ -25,5 +28,5 @@ struct SignupSectionView: View {
 }
 
 #Preview {
-    SignupSectionView()
+    SignupSectionView(firstScreen: true)
 }
