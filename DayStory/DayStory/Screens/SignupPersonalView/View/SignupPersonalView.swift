@@ -95,7 +95,7 @@ private extension SignupPersonalView {
         .overlay(alignment: .bottomLeading) {
             if let errorMessage = viewModel.genderErrorMessage, !errorMessage.isEmpty {
                 Text(errorMessage)
-                    .font(.footnote)
+                    .font(.system(size: 11, weight: .semibold))
                     .foregroundColor(.dayStoryPurple)
                     .padding([.leading, .top], 16)
             }
