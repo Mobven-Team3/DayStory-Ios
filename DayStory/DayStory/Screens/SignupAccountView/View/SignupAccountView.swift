@@ -24,7 +24,8 @@ struct SignupAccountView: View {
                             DayStoryTextField(text: $viewModel.userName,
                                               title: "Kullanıcı Adı",
                                               placeholder: "Kullanıcı Adı Belirleyiniz",
-                                              errorMessage: viewModel.userNameErrorMessage)
+                                              errorMessage: viewModel.userNameErrorMessage,
+                                              textLimit: 50)
                             .padding(.bottom, 8)
                             
                             DayStoryTextField(text: $viewModel.password,
