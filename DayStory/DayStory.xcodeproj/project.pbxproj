@@ -50,6 +50,7 @@
 		DCE3BFDD2C0A6EC800EC44EE /* DayStoryTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3BFDC2C0A6EC800EC44EE /* DayStoryTabView.swift */; };
 		DCE3BFE02C0A6F0100EC44EE /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3BFDF2C0A6F0100EC44EE /* TodayView.swift */; };
 		DCE3BFE32C0A6F1F00EC44EE /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3BFE22C0A6F1F00EC44EE /* ProfileView.swift */; };
+		DCE3BFE52C0A813300EC44EE /* GalleryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3BFE42C0A813300EC44EE /* GalleryCardView.swift */; };
 		DCFD54F12BFFBB620096D24A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFD54F02BFFBB620096D24A /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +116,7 @@
 		DCE3BFDC2C0A6EC800EC44EE /* DayStoryTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayStoryTabView.swift; sourceTree = "<group>"; };
 		DCE3BFDF2C0A6F0100EC44EE /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 		DCE3BFE22C0A6F1F00EC44EE /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		DCE3BFE42C0A813300EC44EE /* GalleryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCardView.swift; sourceTree = "<group>"; };
 		DCFD54F02BFFBB620096D24A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -186,6 +188,7 @@
 				DC7F3AB02BFFF32C0020291C /* SignupSectionView.swift */,
 				DC99B1942C00DC7400CDD857 /* AuthenticationHelperText.swift */,
 				DC99B1962C00DDBA00CDD857 /* LoginPrompt.swift */,
+				DCE3BFE42C0A813300EC44EE /* GalleryCardView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -633,6 +636,7 @@
 			files = (
 				DC99B1952C00DC7400CDD857 /* AuthenticationHelperText.swift in Sources */,
 				DCB4A4832BFB347C00EEE970 /* GetMoviesResponse.swift in Sources */,
+				DCE3BFE52C0A813300EC44EE /* GalleryCardView.swift in Sources */,
 				DCB7D2D92BF7792F0017CEBC /* Networkable+Extensions.swift in Sources */,
 				DCB7D2C72BF754A60017CEBC /* Response.swift in Sources */,
 				DCB7D2CA2BF755520017CEBC /* Bundle+Extensions.swift in Sources */,

@@ -8,8 +8,36 @@
 import SwiftUI
 
 struct GalleryView: View {
+    
+    let columns: [GridItem] = [GridItem(.flexible()),
+                               GridItem(.flexible()),
+                               GridItem(.flexible())]
+        
     var body: some View {
-        Text("Gallery View")
+        NavigationStack {
+            ScrollView {
+                VStack(alignment: .leading) {
+                    Text("Mayıs 2024")
+                        .font(.title3)
+                    
+                    LazyVGrid(columns: columns) {
+                        GalleryCardView()
+                        GalleryCardView()
+                        GalleryCardView()
+                        GalleryCardView()
+                        GalleryCardView()
+                        GalleryCardView()
+                        GalleryCardView()
+                        GalleryCardView()
+                    }
+                }
+                .padding()
+            }
+            .toolbar {
+                DayStoryToolbar()
+            }
+            .navigationBarTitleDisplayMode(.inline)
+        }
     }
 }
 
