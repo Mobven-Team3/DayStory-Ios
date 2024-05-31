@@ -13,10 +13,10 @@ extension String {
     }
     
     var isValidPassword: Bool {
-        NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*(),.?\":{}|<>])[A-Za-z\\d!@#$%^&*(),.?\":{}|<>]{7,}$").evaluate(with: self)
+        NSPredicate(format: "SELF MATCHES %@", "^(?=.*[A-ZÇĞİÖŞÜ])(?=.*[a-zçğıöşü])(?=.*\\d)(?=.*[!@#$%^&*(),.?\":{}|<>])(?!.*\\s).{7,}$").evaluate(with: self)
     }
     
     var isValidName: Bool {
-        NSPredicate(format: "SELF MATCHES %@", "^[a-zA-Z]+$").evaluate(with: self)
+        NSPredicate(format: "SELF MATCHES %@", "^[a-zA-ZçÇğĞıİöÖşŞüÜ]{3,}$").evaluate(with: self)
     }
 }
