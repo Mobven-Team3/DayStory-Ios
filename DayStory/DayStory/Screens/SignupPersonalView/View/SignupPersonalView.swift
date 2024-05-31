@@ -27,13 +27,15 @@ struct SignupPersonalView: View {
                             DayStoryTextField(text: $viewModel.name,
                                               title: "İsim",
                                               placeholder: "İsminizi Yazınız",
-                                              errorMessage: viewModel.nameErrorMessage)
+                                              errorMessage: viewModel.nameErrorMessage, 
+                                              textLimit: 50)
                             .padding(.vertical)
                             
                             DayStoryTextField(text: $viewModel.lastName,
                                               title: "Soyisim",
                                               placeholder: "Soyisminizi Yazınız",
-                                              errorMessage: viewModel.lastNameErrorMessage)
+                                              errorMessage: viewModel.lastNameErrorMessage, 
+                                              textLimit: 50)
                         }
                         .formStyle(.columns)
                         
@@ -96,7 +98,7 @@ private extension SignupPersonalView {
             if let errorMessage = viewModel.genderErrorMessage, !errorMessage.isEmpty {
                 Text(errorMessage)
                     .font(.system(size: 11, weight: .semibold))
-                    .foregroundColor(.dayStoryPurple)
+                    .foregroundColor(.red)
                     .padding([.leading, .top], 16)
             }
         }

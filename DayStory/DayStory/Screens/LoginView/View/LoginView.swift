@@ -2,8 +2,7 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @State var userName = ""
-    @State var password = ""
+    @StateObject private var viewModel = LoginViewModel()
     
     var body: some View {
         NavigationStack {
@@ -13,21 +12,26 @@ struct LoginView: View {
                         welcomeBannerView(geometry: geometry)
                         
                         Form {
-                            DayStoryTextField(text: $userName,
+                            DayStoryTextField(text: $viewModel.userName,
                                               title: "Kullanıcı Adı",
-                                              placeholder: "Kullanıcı Adınızı Giriniz")
+                                              placeholder: "Kullanıcı Adınızı Giriniz",
+                                              errorMessage: viewModel.userNameErrorMessage,
+                                              textLimit: 50)
                             .padding(.bottom)
                             
-                            DayStoryTextField(text: $password,
+                            DayStoryTextField(text: $viewModel.password,
                                               title: "Şifre",
                                               placeholder: "Şifrenizi Giriniz",
-                                              isSecure: true)
+                                              isSecure: true,
+                                              errorMessage: viewModel.passwordErrorMessage)
                         }
                         .formStyle(.columns)
                         
-                        Button {
-                            print("tapped")
-                        } label: {
+                        NavigationLink(destination: EmptyView(), isActive: $viewModel.isValid) {}
+                        
+                        Button(action: {
+                            viewModel.validateFields()
+                        }) {
                             GradientButton(title: "Giriş Yap")
                         }
                         

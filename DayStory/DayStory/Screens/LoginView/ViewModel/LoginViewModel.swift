@@ -1,0 +1,25 @@
+//
+//  LoginViewModel.swift
+//  DayStory
+//
+//  Created by Recep Taha Aydın on 31.05.2024.
+//
+
+import Foundation
+
+final class LoginViewModel: ObservableObject {
+    
+    @Published var userName = ""
+    @Published var password = ""
+    
+    @Published var isValid: Bool = false
+    @Published var userNameErrorMessage: String? = nil
+    @Published var passwordErrorMessage: String? = nil
+    
+    func validateFields() {
+        userNameErrorMessage = !userName.isValidName ? "Geçerli bir kullanıcı adı giriniz." : nil
+        passwordErrorMessage = !password.isValidPassword ? "Geçerli bir şifre giriniz." : nil
+        
+        isValid = userNameErrorMessage == nil && passwordErrorMessage == nil
+    }
+}
