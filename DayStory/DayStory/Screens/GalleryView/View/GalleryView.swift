@@ -24,7 +24,7 @@ struct GalleryView: View {
                             .font(.title3)
                             .padding()
                         
-                        GalleryCardView()
+                        GalleryCardView(isPlaceHolder: true)
                             .padding()
                         
                         Image("loginImage")
