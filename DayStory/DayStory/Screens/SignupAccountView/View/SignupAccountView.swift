@@ -47,7 +47,7 @@ struct SignupAccountView: View {
                 }
                 
                 VStack {
-                    NavigationLink(destination: EmptyView(), isActive: $viewModel.isValid) {}
+                    NavigationLink(destination: DayStoryTabView(), isActive: $viewModel.isValid) {}
                     
                     Button(action: {
                         viewModel.validateFields()
