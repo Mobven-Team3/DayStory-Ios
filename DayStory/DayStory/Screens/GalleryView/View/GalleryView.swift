@@ -32,11 +32,24 @@ struct GalleryView: View {
                     }
                 }
                 .padding()
+                
+                VStack(alignment: .leading) {
+                    Text("Nisan 2024")
+                        .font(.title3)
+                    
+                    LazyVGrid(columns: columns) {
+                        GalleryCardView()
+                        GalleryCardView()
+                        GalleryCardView()
+                        GalleryCardView()
+                        GalleryCardView()
+                        GalleryCardView()
+                        GalleryCardView()
+                        GalleryCardView()
+                    }
+                }
+                .padding()
             }
-            .toolbar {
-                DayStoryToolbar()
-            }
-            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

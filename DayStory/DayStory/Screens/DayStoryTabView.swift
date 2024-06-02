@@ -19,6 +19,10 @@ struct DayStoryTabView: View {
             ProfileView()
                 .tabItem { Label("Profil", systemImage: "person") }
         }
+        .navigationBarBackButtonHidden()
+        .toolbar {
+            DayStoryToolbar()
+        }
     }
 }
 
