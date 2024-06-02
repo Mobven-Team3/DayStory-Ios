@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct GalleryCardView: View {
+    
+    var isPlaceHolder = false
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
             HStack {
@@ -25,17 +28,42 @@ struct GalleryCardView: View {
                 }
             }
             
-            Image("card")
-                .resizable()
-                .scaledToFill()
-                .frame(width: 100, height: 100)
+            if isPlaceHolder {
+                placeHolderView
+            } else {
+                imageView
+            }
         }
-        .padding(.all, 3)
+        .padding(3)
         .overlay {
             RoundedRectangle(cornerRadius: 4)
                 .stroke(lineWidth: 1)
                 .foregroundStyle(.cardBorder)
         }
+    }
+}
+
+// MARK: - Views
+private extension GalleryCardView {
+    var placeHolderView: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 0)
+                .fill(Color.galleryPlaceholderGray)
+                .frame(width: 100, height: 100)
+            
+            Image(systemName: "photo")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 24, height: 24)
+                .foregroundStyle(.dayStoryPurple)
+        }
+    }
+    
+    var imageView: some View {
+        Image("card")
+            .resizable()
+            .scaledToFill()
+            .frame(width: 100, height: 100)
     }
 }
 
