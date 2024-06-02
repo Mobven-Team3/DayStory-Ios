@@ -19,4 +19,8 @@ extension String {
     var isValidName: Bool {
         NSPredicate(format: "SELF MATCHES %@", "^[a-zA-ZçÇğĞıİöÖşŞüÜ]{3,}$").evaluate(with: self)
     }
+    
+    var isValidUserName: Bool {
+        NSPredicate(format: "SELF MATCHES %@", "^.{3,}$").evaluate(with: self)
+    }
 }

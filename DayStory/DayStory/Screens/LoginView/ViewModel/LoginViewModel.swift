@@ -17,7 +17,7 @@ final class LoginViewModel: ObservableObject {
     @Published var passwordErrorMessage: String? = nil
     
     func validateFields() {
-        userNameErrorMessage = !userName.isValidName ? "Geçerli bir kullanıcı adı giriniz." : nil
+        userNameErrorMessage = !userName.isValidUserName ? "Geçerli bir kullanıcı adı giriniz." : nil
         passwordErrorMessage = !password.isValidPassword ? "Geçerli bir şifre giriniz." : nil
         
         isValid = userNameErrorMessage == nil && passwordErrorMessage == nil
