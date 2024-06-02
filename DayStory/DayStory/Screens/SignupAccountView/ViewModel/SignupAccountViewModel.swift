@@ -22,7 +22,7 @@ final class SignupAccountViewModel: ObservableObject {
     
     func validateFields() {
         emailErrorMessage = !email.isValidEmail ? "Geçerli bir email giriniz." : nil
-        userNameErrorMessage = !userName.isValidName ? "Geçerli bir kullanıcı adı giriniz." : nil
+        userNameErrorMessage = !userName.isValidUserName ? "Geçerli bir kullanıcı adı giriniz." : nil
         passwordErrorMessage = !password.isValidPassword ? "En az 7 karakter, 1 büyük harf, 1 küçük harf ve özel karakter." : nil
         confirmPasswordErrorMessage = confirmPassword != password ? "Şifreleriniz aynı olmalıdır." : nil
         
