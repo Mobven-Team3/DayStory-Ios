@@ -18,7 +18,8 @@ struct SignupAccountView: View {
                                               title: "Email",
                                               placeholder: "Emailinizi Yazınız",
                                               keyboardType: .emailAddress,
-                                              errorMessage: viewModel.emailErrorMessage)
+                                              errorMessage: viewModel.emailErrorMessage,
+                                              textLimit: 50)
                             .padding(.vertical, 8)
                             
                             DayStoryTextField(text: $viewModel.userName,
@@ -47,7 +48,7 @@ struct SignupAccountView: View {
                 }
                 
                 VStack {
-                    NavigationLink(destination: DayStoryTabView(), isActive: $viewModel.isValid) {}
+                    NavigationLink(destination: LoginView(), isActive: $viewModel.isValid) {}
                     
                     Button(action: {
                         viewModel.validateFields()
