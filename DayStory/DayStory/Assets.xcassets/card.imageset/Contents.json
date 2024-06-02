@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "O özel gün, doğum günümdü. Sabah uyanır uyanmaz ailemle kahvaltı yaptık 2-2.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

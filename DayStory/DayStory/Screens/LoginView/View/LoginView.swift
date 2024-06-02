@@ -27,7 +27,7 @@ struct LoginView: View {
                         }
                         .formStyle(.columns)
                         
-                        NavigationLink(destination: EmptyView(), isActive: $viewModel.isValid) {}
+                        NavigationLink(destination: DayStoryTabView(), isActive: $viewModel.isValid) {}
                         
                         Button(action: {
                             viewModel.validateFields()
