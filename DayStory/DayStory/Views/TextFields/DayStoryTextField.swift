@@ -11,6 +11,7 @@ import Combine
 struct DayStoryTextField: View {
     
     @Binding var text: String
+    @State private var isPasswordVisible: Bool = false
     var title: String
     var placeholder: String
     var isSecure: Bool = false
@@ -21,18 +22,31 @@ struct DayStoryTextField: View {
     var body: some View {
         ZStack(alignment: .trailing) {
             if isSecure {
-                secureField
+                if isPasswordVisible {
+                    textField
+                } else {
+                    secureField
+                }
+                
+                Button {
+                    isPasswordVisible.toggle()
+                } label: {
+                    Image(systemName: !isPasswordVisible ? "eye.slash" : "eye")
+                        .imageScale(.medium)
+                        .frame(width: 44, height: 44)
+                        .foregroundStyle(errorMessage == nil ? .dayStoryPurple : .red)
+                }
             } else {
                 textField
-            }
-            
-            Button {
-                text = ""
-            } label: {
-                Image(systemName: "x.circle")
-                    .imageScale(.large)
-                    .frame(width: 44, height: 44)
-                    .foregroundStyle(errorMessage == nil ? .dayStoryPurple : .red)
+                
+                Button {
+                    text = ""
+                } label: {
+                    Image(systemName: "x.circle")
+                        .imageScale(.large)
+                        .frame(width: 44, height: 44)
+                        .foregroundStyle(errorMessage == nil ? .dayStoryPurple : .red)
+                }
             }
         }
         .padding()
