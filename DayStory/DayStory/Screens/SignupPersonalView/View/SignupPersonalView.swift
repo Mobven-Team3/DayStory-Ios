@@ -111,6 +111,7 @@ private extension SignupPersonalView {
             in: dateClosedRange,
             displayedComponents: [.date]
         )
+        .environment(\.locale, Locale.init(identifier: "tr"))
         .font(.subheadline)
         .padding()
         .datePickerStyle(.compact)
