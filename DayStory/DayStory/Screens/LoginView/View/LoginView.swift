@@ -12,10 +12,10 @@ struct LoginView: View {
                         welcomeBannerView(geometry: geometry)
                         
                         Form {
-                            DayStoryTextField(text: $viewModel.userName,
-                                              title: "Kullanıcı Adı",
+                            DayStoryTextField(text: $viewModel.email,
+                                              title: "Emailinizi Yazınız",
                                               placeholder: "Kullanıcı Adınızı Giriniz",
-                                              errorMessage: viewModel.userNameErrorMessage,
+                                              errorMessage: viewModel.emailErrorMessage,
                                               textLimit: 50)
                             .padding(.bottom)
                             
@@ -23,7 +23,8 @@ struct LoginView: View {
                                               title: "Şifre",
                                               placeholder: "Şifrenizi Giriniz",
                                               isSecure: true,
-                                              errorMessage: viewModel.passwordErrorMessage)
+                                              errorMessage: viewModel.passwordErrorMessage,
+                                              textLimit: 50)
                         }
                         .formStyle(.columns)
                         

@@ -9,18 +9,18 @@ import Foundation
 
 final class LoginViewModel: ObservableObject {
     
-    @Published var userName = ""
+    @Published var email = ""
     @Published var password = ""
     
     @Published var isValid: Bool = false
-    @Published var userNameErrorMessage: String? = nil
+    @Published var emailErrorMessage: String? = nil
     @Published var passwordErrorMessage: String? = nil
     
     func validateFields() {
-        userNameErrorMessage = !userName.isValidUserName ? "Geçerli bir kullanıcı adı giriniz." : nil
+        emailErrorMessage = !email.isValidUserName ? "Geçerli bir email giriniz." : nil
         passwordErrorMessage = !password.isValidPassword ? "Geçerli bir şifre giriniz." : nil
         
-        isValid = userNameErrorMessage == nil && passwordErrorMessage == nil
+        isValid = emailErrorMessage == nil && passwordErrorMessage == nil
     }
     
     func login(model: LoginUserContract) async {
