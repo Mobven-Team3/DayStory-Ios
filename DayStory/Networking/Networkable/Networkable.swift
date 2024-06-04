@@ -12,9 +12,11 @@ public protocol Networkable {
 }
 
 public extension Networkable {
-    func fetch<T: Decodable>(requestModel model: T.Type) async -> Result<T, Error> {
+    func fetch<T: Decodable>(responseModel model: T.Type) async -> Result<T, Error> {
         do {
-            let (data, response) = try await URLSession.shared.data(for: request(), delegate: nil)
+            let request = await request()
+            printRequest(from: request)
+            let (data, response) = try await URLSession.shared.data(for: request, delegate: nil)
             
             guard let response = response as? HTTPURLResponse else {
                 return .failure(NSError.generic)
@@ -23,15 +25,15 @@ public extension Networkable {
             switch response.statusCode {
             case 401:
                 return .failure(NSError.generic)
-
+                
             default:
                 if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers),
                    let jsonData = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted) {
-                    print("-----------------------------------")
-                    print("-----------------------------------")
-                    print(String(decoding: jsonData, as: UTF8.self))
-                    print("-----------------------------------")
-                    print("-----------------------------------")
+                    print("*********************************")
+                    print("*********************************")
+                    print("Network Response: \(String(decoding: jsonData, as: UTF8.self))")
+                    print("*********************************")
+                    print("*********************************")
                 }
                 
                 if model.self is Data.Type {
@@ -50,6 +52,22 @@ public extension Networkable {
             }
         } catch {
             return .failure(NSError.generic)
+        }
+    }
+    
+    func printRequest(from urlRequest: URLRequest) {
+        guard let httpBody = urlRequest.httpBody else {
+            return
+        }
+        
+        if let jsonObject = try? JSONSerialization.jsonObject(with: httpBody, options: []),
+           let prettyPrintedData = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted),
+           let prettyPrintedString = String(data: prettyPrintedData, encoding: .utf8) {
+            print("---------------------------------")
+            print("---------------------------------")
+            print("Network Request for endpoint: \(urlRequest.url?.absoluteString ?? "")\n \(prettyPrintedString)")
+            print("---------------------------------")
+            print("---------------------------------")
         }
     }
 }

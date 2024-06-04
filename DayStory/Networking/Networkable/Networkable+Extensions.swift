@@ -14,23 +14,28 @@ extension Networkable {
         httpMethod: RequestMethod = .get
     ) async -> URLRequest {
         var url = API.prepareUrl(withPath: path)
-        url.append(queryItems: [.init(name: "api_key", value: "a9682a1bcb1c6843474a121144fd9071")])
-        var request = await prepareRequest(url: url,
+        let request = await prepareRequest(url: url,
                                            method: httpMethod,
                                            contentType: ContentType.json)
         return request
     }
     
-    func postRequest<T: Decodable> (
+    func postRequest<T: Encodable> (
         data: T,
         path: String,
         httpMethod: RequestMethod = .post
     ) async -> URLRequest {
         var url = API.prepareUrl(withPath: path)
-        url.append(queryItems: [.init(name: "api_key", value: "a9682a1bcb1c6843474a121144fd9071")])
-        var request = await prepareRequest(url: url,
-                                           method: httpMethod,
-                                           contentType: ContentType.json)
+        var request = URLRequest(url: url)
+        request.httpMethod = httpMethod.rawValue
+        request.allHTTPHeaderFields = API.getHeader(contentType: ContentType.json)
+        
+        do {
+            request.httpBody = try JSONEncoder().encode(data)
+        } catch {
+            print("Encoding error \(error.localizedDescription)")
+        }
+        
         return request
     }
     
