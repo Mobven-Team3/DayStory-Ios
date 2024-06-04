@@ -31,6 +31,14 @@ struct LoginView: View {
                         
                         Button(action: {
                             viewModel.validateFields()
+                            
+                            if viewModel.isValid {
+                                Task {
+                                    let model = LoginUserContract(email: viewModel.email,
+                                                                  password: viewModel.password)
+                                    await viewModel.login(model: model)
+                                }
+                            }
                         }) {
                             GradientButton(title: "Giriş Yap")
                         }

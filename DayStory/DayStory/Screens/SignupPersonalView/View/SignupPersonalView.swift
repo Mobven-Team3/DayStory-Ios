@@ -27,14 +27,14 @@ struct SignupPersonalView: View {
                             DayStoryTextField(text: $viewModel.name,
                                               title: "İsim",
                                               placeholder: "İsminizi Yazınız",
-                                              errorMessage: viewModel.nameErrorMessage, 
+                                              errorMessage: viewModel.nameErrorMessage,
                                               textLimit: 50)
                             .padding(.vertical)
                             
                             DayStoryTextField(text: $viewModel.lastName,
                                               title: "Soyisim",
                                               placeholder: "Soyisminizi Yazınız",
-                                              errorMessage: viewModel.lastNameErrorMessage, 
+                                              errorMessage: viewModel.lastNameErrorMessage,
                                               textLimit: 50)
                         }
                         .formStyle(.columns)
@@ -50,7 +50,11 @@ struct SignupPersonalView: View {
                 }
                 
                 VStack {
-                    NavigationLink(destination: SignupAccountView(), isActive: $viewModel.isValid) {}
+                    NavigationLink(destination: SignupAccountView(name: viewModel.name,
+                                                                  lastName: viewModel.lastName,
+                                                                  gender: viewModel.selectedGender,
+                                                                  birthDay: formatDateToString(viewModel.dateOfBirth)), 
+                                   isActive: $viewModel.isValid) {}
                     
                     Button(action: {
                         viewModel.validateFields()

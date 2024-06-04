@@ -22,4 +22,17 @@ final class LoginViewModel: ObservableObject {
         
         isValid = userNameErrorMessage == nil && passwordErrorMessage == nil
     }
+    
+    func login(model: LoginUserContract) async {
+        let result = await API.User.login(user: model).fetch(responseModel: LoginResponseModel.self)
+        
+        switch result {
+        case let .success(response):
+            DispatchQueue.main.async {
+                print(response.token)
+            }
+        case let .failure(error):
+            print(error.localizedDescription)
+        }
+    }
 }
