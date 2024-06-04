@@ -28,4 +28,17 @@ final class SignupAccountViewModel: ObservableObject {
         
         isValid = emailErrorMessage == nil && userNameErrorMessage == nil && passwordErrorMessage == nil && confirmPasswordErrorMessage == nil
     }
+    
+    func register(model: RegisterUserContract) async {
+        let result = await API.User.register(user: model).fetch(responseModel: SignupAccountResponseModel.self)
+        
+        switch result {
+        case let .success(response):
+            DispatchQueue.main.async {
+                print(response.token)
+            }
+        case let .failure(error):
+            print(error.localizedDescription)
+        }
+    }
 }

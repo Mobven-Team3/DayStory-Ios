@@ -4,13 +4,18 @@ struct SignupAccountView: View {
     
     @StateObject private var viewModel = SignupAccountViewModel()
     
+    var name: String?
+    var lastName: String?
+    var gender: String?
+    var birthDay: String?
+    
     var body: some View {
         NavigationStack {
             VStack {
                 ScrollView {
                     VStack {
                         SignupSectionView(firstScreen: false)
-
+                        
                         AuthenticationHelperText(text: "Hesap Bilgilerinizi Oluşturunuz.")
                         
                         Form {
@@ -33,14 +38,16 @@ struct SignupAccountView: View {
                                               title: "Şifre",
                                               placeholder: "Şifre Belirleyiniz",
                                               isSecure: true,
-                                              errorMessage: viewModel.passwordErrorMessage)
+                                              errorMessage: viewModel.passwordErrorMessage,
+                                              textLimit: 50)
                             .padding(.bottom, 8)
                             
                             DayStoryTextField(text: $viewModel.confirmPassword,
                                               title: "Şifre Tekrarı",
                                               placeholder: "Şifrenizi Onaylayınız",
                                               isSecure: true,
-                                              errorMessage: viewModel.confirmPasswordErrorMessage)
+                                              errorMessage: viewModel.confirmPasswordErrorMessage,
+                                              textLimit: 50)
                         }
                         .formStyle(.columns)
                     }
@@ -52,6 +59,20 @@ struct SignupAccountView: View {
                     
                     Button(action: {
                         viewModel.validateFields()
+                        
+                        if viewModel.isValid {
+                            Task {
+                                let model = RegisterUserContract(firstName: name!,
+                                                                 lastName: lastName!,
+                                                                 userName: viewModel.userName,
+                                                                 email: viewModel.email,
+                                                                 password: viewModel.password,
+                                                                 passwordConfirmed: viewModel.confirmPassword,
+                                                                 birthDate: birthDay!,
+                                                                 gender: convertGender(gender: gender!))
+                                await viewModel.register(model: model)
+                            }
+                        }
                     }) {
                         GradientButton(title: "Devam")
                     }
@@ -68,6 +89,21 @@ struct SignupAccountView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbarRole(.editor)
+        }
+    }
+    
+    func convertGender(gender: String) -> String {
+        switch gender {
+        case "Kadın":
+            return "Female"
+        case "Erkek":
+            return "Male"
+        case "Belirtme":
+            return "NotSpecified"
+        case "Diğer":
+            return "Other"
+        default:
+            return "NotSpecified"
         }
     }
 }
