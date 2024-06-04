@@ -7,10 +7,10 @@ struct SignupPersonalView: View {
     let gender = ["Kadın", "Erkek", "Belirtme", "Diğer"]
     
     var dateClosedRange: ClosedRange<Date> {
-        let currentDate = Date()
+        let currentYear = Calendar.current.component(.year, from: Date())
         let calendar = Calendar.current
-        let minDate = calendar.date(byAdding: .year, value: -100, to: currentDate)!
-        let maxDate = calendar.date(byAdding: .year, value: -5, to: currentDate)!
+        let maxDate = calendar.date(from: DateComponents(year: currentYear - 5, month: 12, day: 31))!
+        let minDate = calendar.date(from: DateComponents(year: currentYear - 100, month: 1, day: 1))!
         return minDate...maxDate
     }
     
@@ -119,6 +119,12 @@ private extension SignupPersonalView {
         .font(.subheadline)
         .padding()
         .datePickerStyle(.compact)
+    }
+    
+    func formatDateToString(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy"
+        return formatter.string(from: date)
     }
 }
 
