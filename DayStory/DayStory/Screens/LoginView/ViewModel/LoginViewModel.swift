@@ -29,7 +29,7 @@ final class LoginViewModel: ObservableObject {
         switch result {
         case let .success(response):
             DispatchQueue.main.async {
-                print(response.token)
+                print(response.response.token)
             }
         case let .failure(error):
             print(error.localizedDescription)
