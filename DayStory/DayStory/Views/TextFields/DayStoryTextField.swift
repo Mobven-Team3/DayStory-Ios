@@ -6,31 +6,47 @@
 //
 
 import SwiftUI
+import Combine
 
 struct DayStoryTextField: View {
     
     @Binding var text: String
+    @State private var isPasswordVisible: Bool = false
     var title: String
     var placeholder: String
     var isSecure: Bool = false
     var keyboardType: UIKeyboardType = .default
     var errorMessage: String? = nil
+    var textLimit: Int? = nil
     
     var body: some View {
         ZStack(alignment: .trailing) {
             if isSecure {
-                secureField
+                if isPasswordVisible {
+                    textField
+                } else {
+                    secureField
+                }
+                
+                Button {
+                    isPasswordVisible.toggle()
+                } label: {
+                    Image(systemName: !isPasswordVisible ? "eye.slash" : "eye")
+                        .imageScale(.medium)
+                        .frame(width: 44, height: 44)
+                        .foregroundStyle(errorMessage == nil ? .dayStoryPurple : .red)
+                }
             } else {
                 textField
-            }
-            
-            Button {
-                text = ""
-            } label: {
-                Image(systemName: "x.circle")
-                    .imageScale(.large)
-                    .frame(width: 44, height: 44)
-                    .foregroundStyle(.dayStoryPurple)
+                
+                Button {
+                    text = ""
+                } label: {
+                    Image(systemName: "x.circle")
+                        .imageScale(.large)
+                        .frame(width: 44, height: 44)
+                        .foregroundStyle(errorMessage == nil ? .dayStoryPurple : .red)
+                }
             }
         }
         .padding()
@@ -43,7 +59,7 @@ struct DayStoryTextField: View {
             if let errorMessage = errorMessage, !errorMessage.isEmpty {
                 Text(errorMessage)
                     .font(.system(size: 11, weight: .semibold))
-                    .foregroundColor(.dayStoryPurple)
+                    .foregroundColor(.red)
                     .padding([.leading, .top], 16)
             }
         }
@@ -53,22 +69,32 @@ struct DayStoryTextField: View {
     private var textField: some View {
         TextField(placeholder, text: $text)
             .padding()
+            .padding(.trailing, 30)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
-                    .stroke(.textFieldBorder, lineWidth: 1)
+                    .stroke(errorMessage != nil ? Color.red : Color.textFieldBorder, lineWidth: 1)
             )
             .keyboardType(keyboardType)
             .textInputAutocapitalization(.never)
+            .onReceive(Just(text)) { _ in limitText(textLimit) }
     }
     
     @ViewBuilder
     private var secureField: some View {
         SecureField(placeholder, text: $text)
             .padding()
+            .padding(.trailing, 30)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
-                    .stroke(.textFieldBorder, lineWidth: 1)
+                    .stroke(errorMessage != nil ? Color.red : Color.textFieldBorder, lineWidth: 1)
             )
+            .onReceive(Just(text)) { _ in limitText(textLimit) }
+    }
+    
+    func limitText(_ upper: Int?) {
+        if let upper = upper, text.count > upper {
+            text = String(text.prefix(upper))
+        }
     }
 }
 

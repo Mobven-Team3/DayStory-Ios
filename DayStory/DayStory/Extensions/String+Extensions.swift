@@ -9,14 +9,18 @@ import Foundation
 
 extension String {
     var isValidEmail: Bool {
-        NSPredicate(format: "SELF MATCHES %@", "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}").evaluate(with: self)
+        NSPredicate(format: "SELF MATCHES %@", "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{3,}").evaluate(with: self)
     }
     
     var isValidPassword: Bool {
-        NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*(),.?\":{}|<>])[A-Za-z\\d!@#$%^&*(),.?\":{}|<>]{7,}$").evaluate(with: self)
+        NSPredicate(format: "SELF MATCHES %@", "^(?=.*[A-ZÇĞİÖŞÜ])(?=.*[a-zçğıöşü])(?=.*\\d)(?=.*[!@#$%^&*(),.?\":{}|<>])(?!.*\\s).{7,}$").evaluate(with: self)
     }
     
     var isValidName: Bool {
-        NSPredicate(format: "SELF MATCHES %@", "^[a-zA-Z]+$").evaluate(with: self)
+        NSPredicate(format: "SELF MATCHES %@", "^[a-zA-ZçÇğĞıİöÖşŞüÜ ]{2,}$").evaluate(with: self)
+    }
+    
+    var isValidUserName: Bool {
+        NSPredicate(format: "SELF MATCHES %@", "^.{3,}$").evaluate(with: self)
     }
 }

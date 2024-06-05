@@ -7,10 +7,10 @@ struct SignupPersonalView: View {
     let gender = ["Kadın", "Erkek", "Belirtme", "Diğer"]
     
     var dateClosedRange: ClosedRange<Date> {
-        let currentDate = Date()
+        let currentYear = Calendar.current.component(.year, from: Date())
         let calendar = Calendar.current
-        let minDate = calendar.date(byAdding: .year, value: -100, to: currentDate)!
-        let maxDate = calendar.date(byAdding: .year, value: -5, to: currentDate)!
+        let maxDate = calendar.date(from: DateComponents(year: currentYear - 5, month: 12, day: 31))!
+        let minDate = calendar.date(from: DateComponents(year: currentYear - 100, month: 1, day: 1))!
         return minDate...maxDate
     }
     
@@ -27,13 +27,15 @@ struct SignupPersonalView: View {
                             DayStoryTextField(text: $viewModel.name,
                                               title: "İsim",
                                               placeholder: "İsminizi Yazınız",
-                                              errorMessage: viewModel.nameErrorMessage)
+                                              errorMessage: viewModel.nameErrorMessage,
+                                              textLimit: 50)
                             .padding(.vertical)
                             
                             DayStoryTextField(text: $viewModel.lastName,
                                               title: "Soyisim",
                                               placeholder: "Soyisminizi Yazınız",
-                                              errorMessage: viewModel.lastNameErrorMessage)
+                                              errorMessage: viewModel.lastNameErrorMessage,
+                                              textLimit: 50)
                         }
                         .formStyle(.columns)
                         
@@ -48,7 +50,11 @@ struct SignupPersonalView: View {
                 }
                 
                 VStack {
-                    NavigationLink(destination: SignupAccountView(), isActive: $viewModel.isValid) {}
+                    NavigationLink(destination: SignupAccountView(name: viewModel.name,
+                                                                  lastName: viewModel.lastName,
+                                                                  gender: viewModel.selectedGender,
+                                                                  birthDay: formatDateToString(viewModel.dateOfBirth)), 
+                                   isActive: $viewModel.isValid) {}
                     
                     Button(action: {
                         viewModel.validateFields()
@@ -96,7 +102,7 @@ private extension SignupPersonalView {
             if let errorMessage = viewModel.genderErrorMessage, !errorMessage.isEmpty {
                 Text(errorMessage)
                     .font(.system(size: 11, weight: .semibold))
-                    .foregroundColor(.dayStoryPurple)
+                    .foregroundColor(.red)
                     .padding([.leading, .top], 16)
             }
         }
@@ -109,9 +115,16 @@ private extension SignupPersonalView {
             in: dateClosedRange,
             displayedComponents: [.date]
         )
+        .environment(\.locale, Locale.init(identifier: "tr"))
         .font(.subheadline)
         .padding()
         .datePickerStyle(.compact)
+    }
+    
+    func formatDateToString(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy"
+        return formatter.string(from: date)
     }
 }
 

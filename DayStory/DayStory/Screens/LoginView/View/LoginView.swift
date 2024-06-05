@@ -2,8 +2,7 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @State var userName = ""
-    @State var password = ""
+    @StateObject private var viewModel = LoginViewModel()
     
     var body: some View {
         NavigationStack {
@@ -13,21 +12,35 @@ struct LoginView: View {
                         welcomeBannerView(geometry: geometry)
                         
                         Form {
-                            DayStoryTextField(text: $userName,
-                                              title: "Kullanıcı Adı",
-                                              placeholder: "Kullanıcı Adınızı Giriniz")
+                            DayStoryTextField(text: $viewModel.email,
+                                              title: "Emailinizi Yazınız",
+                                              placeholder: "Kullanıcı Adınızı Giriniz",
+                                              errorMessage: viewModel.emailErrorMessage,
+                                              textLimit: 50)
                             .padding(.bottom)
                             
-                            DayStoryTextField(text: $password,
+                            DayStoryTextField(text: $viewModel.password,
                                               title: "Şifre",
                                               placeholder: "Şifrenizi Giriniz",
-                                              isSecure: true)
+                                              isSecure: true,
+                                              errorMessage: viewModel.passwordErrorMessage,
+                                              textLimit: 50)
                         }
                         .formStyle(.columns)
                         
-                        Button {
-                            print("tapped")
-                        } label: {
+                        NavigationLink(destination: DayStoryTabView(), isActive: $viewModel.isValid) {}
+                        
+                        Button(action: {
+                            viewModel.validateFields()
+                            
+                            if viewModel.isValid {
+                                Task {
+                                    let model = LoginUserContract(email: viewModel.email,
+                                                                  password: viewModel.password)
+                                    await viewModel.login(model: model)
+                                }
+                            }
+                        }) {
                             GradientButton(title: "Giriş Yap")
                         }
                         
