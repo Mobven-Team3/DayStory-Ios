@@ -17,14 +17,17 @@ struct GalleryCardView: View {
                 Text("6")
                     .font(.system(size: 25))
                     .fontWeight(.semibold)
+                    .foregroundStyle(.black)
                 
                 VStack(alignment: .leading) {
                     Text("Pazartesi")
                         .font(.system(size: 10))
+                        .foregroundStyle(.black)
                     
                     Text("Mayıs")
                         .font(.system(size: 12))
                         .fontWeight(.semibold)
+                        .foregroundStyle(.black)
                 }
             }
             
