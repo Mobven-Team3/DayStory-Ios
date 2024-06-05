@@ -8,13 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		1973E46A2C0A14C6000F325F /* DetailScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1973E4692C0A14C6000F325F /* DetailScreenView.swift */; };
-		1973E46C2C0A3453000F325F /* testDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1973E46B2C0A3453000F325F /* testDetailView.swift */; };
 		1973E4722C0C84E6000F325F /* CreateNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1973E4712C0C84E6000F325F /* CreateNoteView.swift */; };
 		197F9F5B2C06276800D5D799 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCB7D2992BF747830017CEBC /* Assets.xcassets */; };
 		197F9F5C2C06276800D5D799 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCB7D2992BF747830017CEBC /* Assets.xcassets */; };
-		19A7E78F2C0F4B530089BC81 /* DayStoryNoteTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A7E78E2C0F4B530089BC81 /* DayStoryNoteTextField.swift */; };
 		DC5524E02C072A5000118CC3 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5524DF2C072A5000118CC3 /* WelcomeView.swift */; };
 		DC5524E22C072A6000118CC3 /* SignupPersonalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5524E12C072A6000118CC3 /* SignupPersonalView.swift */; };
+		DC6E213D2C109C760012FE62 /* NoteListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6E213C2C109C760012FE62 /* NoteListingView.swift */; };
 		DC7F3AA62BFFC61A0020291C /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F3AA52BFFC61A0020291C /* GradientButton.swift */; };
 		DC7F3AAB2BFFDD760020291C /* DayStoryTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F3AAA2BFFDD760020291C /* DayStoryTextField.swift */; };
 		DC7F3AAD2BFFE7140020291C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC7F3AAC2BFFE7140020291C /* Colors.xcassets */; };
@@ -76,12 +75,11 @@
 		192F48B42C061B8B0007BB7A /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		192F48B82C061BE60007BB7A /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		1973E4692C0A14C6000F325F /* DetailScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenView.swift; sourceTree = "<group>"; };
-		1973E46B2C0A3453000F325F /* testDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testDetailView.swift; sourceTree = "<group>"; };
 		1973E4712C0C84E6000F325F /* CreateNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoteView.swift; sourceTree = "<group>"; };
 		197F9F572C06206E00D5D799 /* Color+DayStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+DayStory.swift"; sourceTree = "<group>"; };
-		19A7E78E2C0F4B530089BC81 /* DayStoryNoteTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayStoryNoteTextField.swift; sourceTree = "<group>"; };
 		DC5524DF2C072A5000118CC3 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		DC5524E12C072A6000118CC3 /* SignupPersonalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPersonalView.swift; sourceTree = "<group>"; };
+		DC6E213C2C109C760012FE62 /* NoteListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListingView.swift; sourceTree = "<group>"; };
 		DC7F3AA52BFFC61A0020291C /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		DC7F3AAA2BFFDD760020291C /* DayStoryTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayStoryTextField.swift; sourceTree = "<group>"; };
 		DC7F3AAC2BFFE7140020291C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -157,8 +155,6 @@
 			isa = PBXGroup;
 			children = (
 				1973E4692C0A14C6000F325F /* DetailScreenView.swift */,
-				1973E46B2C0A3453000F325F /* testDetailView.swift */,
-				1973E4712C0C84E6000F325F /* CreateNoteView.swift */,
 			);
 			path = DetailScreenView;
 			sourceTree = "<group>";
@@ -184,6 +180,38 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		DC92B9CA2C10F9BB008E0194 /* CreateNoteView */ = {
+			isa = PBXGroup;
+			children = (
+				DC92B9CD2C10F9D0008E0194 /* Model */,
+				DC92B9CC2C10F9CC008E0194 /* View */,
+				DC92B9CB2C10F9C6008E0194 /* ViewModel */,
+			);
+			path = CreateNoteView;
+			sourceTree = "<group>";
+		};
+		DC92B9CB2C10F9C6008E0194 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DC92B9CC2C10F9CC008E0194 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1973E4712C0C84E6000F325F /* CreateNoteView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DC92B9CD2C10F9D0008E0194 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		DC99B1802C0094FB00CDD857 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,7 +224,6 @@
 			isa = PBXGroup;
 			children = (
 				DC7F3AAA2BFFDD760020291C /* DayStoryTextField.swift */,
-				19A7E78E2C0F4B530089BC81 /* DayStoryNoteTextField.swift */,
 			);
 			path = TextFields;
 			sourceTree = "<group>";
@@ -208,6 +235,7 @@
 				DC99B1942C00DC7400CDD857 /* AuthenticationHelperText.swift */,
 				DC99B1962C00DDBA00CDD857 /* LoginPrompt.swift */,
 				DCE3BFE42C0A813300EC44EE /* GalleryCardView.swift */,
+				DC6E213C2C109C760012FE62 /* NoteListingView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -215,6 +243,7 @@
 		DC99B1832C00955400CDD857 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				DC92B9CA2C10F9BB008E0194 /* CreateNoteView */,
 				1973E4682C0A00AF000F325F /* DetailScreenView */,
 				DCE3BFE12C0A6F1500EC44EE /* ProfileView */,
 				DCE3BFDE2C0A6EF300EC44EE /* TodayView */,
@@ -650,8 +679,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC99B1952C00DC7400CDD857 /* AuthenticationHelperText.swift in Sources */,
-				1973E46C2C0A3453000F325F /* testDetailView.swift in Sources */,
-				DCB4A4832BFB347C00EEE970 /* GetMoviesResponse.swift in Sources */,
 				DCE3BFE52C0A813300EC44EE /* GalleryCardView.swift in Sources */,
 				DCB7D2D92BF7792F0017CEBC /* Networkable+Extensions.swift in Sources */,
 				DCB7D2C72BF754A60017CEBC /* Response.swift in Sources */,
@@ -661,7 +688,6 @@
 				DCB7D2C52BF74F620017CEBC /* RequestMethod.swift in Sources */,
 				DCE3BFD52C0A5DAD00EC44EE /* LoginViewModel.swift in Sources */,
 				DC7F3AB12BFFF32C0020291C /* SignupSectionView.swift in Sources */,
-				19A7E78F2C0F4B530089BC81 /* DayStoryNoteTextField.swift in Sources */,
 				DCB7D2962BF747820017CEBC /* DayStoryApp.swift in Sources */,
 				DCB7D2CE2BF757220017CEBC /* URL+Extension.swift in Sources */,
 				DCFD54F12BFFBB620096D24A /* LoginView.swift in Sources */,
@@ -674,6 +700,7 @@
 				1973E46A2C0A14C6000F325F /* DetailScreenView.swift in Sources */,
 				DC9D959D2C0F5CC9005E908B /* LoginRequestModel.swift in Sources */,
 				DCB7D2CC2BF756880017CEBC /* NSError.swift in Sources */,
+				DC6E213D2C109C760012FE62 /* NoteListingView.swift in Sources */,
 				DCE3BFE02C0A6F0100EC44EE /* TodayView.swift in Sources */,
 				DCB7D2D42BF75DD00017CEBC /* Networkable.swift in Sources */,
 				DC9D959F2C0F5D1E005E908B /* LoginResponseModel.swift in Sources */,

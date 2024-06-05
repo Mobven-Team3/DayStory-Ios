@@ -18,6 +18,7 @@ struct DayStoryTextField: View {
     var keyboardType: UIKeyboardType = .default
     var errorMessage: String? = nil
     var textLimit: Int? = nil
+    var isLarge: Bool = false
     
     var body: some View {
         ZStack(alignment: .trailing) {
@@ -37,15 +38,30 @@ struct DayStoryTextField: View {
                         .foregroundStyle(errorMessage == nil ? .dayStoryPurple : .red)
                 }
             } else {
-                textField
-                
-                Button {
-                    text = ""
-                } label: {
-                    Image(systemName: "x.circle")
-                        .imageScale(.large)
-                        .frame(width: 44, height: 44)
-                        .foregroundStyle(errorMessage == nil ? .dayStoryPurple : .red)
+                if isLarge {
+                    textField
+                        .overlay(alignment: .topTrailing) {
+                            Button {
+                                text = ""
+                            } label: {
+                                Image(systemName: "x.circle")
+                                    .imageScale(.large)
+                                    .frame(width: 44, height: 44)
+                                    .foregroundStyle(errorMessage == nil ? .dayStoryPurple : .red)
+                            }
+                            .padding(.top, 5)
+                        }
+                } else {
+                    textField
+                    
+                    Button {
+                        text = ""
+                    } label: {
+                        Image(systemName: "x.circle")
+                            .imageScale(.large)
+                            .frame(width: 44, height: 44)
+                            .foregroundStyle(errorMessage == nil ? .dayStoryPurple : .red)
+                    }
                 }
             }
         }
@@ -67,9 +83,10 @@ struct DayStoryTextField: View {
     
     @ViewBuilder
     private var textField: some View {
-        TextField(placeholder, text: $text)
+        TextField(placeholder, text: $text, axis: isLarge ? .vertical : .horizontal)
             .padding()
             .padding(.trailing, 30)
+            .frame(height: isLarge ? 200 : nil, alignment: .top)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(errorMessage != nil ? Color.red : Color.textFieldBorder, lineWidth: 1)

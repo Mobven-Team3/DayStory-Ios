@@ -13,8 +13,8 @@ struct GalleryView: View {
                                GridItem(.flexible()),
                                GridItem(.flexible())]
     
-    var itemCount = 0
-        
+    var itemCount = 12
+    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -24,8 +24,10 @@ struct GalleryView: View {
                             .font(.title3)
                             .padding()
                         
-                        GalleryCardView(isPlaceHolder: true)
-                            .padding()
+                        NavigationLink(destination: DetailScreenView()) {
+                            GalleryCardView(isPlaceHolder: true)
+                                .padding()
+                        }
                         
                         Image("loginImage")
                             .resizable()
@@ -46,14 +48,11 @@ struct GalleryView: View {
                             .font(.title3)
                         
                         LazyVGrid(columns: columns) {
-                            GalleryCardView()
-                            GalleryCardView()
-                            GalleryCardView()
-                            GalleryCardView()
-                            GalleryCardView()
-                            GalleryCardView()
-                            GalleryCardView()
-                            GalleryCardView()
+                            ForEach(0..<self.itemCount) {_ in
+                                NavigationLink(destination: DetailScreenView()) {
+                                    GalleryCardView()
+                                }
+                            }
                         }
                     }
                     .padding()

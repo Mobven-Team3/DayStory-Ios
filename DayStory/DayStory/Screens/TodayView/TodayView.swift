@@ -34,12 +34,14 @@ struct TodayView: View {
                 Button {
                     
                 } label: {
-                    Image(systemName: "plus")
-                        .foregroundStyle(.white)
-                        .frame(width: 56, height: 56)
-                        .background(.todayScreenText)
-                        .clipShape(.buttonBorder)
-                        .padding()
+                    NavigationLink(destination: CreateNoteView()) {
+                        Image(systemName: "plus")
+                            .foregroundStyle(.white)
+                            .frame(width: 56, height: 56)
+                            .background(.todayScreenText)
+                            .clipShape(.buttonBorder)
+                            .padding()
+                    }
                 }
             }
             .navigationBarTitleDisplayMode(.inline)

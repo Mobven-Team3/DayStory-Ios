@@ -8,5 +8,11 @@
 import Foundation
 
 struct LoginResponseModel: Decodable {
+    let success: Bool
+    let message: String
+    let response: TokenResponse
+}
+
+struct TokenResponse: Decodable {
     let token: String
 }
