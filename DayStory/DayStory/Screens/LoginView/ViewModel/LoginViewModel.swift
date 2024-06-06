@@ -16,6 +16,9 @@ final class LoginViewModel: ObservableObject {
     @Published var emailErrorMessage: String? = nil
     @Published var passwordErrorMessage: String? = nil
     
+    @Published var isLoginSuccessful: Bool = false
+    @Published var errorMessage: String = ""
+    
     func validateFields() {
         emailErrorMessage = !email.isValidUserName ? "Geçerli bir email giriniz." : nil
         passwordErrorMessage = !password.isValidPassword ? "Geçerli bir şifre giriniz." : nil
@@ -26,13 +29,15 @@ final class LoginViewModel: ObservableObject {
     func login(model: LoginUserContract) async {
         let result = await API.User.login(user: model).fetch(responseModel: LoginResponseModel.self)
         
-        switch result {
-        case let .success(response):
-            DispatchQueue.main.async {
-                print(response.response.token)
+        DispatchQueue.main.async {
+            switch result {
+            case let .success(response):
+                self.isLoginSuccessful = true
+                TokenManager.shared.token = response.token
+            case let .failure(error):
+                self.isLoginSuccessful = false
+                self.errorMessage = error.localizedDescription
             }
-        case let .failure(error):
-            print(error.localizedDescription)
         }
     }
 }
