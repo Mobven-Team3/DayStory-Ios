@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct CreateNoteView: View {
-    @State var text: String = ""
-    @State var notes: String = ""
+    
+    @StateObject private var viewModel = CreateNoteViewModel()
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         NavigationStack {
@@ -18,9 +19,10 @@ struct CreateNoteView: View {
                     AuthenticationHelperText(text: "Notunuzu yazınız.")
                     
                     Form {
-                        DayStoryTextField(text: $text,
+                        DayStoryTextField(text: $viewModel.title,
                                           title: "Başlık",
                                           placeholder: "Not başlığınızı giriniz.",
+                                          errorMessage: viewModel.titleErrorMessage,
                                           textLimit: 250)
                         
                         Text("*En fazla 250 karakter")
@@ -28,7 +30,7 @@ struct CreateNoteView: View {
                             .font(.system(size: 12))
                             .padding([.leading, .bottom])
                         
-                        DayStoryTextField(text: $notes,
+                        DayStoryTextField(text: $viewModel.note,
                                           title: "Notunuz",
                                           placeholder: "Notunuzun detaylarını giriniz.",
                                           textLimit: 350,
@@ -47,7 +49,7 @@ struct CreateNoteView: View {
                 
                 HStack() {
                     Button {
-                        
+                        viewModel.validateFields()
                     } label: {
                         Text("Kaydet")
                             .font(.system(size: 14, weight: .semibold))
@@ -58,7 +60,7 @@ struct CreateNoteView: View {
                     }
                     
                     Button {
-                        
+                        dismiss()
                     } label: {
                         Text("İptal")
                             .font(.system(size: 14, weight: .semibold))
