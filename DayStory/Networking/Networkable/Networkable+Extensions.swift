@@ -13,7 +13,7 @@ extension Networkable {
         path: String,
         httpMethod: RequestMethod = .get
     ) async -> URLRequest {
-        var url = API.prepareUrl(withPath: path)
+        let url = API.prepareUrl(withPath: path)
         let request = await prepareRequest(url: url,
                                            method: httpMethod,
                                            contentType: ContentType.json)
@@ -25,7 +25,7 @@ extension Networkable {
         path: String,
         httpMethod: RequestMethod = .post
     ) async -> URLRequest {
-        var url = API.prepareUrl(withPath: path)
+        let url = API.prepareUrl(withPath: path)
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod.rawValue
         request.allHTTPHeaderFields = API.getHeader(contentType: ContentType.json)

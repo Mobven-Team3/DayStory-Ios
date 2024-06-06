@@ -44,7 +44,7 @@ public extension Networkable {
                 decoder.dateDecodingStrategy = .iso8601
                 let decodingData = try decoder.decode(Response<T>.self, from: data)
                 
-                if let body = decodingData.results {
+                if let body = decodingData.data {
                     return .success(body)
                 } else {
                     return .failure(NSError.generic)
