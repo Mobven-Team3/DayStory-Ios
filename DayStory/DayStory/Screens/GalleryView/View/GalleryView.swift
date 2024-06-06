@@ -13,7 +13,7 @@ struct GalleryView: View {
                                GridItem(.flexible()),
                                GridItem(.flexible())]
     
-    var itemCount = 12
+    var itemCount = 0
     
     var body: some View {
         NavigationStack {

@@ -243,6 +243,7 @@
 		DC99B1832C00955400CDD857 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				DCE3BFDC2C0A6EC800EC44EE /* DayStoryTabView.swift */,
 				DC92B9CA2C10F9BB008E0194 /* CreateNoteView */,
 				1973E4682C0A00AF000F325F /* DetailScreenView */,
 				DCE3BFE12C0A6F1500EC44EE /* ProfileView */,
@@ -252,7 +253,6 @@
 				DCDD03572C073F2800B1339A /* SignupPersonalView */,
 				DC99B1882C00959500CDD857 /* SignupAccountView */,
 				DC99B1842C00957100CDD857 /* LoginView */,
-				DCE3BFDC2C0A6EC800EC44EE /* DayStoryTabView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
