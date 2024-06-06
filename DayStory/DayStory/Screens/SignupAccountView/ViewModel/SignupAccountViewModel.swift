@@ -30,12 +30,12 @@ final class SignupAccountViewModel: ObservableObject {
     }
     
     func register(model: RegisterUserContract) async {
-        let result = await API.User.register(user: model).fetch(responseModel: SignupAccountResponseModel.self)
+        let result = await API.User.register(user: model).fetch(responseModel: SignupResponseModel.self)
         
         switch result {
         case let .success(response):
             DispatchQueue.main.async {
-                print(response.token)
+                print(response.message)
             }
         case let .failure(error):
             print(error.localizedDescription)

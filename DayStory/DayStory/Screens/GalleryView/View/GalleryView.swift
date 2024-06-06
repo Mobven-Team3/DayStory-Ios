@@ -9,11 +9,11 @@ import SwiftUI
 
 struct GalleryView: View {
     
+    @Binding var selectedTab: Int
     let columns: [GridItem] = [GridItem(.flexible()),
                                GridItem(.flexible()),
                                GridItem(.flexible())]
-    
-    var itemCount = 12
+    var itemCount = 0
     
     var body: some View {
         NavigationStack {
@@ -24,7 +24,9 @@ struct GalleryView: View {
                             .font(.title3)
                             .padding()
                         
-                        NavigationLink(destination: DetailScreenView()) {
+                        Button {
+                            selectedTab = 1
+                        } label: {
                             GalleryCardView(isPlaceHolder: true)
                                 .padding()
                         }
@@ -67,5 +69,5 @@ struct GalleryView: View {
 }
 
 #Preview {
-    GalleryView()
+    GalleryView(selectedTab: .constant(0))
 }

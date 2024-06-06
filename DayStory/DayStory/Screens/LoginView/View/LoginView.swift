@@ -3,6 +3,8 @@ import SwiftUI
 struct LoginView: View {
     
     @StateObject private var viewModel = LoginViewModel()
+    @State private var showAlert = false
+    @State private var alertMessage = ""
     
     var body: some View {
         NavigationStack {
@@ -28,7 +30,7 @@ struct LoginView: View {
                         }
                         .formStyle(.columns)
                         
-                        NavigationLink(destination: DayStoryTabView(), isActive: $viewModel.isValid) {}
+                        NavigationLink(destination: DayStoryTabView(), isActive: $viewModel.isLoginSuccessful) {}
                         
                         Button(action: {
                             viewModel.validateFields()
@@ -38,10 +40,18 @@ struct LoginView: View {
                                     let model = LoginUserContract(email: viewModel.email,
                                                                   password: viewModel.password)
                                     await viewModel.login(model: model)
+                                    
+                                    if !viewModel.isLoginSuccessful {
+                                        showAlert = true
+                                        alertMessage = viewModel.errorMessage
+                                    }
                                 }
                             }
                         }) {
                             GradientButton(title: "Giriş Yap")
+                        }
+                        .alert(isPresented: $showAlert) {
+                            Alert(title: Text("Error"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
                         }
                         
                         LoginPrompt(promptText: "Henüz hesabın yok mu?",

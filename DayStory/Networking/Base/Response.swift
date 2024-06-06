@@ -8,5 +8,5 @@
 import Foundation
 
 public struct Response<T: Decodable>: Decodable {
-    public var results: T?
+    public var data: T?
 }

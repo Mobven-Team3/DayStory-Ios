@@ -7,6 +7,7 @@
 
 import Foundation
 
-struct SignupAccountResponseModel: Decodable {
-    let token: String
+struct SignupResponseModel: Decodable {
+    let success: Bool
+    let message: String
 }

@@ -3,9 +3,8 @@ import SwiftUI
 struct SignupPersonalView: View {
     
     @StateObject private var viewModel = SignupPersonalViewModel()
-    
     let gender = ["Kadın", "Erkek", "Belirtme", "Diğer"]
-    
+    let date = Date()
     var dateClosedRange: ClosedRange<Date> {
         let currentYear = Calendar.current.component(.year, from: Date())
         let calendar = Calendar.current
@@ -53,7 +52,7 @@ struct SignupPersonalView: View {
                     NavigationLink(destination: SignupAccountView(name: viewModel.name,
                                                                   lastName: viewModel.lastName,
                                                                   gender: viewModel.selectedGender,
-                                                                  birthDay: formatDateToString(viewModel.dateOfBirth)), 
+                                                                  birthDay: viewModel.dateOfBirth.toString()),
                                    isActive: $viewModel.isValid) {}
                     
                     Button(action: {
@@ -119,12 +118,6 @@ private extension SignupPersonalView {
         .font(.subheadline)
         .padding()
         .datePickerStyle(.compact)
-    }
-    
-    func formatDateToString(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd-MM-yyyy"
-        return formatter.string(from: date)
     }
 }
 
