@@ -25,3 +25,10 @@ public struct CreateEventContract: Encodable {
         }
     }
 }
+
+public struct UpdateEventContract: Encodable {
+    let id: Int?
+    let title: String?
+    let description: String?
+    let date: String?
+}

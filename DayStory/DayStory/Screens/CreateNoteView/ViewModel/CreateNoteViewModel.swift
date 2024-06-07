@@ -39,4 +39,19 @@ class CreateNoteViewModel: ObservableObject {
             }
         }
     }
+    
+    func updateEvent(model: UpdateEventContract) async {
+        let result = await API.User.updateEvent(event: model).fetch(responseModel: CreateEventResponse.self)
+        
+        DispatchQueue.main.async {
+            switch result {
+            case let .success(response):
+                if response.statusCode == 200 {
+                    self.isNoteCreated = true
+                }
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }

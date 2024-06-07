@@ -12,6 +12,7 @@ struct CreateNoteView: View {
     @StateObject private var viewModel = CreateNoteViewModel()
     @Environment(\.dismiss) var dismiss
     let date = Date()
+    var event: Events?
     
     var body: some View {
         NavigationStack {
@@ -56,10 +57,18 @@ struct CreateNoteView: View {
                         
                         if viewModel.isValid {
                             Task {
-                                let model = CreateEventContract(title: viewModel.title,
-                                                                description: viewModel.note,
-                                                                date: date.toString())
-                                await viewModel.createEvent(model: model)
+                                if event != nil {
+                                    let model = UpdateEventContract(id: event?.id,
+                                                                    title: viewModel.title,
+                                                                    description: viewModel.note,
+                                                                    date: date.toString())
+                                    await viewModel.updateEvent(model: model)
+                                } else {
+                                    let model = CreateEventContract(title: viewModel.title,
+                                                                    description: viewModel.note,
+                                                                    date: date.toString())
+                                    await viewModel.createEvent(model: model)
+                                }
                                 
                                 if viewModel.isNoteCreated == true {
                                     dismiss()
@@ -95,6 +104,12 @@ struct CreateNoteView: View {
         }
         .toolbar {
             DayStoryToolbar()
+        }
+        .onAppear {
+            if event != nil {
+                viewModel.title = event?.title ?? ""
+                viewModel.note = event?.description ?? ""
+            }
         }
     }
 }

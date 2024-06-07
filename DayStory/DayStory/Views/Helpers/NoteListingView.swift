@@ -8,26 +8,57 @@
 import SwiftUI
 
 struct NoteListingView: View {
+    
+    @StateObject private var viewModel = TodayViewModel()
+    var note: Events
+    
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("Başlık")
-                .font(.system(size: 14))
-                .fontWeight(.semibold)
-                .foregroundStyle(.noteTitle)
-                .padding(.bottom, 4)
-            
-            Text("Supporting line text lorem ipsum dolor sit amet, consectetur")
-                .font(.system(size: 14))
-                .foregroundStyle(.noteTitle)
+        NavigationStack {
+            ZStack(alignment: .topTrailing) {
+                VStack(alignment: .leading) {
+                    Text(note.title ?? "")
+                        .font(.system(size: 14))
+                        .fontWeight(.semibold)
+                        .foregroundStyle(.noteTitle)
+                        .padding(.bottom, 4)
+                    
+                    Text(note.description ?? "")
+                        .font(.system(size: 14))
+                        .foregroundStyle(.noteTitle)
+                }
+                .padding()
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(Color.white)
+                .cornerRadius(10)
+                .shadow(radius: 1)
+                .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.textFieldBorder).opacity(0.1))
+                .padding([.leading, .trailing], 20)
+                
+                Menu {
+                    NavigationLink(destination: CreateNoteView(event: note)) {
+                        Text("Düzenle")
+                    }
+                    
+                    Button {
+                        Task {
+                            await viewModel.deleteEvent(id: note.id)
+                        }
+                    } label: {
+                        Text("Sil")
+                    }
+                } label: {
+                    Image(systemName: "ellipsis")
+                        .imageScale(.medium)
+                        .frame(width: 44, height: 44)
+                        .foregroundStyle(.todayScreenText)
+                        .rotationEffect(.degrees(90))
+                        .padding(.trailing, 10)
+                }
+            }
         }
-        .padding()
-        .background(Color.white)
-        .cornerRadius(10)
-        .shadow(radius: 1)
-        .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.textFieldBorder).opacity(0.1))
     }
 }
 
 #Preview {
-    NoteListingView()
+    NoteListingView(note: Events(id: 1, title: "Test title", description: "Test description", date: "", time: "", priority: ""))
 }
