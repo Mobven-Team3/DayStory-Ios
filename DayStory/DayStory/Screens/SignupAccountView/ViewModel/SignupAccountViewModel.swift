@@ -20,6 +20,9 @@ final class SignupAccountViewModel: ObservableObject {
     @Published var passwordErrorMessage: String? = nil
     @Published var confirmPasswordErrorMessage: String? = nil
     
+    @Published var isSignupSuccessful: Bool = false
+    @Published var errorMessage: String = ""
+    
     func validateFields() {
         emailErrorMessage = !email.isValidEmail ? "Geçerli bir email giriniz." : nil
         userNameErrorMessage = !userName.isValidUserName ? "Geçerli bir kullanıcı adı giriniz." : nil
@@ -32,13 +35,16 @@ final class SignupAccountViewModel: ObservableObject {
     func register(model: RegisterUserContract) async {
         let result = await API.User.register(user: model).fetch(responseModel: SignupResponseModel.self)
         
-        switch result {
-        case let .success(response):
-            DispatchQueue.main.async {
-                print(response.message)
+        DispatchQueue.main.async {
+            switch result {
+            case let .success(response):
+                if response.statusCode == 200 {
+                    self.isSignupSuccessful = true
+                }
+            case let .failure(error):
+                self.isSignupSuccessful = false
+                self.errorMessage = error.localizedDescription
             }
-        case let .failure(error):
-            print(error.localizedDescription)
         }
     }
 }

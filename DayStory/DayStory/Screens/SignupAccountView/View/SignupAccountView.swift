@@ -9,6 +9,9 @@ struct SignupAccountView: View {
     var gender: String?
     var birthDay: String?
     
+    @State private var showAlert = false
+    @State private var alertMessage = ""
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -55,7 +58,7 @@ struct SignupAccountView: View {
                 }
                 
                 VStack {
-                    NavigationLink(destination: LoginView(), isActive: $viewModel.isValid) {}
+                    NavigationLink(destination: LoginView(), isActive: $viewModel.isSignupSuccessful) {}
                     
                     Button(action: {
                         viewModel.validateFields()
@@ -71,12 +74,20 @@ struct SignupAccountView: View {
                                                                  birthDate: birthDay!,
                                                                  gender: convertGender(gender: gender!))
                                 await viewModel.register(model: model)
+                                
+                                if !viewModel.isSignupSuccessful {
+                                    showAlert = true
+                                    alertMessage = viewModel.errorMessage
+                                }
                             }
                         }
                     }) {
                         GradientButton(title: "Devam")
                     }
                     .padding(.bottom, 10)
+                    .alert(isPresented: $showAlert) {
+                        Alert(title: Text("HATA"), message: Text(alertMessage), dismissButton: .default(Text("Tamam")))
+                    }
                     
                     LoginPrompt(promptText: "Zaten bir hesabın var mı?",
                                 linkText: "Giriş Yap",

@@ -8,6 +8,6 @@
 import Foundation
 
 struct SignupResponseModel: Decodable {
-    let success: Bool
-    let message: String
+    let statusCode: Int?
+    let message: String?
 }

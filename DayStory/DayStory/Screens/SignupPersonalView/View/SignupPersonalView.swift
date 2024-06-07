@@ -81,6 +81,7 @@ private extension SignupPersonalView {
             Text("Cinsiyet")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .font(.subheadline)
+                .foregroundStyle(viewModel.genderErrorMessage == nil ? .black : .red)
             
             Picker("Seçiniz", selection: $viewModel.selectedGender) {
                 Text("Seçiniz").tag("")
