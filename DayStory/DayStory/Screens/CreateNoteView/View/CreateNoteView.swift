@@ -34,6 +34,7 @@ struct CreateNoteView: View {
                         DayStoryTextField(text: $viewModel.note,
                                           title: "Notunuz",
                                           placeholder: "Notunuzun detaylarını giriniz.",
+                                          errorMessage: viewModel.noteErrorMessage,
                                           textLimit: 350,
                                           isLarge: true)
                         

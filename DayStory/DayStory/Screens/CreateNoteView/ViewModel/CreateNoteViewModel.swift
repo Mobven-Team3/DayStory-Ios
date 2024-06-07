@@ -14,13 +14,15 @@ class CreateNoteViewModel: ObservableObject {
     
     @Published var isValid: Bool = false
     @Published var titleErrorMessage: String? = nil
+    @Published var noteErrorMessage: String? = nil
     
     @Published var isNoteCreated: Bool? = nil
     
     func validateFields() {
         titleErrorMessage = title.count < 3 ? "Başlık en az 3 karakterden oluşmalıdır." : nil
+        noteErrorMessage = (!note.isEmpty && note.count < 3) ? "Not en az 3 karakterden oluşmalıdır.": nil
         
-        isValid = titleErrorMessage == nil
+        isValid = titleErrorMessage == nil && noteErrorMessage == nil
     }
 
     func createEvent(model: CreateEventContract) async {
