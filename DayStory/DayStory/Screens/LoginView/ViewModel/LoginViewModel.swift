@@ -32,8 +32,10 @@ final class LoginViewModel: ObservableObject {
         DispatchQueue.main.async {
             switch result {
             case let .success(response):
-                self.isLoginSuccessful = true
-                TokenManager.shared.token = response.token
+                if response.statusCode == 200 {
+                    self.isLoginSuccessful = true
+                    TokenManager.shared.token = response.data?.token
+                }
             case let .failure(error):
                 self.isLoginSuccessful = false
                 self.errorMessage = error.localizedDescription

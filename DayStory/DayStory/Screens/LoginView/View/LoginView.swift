@@ -15,8 +15,8 @@ struct LoginView: View {
                         
                         Form {
                             DayStoryTextField(text: $viewModel.email,
-                                              title: "Emailinizi Yazınız",
-                                              placeholder: "Kullanıcı Adınızı Giriniz",
+                                              title: "Email",
+                                              placeholder: "Emailinizi Yazınız",
                                               errorMessage: viewModel.emailErrorMessage,
                                               textLimit: 50)
                             .padding(.bottom)
@@ -51,7 +51,7 @@ struct LoginView: View {
                             GradientButton(title: "Giriş Yap")
                         }
                         .alert(isPresented: $showAlert) {
-                            Alert(title: Text("Error"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+                            Alert(title: Text("HATA"), message: Text(alertMessage), dismissButton: .default(Text("Tamam")))
                         }
                         
                         LoginPrompt(promptText: "Henüz hesabın yok mu?",
