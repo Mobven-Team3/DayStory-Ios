@@ -23,12 +23,13 @@ extension Networkable {
     func postRequest<T: Encodable> (
         data: T,
         path: String,
-        httpMethod: RequestMethod = .post
+        httpMethod: RequestMethod = .post,
+        token: String? = nil
     ) async -> URLRequest {
         let url = API.prepareUrl(withPath: path)
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod.rawValue
-        request.allHTTPHeaderFields = API.getHeader(contentType: ContentType.json)
+        request.allHTTPHeaderFields = API.getHeader(contentType: ContentType.json, token: token)
         
         do {
             request.httpBody = try JSONEncoder().encode(data)

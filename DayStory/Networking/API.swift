@@ -20,10 +20,12 @@ public enum API {
         return url
     }
     
-    static func getHeader(contentType: ContentType) -> [String : String] {
+    static func getHeader(contentType: ContentType, token: String? = nil) -> [String : String] {
         var headers: [String : String] = [:]
-        //header["Authorizaition"] = "Bearer"
         headers["Content-Type"] = contentType.rawValue
+        if let token = token {
+            headers["Authorization"] = "Bearer \(token)"
+        }
         return headers
     }
 }

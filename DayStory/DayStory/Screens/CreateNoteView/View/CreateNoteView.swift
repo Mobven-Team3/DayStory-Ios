@@ -50,6 +50,15 @@ struct CreateNoteView: View {
                 HStack() {
                     Button {
                         viewModel.validateFields()
+                        
+                        if viewModel.isValid {
+                            Task {
+                                let model = CreateEventContract(title: viewModel.title,
+                                                                description: viewModel.note,
+                                                                date: "06-06-2024")
+                                await viewModel.createEvent(model: model)
+                            }
+                        }
                     } label: {
                         Text("Kaydet")
                             .font(.system(size: 14, weight: .semibold))

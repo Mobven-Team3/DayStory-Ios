@@ -20,4 +20,17 @@ class CreateNoteViewModel: ObservableObject {
         
         isValid = titleErrorMessage == nil
     }
+
+    func createEvent(model: CreateEventContract) async {
+        let result = await API.User.eventCreate(event: model).fetch(responseModel: SignupResponseModel.self)
+        
+        switch result {
+        case let .success(response):
+            DispatchQueue.main.async {
+                print(response.message)
+            }
+        case let .failure(error):
+            print(error.localizedDescription)
+        }
+    }
 }
