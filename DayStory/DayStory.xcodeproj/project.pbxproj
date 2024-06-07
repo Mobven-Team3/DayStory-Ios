@@ -27,7 +27,8 @@
 		DCA2AD122C11DC9D00F04205 /* CreateNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA2AD112C11DC9D00F04205 /* CreateNoteViewModel.swift */; };
 		DCA2AD162C11DFE400F04205 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA2AD152C11DFE400F04205 /* Date+Extensions.swift */; };
 		DCA41D742C12496F00E07868 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA41D732C12496F00E07868 /* TokenManager.swift */; };
-		DCA41D762C124E8000E07868 /* CreateNoteRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA41D752C124E8000E07868 /* CreateNoteRequestModel.swift */; };
+		DCA41D7C2C12583900E07868 /* CreateNoteRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA41D7B2C12583900E07868 /* CreateNoteRequestModel.swift */; };
+		DCA41D7E2C1258EF00E07868 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA41D7D2C1258EF00E07868 /* TodayView.swift */; };
 		DCA93AAF2C08A74C00B63429 /* SignupPersonalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA93AAE2C08A74C00B63429 /* SignupPersonalViewModel.swift */; };
 		DCA93AB12C08D83700B63429 /* SignupAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA93AB02C08D83700B63429 /* SignupAccountViewModel.swift */; };
 		DCA93AB42C08DFE000B63429 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA93AB32C08DFE000B63429 /* String+Extensions.swift */; };
@@ -51,10 +52,12 @@
 		DCE3BFD52C0A5DAD00EC44EE /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3BFD42C0A5DAD00EC44EE /* LoginViewModel.swift */; };
 		DCE3BFDB2C0A6E7D00EC44EE /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3BFDA2C0A6E7D00EC44EE /* GalleryView.swift */; };
 		DCE3BFDD2C0A6EC800EC44EE /* DayStoryTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3BFDC2C0A6EC800EC44EE /* DayStoryTabView.swift */; };
-		DCE3BFE02C0A6F0100EC44EE /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3BFDF2C0A6F0100EC44EE /* TodayView.swift */; };
 		DCE3BFE32C0A6F1F00EC44EE /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3BFE22C0A6F1F00EC44EE /* ProfileView.swift */; };
 		DCE3BFE52C0A813300EC44EE /* GalleryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3BFE42C0A813300EC44EE /* GalleryCardView.swift */; };
 		DCEC87C02C0E076000E721D6 /* SignupAccountRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEC87BF2C0E076000E721D6 /* SignupAccountRequestModel.swift */; };
+		DCFC5A282C1259E5009918CD /* TodayRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFC5A272C1259E5009918CD /* TodayRequestModel.swift */; };
+		DCFC5A2A2C125A24009918CD /* TodayResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFC5A292C125A24009918CD /* TodayResponseModel.swift */; };
+		DCFC5A2C2C125AD1009918CD /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFC5A2B2C125AD1009918CD /* TodayViewModel.swift */; };
 		DCFD54F12BFFBB620096D24A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFD54F02BFFBB620096D24A /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
@@ -97,7 +100,8 @@
 		DCA2AD112C11DC9D00F04205 /* CreateNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoteViewModel.swift; sourceTree = "<group>"; };
 		DCA2AD152C11DFE400F04205 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		DCA41D732C12496F00E07868 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
-		DCA41D752C124E8000E07868 /* CreateNoteRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoteRequestModel.swift; sourceTree = "<group>"; };
+		DCA41D7B2C12583900E07868 /* CreateNoteRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoteRequestModel.swift; sourceTree = "<group>"; };
+		DCA41D7D2C1258EF00E07868 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 		DCA93AAE2C08A74C00B63429 /* SignupPersonalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPersonalViewModel.swift; sourceTree = "<group>"; };
 		DCA93AB02C08D83700B63429 /* SignupAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupAccountViewModel.swift; sourceTree = "<group>"; };
 		DCA93AB32C08DFE000B63429 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
@@ -127,10 +131,12 @@
 		DCE3BFD42C0A5DAD00EC44EE /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		DCE3BFDA2C0A6E7D00EC44EE /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
 		DCE3BFDC2C0A6EC800EC44EE /* DayStoryTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayStoryTabView.swift; sourceTree = "<group>"; };
-		DCE3BFDF2C0A6F0100EC44EE /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 		DCE3BFE22C0A6F1F00EC44EE /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		DCE3BFE42C0A813300EC44EE /* GalleryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCardView.swift; sourceTree = "<group>"; };
 		DCEC87BF2C0E076000E721D6 /* SignupAccountRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupAccountRequestModel.swift; sourceTree = "<group>"; };
+		DCFC5A272C1259E5009918CD /* TodayRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayRequestModel.swift; sourceTree = "<group>"; };
+		DCFC5A292C125A24009918CD /* TodayResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayResponseModel.swift; sourceTree = "<group>"; };
+		DCFC5A2B2C125AD1009918CD /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
 		DCFD54F02BFFBB620096D24A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -217,7 +223,7 @@
 		DC92B9CD2C10F9D0008E0194 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DCA41D752C124E8000E07868 /* CreateNoteRequestModel.swift */,
+				DCA41D7B2C12583900E07868 /* CreateNoteRequestModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -361,19 +367,20 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		DCA41D772C1255F500E07868 /* TodayViewModel */ = {
+		DCA41D772C1255F500E07868 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				DCFC5A2B2C125AD1009918CD /* TodayViewModel.swift */,
 			);
-			path = TodayViewModel;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		DCA41D782C1255FD00E07868 /* TodayView */ = {
+		DCA41D782C1255FD00E07868 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DCE3BFDF2C0A6F0100EC44EE /* TodayView.swift */,
+				DCA41D7D2C1258EF00E07868 /* TodayView.swift */,
 			);
-			path = TodayView;
+			path = View;
 			sourceTree = "<group>";
 		};
 		DCA93AAB2C08A72300B63429 /* ViewModel */ = {
@@ -567,8 +574,9 @@
 		DCE3BFDE2C0A6EF300EC44EE /* TodayView */ = {
 			isa = PBXGroup;
 			children = (
-				DCA41D782C1255FD00E07868 /* TodayView */,
-				DCA41D772C1255F500E07868 /* TodayViewModel */,
+				DCFC5A262C1259D1009918CD /* Model */,
+				DCA41D782C1255FD00E07868 /* View */,
+				DCA41D772C1255F500E07868 /* ViewModel */,
 			);
 			path = TodayView;
 			sourceTree = "<group>";
@@ -579,6 +587,15 @@
 				DCE3BFE22C0A6F1F00EC44EE /* ProfileView.swift */,
 			);
 			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		DCFC5A262C1259D1009918CD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DCFC5A272C1259E5009918CD /* TodayRequestModel.swift */,
+				DCFC5A292C125A24009918CD /* TodayResponseModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -714,6 +731,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCFC5A2C2C125AD1009918CD /* TodayViewModel.swift in Sources */,
 				DC99B1952C00DC7400CDD857 /* AuthenticationHelperText.swift in Sources */,
 				DCE3BFE52C0A813300EC44EE /* GalleryCardView.swift in Sources */,
 				DCB7D2D92BF7792F0017CEBC /* Networkable+Extensions.swift in Sources */,
@@ -725,21 +743,23 @@
 				DCE3BFD52C0A5DAD00EC44EE /* LoginViewModel.swift in Sources */,
 				DC7F3AB12BFFF32C0020291C /* SignupSectionView.swift in Sources */,
 				DCB7D2962BF747820017CEBC /* DayStoryApp.swift in Sources */,
+				DCFC5A282C1259E5009918CD /* TodayRequestModel.swift in Sources */,
 				DCB7D2CE2BF757220017CEBC /* URL+Extension.swift in Sources */,
 				DCFD54F12BFFBB620096D24A /* LoginView.swift in Sources */,
 				DCA93AAF2C08A74C00B63429 /* SignupPersonalViewModel.swift in Sources */,
 				DCB7D2D02BF75ABF0017CEBC /* API.swift in Sources */,
 				DC7F3AA62BFFC61A0020291C /* GradientButton.swift in Sources */,
 				1973E4722C0C84E6000F325F /* CreateNoteView.swift in Sources */,
+				DCA41D7E2C1258EF00E07868 /* TodayView.swift in Sources */,
 				DCA41D742C12496F00E07868 /* TokenManager.swift in Sources */,
 				DCA93AB42C08DFE000B63429 /* String+Extensions.swift in Sources */,
 				DC5524E22C072A6000118CC3 /* SignupPersonalView.swift in Sources */,
 				1973E46A2C0A14C6000F325F /* DetailScreenView.swift in Sources */,
 				DC9D959D2C0F5CC9005E908B /* LoginRequestModel.swift in Sources */,
+				DCFC5A2A2C125A24009918CD /* TodayResponseModel.swift in Sources */,
 				DCB7D2CC2BF756880017CEBC /* NSError.swift in Sources */,
 				DC6E213D2C109C760012FE62 /* NoteListingView.swift in Sources */,
-				DCA41D762C124E8000E07868 /* CreateNoteRequestModel.swift in Sources */,
-				DCE3BFE02C0A6F0100EC44EE /* TodayView.swift in Sources */,
+				DCA41D7C2C12583900E07868 /* CreateNoteRequestModel.swift in Sources */,
 				DCB7D2D42BF75DD00017CEBC /* Networkable.swift in Sources */,
 				DC9D959F2C0F5D1E005E908B /* LoginResponseModel.swift in Sources */,
 				DCA2AD122C11DC9D00F04205 /* CreateNoteViewModel.swift in Sources */,
