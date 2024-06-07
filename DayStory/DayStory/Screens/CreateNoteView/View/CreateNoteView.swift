@@ -11,6 +11,7 @@ struct CreateNoteView: View {
     
     @StateObject private var viewModel = CreateNoteViewModel()
     @Environment(\.dismiss) var dismiss
+    let date = Date()
     
     var body: some View {
         NavigationStack {
@@ -44,6 +45,7 @@ struct CreateNoteView: View {
                     .formStyle(.columns)
                 }
             }
+            
             HStack {
                 Spacer()
                 
@@ -55,8 +57,12 @@ struct CreateNoteView: View {
                             Task {
                                 let model = CreateEventContract(title: viewModel.title,
                                                                 description: viewModel.note,
-                                                                date: "06-06-2024")
+                                                                date: date.toString())
                                 await viewModel.createEvent(model: model)
+                                
+                                if viewModel.isNoteCreated == true {
+                                    dismiss()
+                                }
                             }
                         }
                     } label: {
@@ -86,7 +92,6 @@ struct CreateNoteView: View {
                 .padding()
             }
         }
-        .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             DayStoryToolbar()
         }
