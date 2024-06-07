@@ -13,6 +13,8 @@ public extension API {
         case login(user: LoginUserContract)
         case eventCreate(event: CreateEventContract)
         case getEventsByDay(date: String)
+        case updateEvent(event: UpdateEventContract)
+        case deleteEvent(id: Int)
         
         public func request() async -> URLRequest {
             switch self {
@@ -24,6 +26,10 @@ public extension API {
                 await postRequest(data: event, path: "api/Events/", token: TokenManager.shared.token)
             case let .getEventsByDay(date):
                 await getRequest(path: "api/Events/day?date=\(date)", token: TokenManager.shared.token)
+            case let .updateEvent(event):
+                await updateRequest(data: event, path: "api/Events/", token: TokenManager.shared.token)
+            case let .deleteEvent(id):
+                await deleteRequest(path: "api/Events/\(id)", token: TokenManager.shared.token)
             }
         }
     }
