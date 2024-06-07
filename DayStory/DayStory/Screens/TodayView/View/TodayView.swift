@@ -11,7 +11,6 @@ struct TodayView: View {
     
     @StateObject private var viewModel = TodayViewModel()
     let date = Date()
-    var noteCount = 5
     
     var body: some View {
         NavigationStack {
@@ -22,15 +21,12 @@ struct TodayView: View {
                         .padding(.vertical, 35)
                     
                     Button {
-                        Task {
-                            let model = GetEventsByDayContract(date: "06-06-2024")
-                            await viewModel.createEvent(model: model)
-                        }
+                        
                     } label: {
                         GradientButton(title: "AI Gün Özeti Oluştur")
                     }
-                    .disabled(noteCount == 0)
-                    .opacity(noteCount == 0 ? 0.5 : 1)
+                    .disabled(viewModel.notes.count == 0)
+                    .opacity(viewModel.notes.count == 0 ? 0.5 : 1)
                     
                     Text("Notlar")
                         .font(.callout)
@@ -38,15 +34,15 @@ struct TodayView: View {
                         .padding(.top, 45)
                         .padding(.bottom, 20)
                     
-                    if noteCount == 0 {
+                    if viewModel.notes.count == 0 {
                         Text("Bu gün için notunuz bulunmuyor.")
                             .font(.callout)
                             .foregroundStyle(.todayScreenText)
                             .padding()
                     } else {
                         VStack(spacing: 25) {
-                            ForEach(0..<noteCount) {_ in
-                                NoteListingView()
+                            ForEach(viewModel.notes, id: \.id) { note in
+                                NoteListingView(note: note)
                             }
                         }
                     }
@@ -66,6 +62,11 @@ struct TodayView: View {
                             .clipShape(.buttonBorder)
                             .padding()
                     }
+                }
+            }
+            .onAppear {
+                Task {
+                    await viewModel.getNotes(date: date.toString())
                 }
             }
             .navigationBarTitleDisplayMode(.inline)

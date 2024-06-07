@@ -11,6 +11,8 @@ struct CreateNoteView: View {
     
     @StateObject private var viewModel = CreateNoteViewModel()
     @Environment(\.dismiss) var dismiss
+    let date = Date()
+    var event: Events?
     
     var body: some View {
         NavigationStack {
@@ -33,6 +35,7 @@ struct CreateNoteView: View {
                         DayStoryTextField(text: $viewModel.note,
                                           title: "Notunuz",
                                           placeholder: "Notunuzun detaylarını giriniz.",
+                                          errorMessage: viewModel.noteErrorMessage,
                                           textLimit: 350,
                                           isLarge: true)
                         
@@ -44,6 +47,7 @@ struct CreateNoteView: View {
                     .formStyle(.columns)
                 }
             }
+            
             HStack {
                 Spacer()
                 
@@ -53,10 +57,22 @@ struct CreateNoteView: View {
                         
                         if viewModel.isValid {
                             Task {
-                                let model = CreateEventContract(title: viewModel.title,
-                                                                description: viewModel.note,
-                                                                date: "06-06-2024")
-                                await viewModel.createEvent(model: model)
+                                if event != nil {
+                                    let model = UpdateEventContract(id: event?.id,
+                                                                    title: viewModel.title,
+                                                                    description: viewModel.note,
+                                                                    date: date.toString())
+                                    await viewModel.updateEvent(model: model)
+                                } else {
+                                    let model = CreateEventContract(title: viewModel.title,
+                                                                    description: viewModel.note,
+                                                                    date: date.toString())
+                                    await viewModel.createEvent(model: model)
+                                }
+                                
+                                if viewModel.isNoteCreated == true {
+                                    dismiss()
+                                }
                             }
                         }
                     } label: {
@@ -86,9 +102,14 @@ struct CreateNoteView: View {
                 .padding()
             }
         }
-        .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             DayStoryToolbar()
+        }
+        .onAppear {
+            if event != nil {
+                viewModel.title = event?.title ?? ""
+                viewModel.note = event?.description ?? ""
+            }
         }
     }
 }

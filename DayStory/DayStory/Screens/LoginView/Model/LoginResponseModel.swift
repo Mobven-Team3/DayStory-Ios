@@ -8,9 +8,15 @@
 import Foundation
 
 struct LoginResponseModel: Decodable {
-    let token: String?
+    let message: String?
+    let statusCode: Int?
+    let data: Token?
 
     enum CodingKeys: String, CodingKey {
-        case token
+        case message, statusCode, data
     }
+}
+
+struct Token: Decodable {
+    let token: String?
 }

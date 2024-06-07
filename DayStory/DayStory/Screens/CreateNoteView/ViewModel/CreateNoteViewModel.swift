@@ -14,23 +14,44 @@ class CreateNoteViewModel: ObservableObject {
     
     @Published var isValid: Bool = false
     @Published var titleErrorMessage: String? = nil
+    @Published var noteErrorMessage: String? = nil
+    
+    @Published var isNoteCreated: Bool? = nil
     
     func validateFields() {
         titleErrorMessage = title.count < 3 ? "Başlık en az 3 karakterden oluşmalıdır." : nil
+        noteErrorMessage = (!note.isEmpty && note.count < 3) ? "Not en az 3 karakterden oluşmalıdır.": nil
         
-        isValid = titleErrorMessage == nil
+        isValid = titleErrorMessage == nil && noteErrorMessage == nil
     }
 
     func createEvent(model: CreateEventContract) async {
-        let result = await API.User.eventCreate(event: model).fetch(responseModel: SignupResponseModel.self)
+        let result = await API.User.eventCreate(event: model).fetch(responseModel: CreateEventResponse.self)
         
-        switch result {
-        case let .success(response):
-            DispatchQueue.main.async {
-                print(response.message)
+        DispatchQueue.main.async {
+            switch result {
+            case let .success(response):
+                if response.statusCode == 200 {
+                    self.isNoteCreated = true
+                }
+            case let .failure(error):
+                print(error.localizedDescription)
             }
-        case let .failure(error):
-            print(error.localizedDescription)
+        }
+    }
+    
+    func updateEvent(model: UpdateEventContract) async {
+        let result = await API.User.updateEvent(event: model).fetch(responseModel: CreateEventResponse.self)
+        
+        DispatchQueue.main.async {
+            switch result {
+            case let .success(response):
+                if response.statusCode == 200 {
+                    self.isNoteCreated = true
+                }
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
         }
     }
 }

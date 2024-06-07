@@ -69,7 +69,10 @@ struct DayStoryTextField: View {
         .overlay(alignment: .topLeading) {
             Text(title)
                 .font(.subheadline)
-                .offset(x: 17, y: -5)
+                .foregroundStyle(errorMessage == nil ? .black : .red)
+                .padding(.top, 6)
+                .background(Color.white)
+                .offset(x: 32)
         }
         .overlay(alignment: .bottomLeading) {
             if let errorMessage = errorMessage, !errorMessage.isEmpty {
