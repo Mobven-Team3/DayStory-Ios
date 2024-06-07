@@ -23,4 +23,21 @@ final class TodayViewModel: ObservableObject {
             }
         }
     }
+    
+    func deleteEvent(id: Int) async {
+        let result = await API.User.deleteEvent(id: id).fetch(responseModel: CreateEventResponse.self)
+        
+        DispatchQueue.main.async {
+            switch result {
+            case let .success(response):
+                if response.statusCode == 200 {
+                    Task {
+                        await self.getNotes(date: Date().toString())
+                    }
+                }
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }

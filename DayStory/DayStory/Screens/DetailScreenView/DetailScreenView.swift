@@ -31,11 +31,11 @@ struct DetailScreenView: View {
                         .fontWeight(.semibold)
                         .padding(.bottom)
                     
-                    VStack(spacing: 25) {
+                    /*VStack(spacing: 25) {
                         ForEach(0..<3) {_ in
                             NoteListingView()
                         }
-                    }
+                    }*/
                 }
             }
             .navigationBarTitleDisplayMode(.inline)

@@ -11,7 +11,6 @@ struct TodayView: View {
     
     @StateObject private var viewModel = TodayViewModel()
     let date = Date()
-    var noteCount = 5
     
     var body: some View {
         NavigationStack {
@@ -35,7 +34,7 @@ struct TodayView: View {
                         .padding(.top, 45)
                         .padding(.bottom, 20)
                     
-                    if noteCount == 0 {
+                    if viewModel.notes.count == 0 {
                         Text("Bu gün için notunuz bulunmuyor.")
                             .font(.callout)
                             .foregroundStyle(.todayScreenText)
