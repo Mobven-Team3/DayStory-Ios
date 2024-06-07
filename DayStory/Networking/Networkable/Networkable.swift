@@ -42,13 +42,9 @@ public extension Networkable {
                 
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .iso8601
-                let decodingData = try decoder.decode(Response<T>.self, from: data)
+                let decodingData = try decoder.decode(T.self, from: data)
                 
-                if let body = decodingData.data {
-                    return .success(body)
-                } else {
-                    return .failure(NSError.generic)
-                }
+                return .success(decodingData)
             }
         } catch {
             return .failure(NSError.generic)

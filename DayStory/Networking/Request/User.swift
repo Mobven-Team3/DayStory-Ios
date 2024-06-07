@@ -12,7 +12,7 @@ public extension API {
         case register(user: RegisterUserContract)
         case login(user: LoginUserContract)
         case eventCreate(event: CreateEventContract)
-        case getEventsByDay(date: GetEventsByDayContract)
+        case getEventsByDay(date: String)
         
         public func request() async -> URLRequest {
             switch self {
@@ -22,8 +22,8 @@ public extension API {
                 await postRequest(data: user, path: "api/Users/login")
             case let .eventCreate(event):
                 await postRequest(data: event, path: "api/Events/", token: TokenManager.shared.token)
-            case let .getEventsByDay(event):
-                await postRequest(data: event, path: "api/Events/day", token: TokenManager.shared.token)
+            case let .getEventsByDay(date):
+                await getRequest(path: "api/Events/day?date=\(date)", token: TokenManager.shared.token)
             }
         }
     }

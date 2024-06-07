@@ -7,6 +7,4 @@
 
 import Foundation
 
-public struct Response<T: Decodable>: Decodable {
-    public var data: T?
-}
+public struct Response<T: Decodable>: Decodable {}

@@ -11,12 +11,14 @@ extension Networkable {
     func getRequest(
         queryItem: [String : String] = [:],
         path: String,
-        httpMethod: RequestMethod = .get
+        httpMethod: RequestMethod = .get,
+        token: String? = nil
     ) async -> URLRequest {
         let url = API.prepareUrl(withPath: path)
         let request = await prepareRequest(url: url,
                                            method: httpMethod,
-                                           contentType: ContentType.json)
+                                           contentType: ContentType.json,
+                                           token: token)
         return request
     }
     
@@ -43,11 +45,12 @@ extension Networkable {
     private func prepareRequest(
         url: URL,
         method: RequestMethod,
-        contentType: ContentType
+        contentType: ContentType,
+        token: String? = nil
     ) async -> URLRequest {
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
-        request.allHTTPHeaderFields = API.getHeader(contentType: contentType)
+        request.allHTTPHeaderFields = API.getHeader(contentType: contentType, token: token)
         return request
     }
 }
