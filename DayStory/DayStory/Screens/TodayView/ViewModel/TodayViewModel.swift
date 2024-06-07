@@ -9,18 +9,18 @@ import Foundation
 
 final class TodayViewModel: ObservableObject {
     
-    @Published var notes: [GetEventsByDayResponse]?
+    @Published var notes: [Events] = []
     
-    func createEvent(model: GetEventsByDayContract) async {
-        let result = await API.User.getEventsByDay(date: model).fetch(responseModel: GetEventsByDayResponse.self)
+    func getNotes(date: String) async {
+        let result = await API.User.getEventsByDay(date: date).fetch(responseModel: GetEventsByDayResponse.self)
         
-        switch result {
-        case let .success(response):
-            DispatchQueue.main.async {
-                print(response)
+        DispatchQueue.main.async {
+            switch result {
+            case let .success(response):
+                self.notes = response.data ?? []
+            case let .failure(error):
+                print(error.localizedDescription)
             }
-        case let .failure(error):
-            print(error.localizedDescription)
         }
     }
 }

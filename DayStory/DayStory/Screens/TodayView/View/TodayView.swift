@@ -22,15 +22,12 @@ struct TodayView: View {
                         .padding(.vertical, 35)
                     
                     Button {
-                        Task {
-                            let model = GetEventsByDayContract(date: "06-06-2024")
-                            await viewModel.createEvent(model: model)
-                        }
+                        
                     } label: {
                         GradientButton(title: "AI Gün Özeti Oluştur")
                     }
-                    .disabled(noteCount == 0)
-                    .opacity(noteCount == 0 ? 0.5 : 1)
+                    .disabled(viewModel.notes.count == 0)
+                    .opacity(viewModel.notes.count == 0 ? 0.5 : 1)
                     
                     Text("Notlar")
                         .font(.callout)
@@ -45,8 +42,8 @@ struct TodayView: View {
                             .padding()
                     } else {
                         VStack(spacing: 25) {
-                            ForEach(0..<noteCount) {_ in
-                                NoteListingView()
+                            ForEach(viewModel.notes, id: \.id) { note in
+                                NoteListingView(note: note)
                             }
                         }
                     }
@@ -66,6 +63,11 @@ struct TodayView: View {
                             .clipShape(.buttonBorder)
                             .padding()
                     }
+                }
+            }
+            .onAppear {
+                Task {
+                    await viewModel.getNotes(date: date.toString())
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
