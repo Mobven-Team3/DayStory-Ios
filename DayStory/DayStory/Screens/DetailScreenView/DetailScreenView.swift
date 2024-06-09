@@ -11,37 +11,35 @@ struct DetailScreenView: View {
     @Environment(\.defaultMinListRowHeight) var minRowHeight
     
     var body: some View {
-        NavigationStack {
-            ScrollView {
+        ScrollView {
+            VStack {
                 VStack {
-                    VStack {
-                        Text("gg.aa.yy")
-                            .font(.system(size: 16))
-                            .padding()
-                        
-                        Image("daystoryOnboarding")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 335, height: 335)
-                    }
-                    .padding()
-                    
-                    Text("Notlar")
+                    Text("gg.aa.yy")
                         .font(.system(size: 16))
-                        .fontWeight(.semibold)
-                        .padding(.bottom)
+                        .padding()
                     
-                    /*VStack(spacing: 25) {
-                        ForEach(0..<3) {_ in
-                            NoteListingView()
-                        }
-                    }*/
+                    Image("daystoryOnboarding")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 335, height: 335)
                 }
+                .padding()
+                
+                Text("Notlar")
+                    .font(.system(size: 16))
+                    .fontWeight(.semibold)
+                    .padding(.bottom)
+                
+                /*VStack(spacing: 25) {
+                 ForEach(0..<3) {_ in
+                 NoteListingView()
+                 }
+                 }*/
             }
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                DayStoryToolbar()
-            }
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            DayStoryToolbar()
         }
     }
 }

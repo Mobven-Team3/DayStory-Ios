@@ -16,54 +16,52 @@ struct GalleryView: View {
     var itemCount = 0
     
     var body: some View {
-        NavigationStack {
-            ScrollView {
-                if itemCount == 0 {
-                    VStack {
-                        Text("Mayıs 2024")
-                            .font(.title3)
+        ScrollView {
+            if itemCount == 0 {
+                VStack {
+                    Text("Mayıs 2024")
+                        .font(.title3)
+                        .padding()
+                    
+                    Button {
+                        selectedTab = 1
+                    } label: {
+                        GalleryCardView(isPlaceHolder: true)
                             .padding()
-                        
-                        Button {
-                            selectedTab = 1
-                        } label: {
-                            GalleryCardView(isPlaceHolder: true)
-                                .padding()
-                        }
-                        
-                        Image("loginImage")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 144, height: 144)
-                        
-                        Text("İlk günün için notlarını al \nve kişisel hikayeni oluşturmaya \nbaşla!")
-                            .font(.system(size: 16))
-                            .fontWeight(.semibold)
-                            .multilineTextAlignment(.center)
-                            .lineLimit(3)
-                            .offset(y: -20)
                     }
-                    .padding()
-                } else {
-                    VStack(alignment: .leading) {
-                        Text("Mayıs 2024")
-                            .font(.title3)
-                        
-                        LazyVGrid(columns: columns) {
-                            ForEach(0..<self.itemCount) {_ in
-                                NavigationLink(destination: DetailScreenView()) {
-                                    GalleryCardView()
-                                }
+                    
+                    Image("loginImage")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 144, height: 144)
+                    
+                    Text("İlk günün için notlarını al \nve kişisel hikayeni oluşturmaya \nbaşla!")
+                        .font(.system(size: 16))
+                        .fontWeight(.semibold)
+                        .multilineTextAlignment(.center)
+                        .lineLimit(3)
+                        .offset(y: -20)
+                }
+                .padding()
+            } else {
+                VStack(alignment: .leading) {
+                    Text("Mayıs 2024")
+                        .font(.title3)
+                    
+                    LazyVGrid(columns: columns) {
+                        ForEach(0..<self.itemCount) {_ in
+                            NavigationLink(destination: DetailScreenView()) {
+                                GalleryCardView()
                             }
                         }
                     }
-                    .padding()
                 }
+                .padding()
             }
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                DayStoryToolbar()
-            }
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            DayStoryToolbar()
         }
     }
 }

@@ -10,50 +10,67 @@ import SwiftUI
 struct TodayView: View {
     
     @StateObject private var viewModel = TodayViewModel()
+    @State private var showAlert = false
+    @State private var isLoading = false
     let date = Date()
     
     var body: some View {
-        NavigationStack {
-            ScrollView {
-                VStack {
-                    Text(date.toString(format: "dd.MM.yyyy"))
-                        .font(.callout)
-                        .padding(.vertical, 35)
-                    
-                    Button {
-                        
-                    } label: {
-                        GradientButton(title: "AI Gün Özeti Oluştur")
-                    }
-                    .disabled(viewModel.notes.count == 0)
-                    .opacity(viewModel.notes.count == 0 ? 0.5 : 1)
-                    
-                    Text("Notlar")
-                        .font(.callout)
-                        .fontWeight(.semibold)
-                        .padding(.top, 45)
-                        .padding(.bottom, 20)
-                    
-                    if viewModel.notes.count == 0 {
-                        Text("Bu gün için notunuz bulunmuyor.")
+            ZStack {
+                ScrollView {
+                    VStack {
+                        Text(date.toString(format: "dd.MM.yyyy"))
                             .font(.callout)
-                            .foregroundStyle(.todayScreenText)
-                            .padding()
-                    } else {
-                        VStack(spacing: 25) {
-                            ForEach(viewModel.notes, id: \.id) { note in
-                                NoteListingView(viewModel: viewModel, note: note)
+                            .padding(.vertical, 35)
+                        
+                        VStack {
+                            Button {
+                                self.showAlert.toggle()
+                            } label: {
+                                GradientButton(title: "AI Gün Özeti Oluştur")
+                            }
+                            .disabled(viewModel.notes.count == 0)
+                            .opacity(viewModel.notes.count == 0 ? 0.5 : 1)
+                        }
+                        .alert(isPresented: $showAlert) {
+                            Alert(
+                                title: Text("Günde yalnızca 1 kez AI gün özetinizi oluşturabilirsiniz.\nDevam etmek istiyor musunuz?"),
+                                primaryButton: .destructive(Text("Vazgeç")),
+                                secondaryButton: .cancel(Text("Devam Et")) {
+                                    self.isLoading.toggle()
+                                }
+                            )
+                        }
+                        
+                        Text("Notlar")
+                            .font(.callout)
+                            .fontWeight(.semibold)
+                            .padding(.top, 45)
+                            .padding(.bottom, 20)
+                        
+                        if viewModel.notes.count == 0 {
+                            Text("Bu gün için notunuz bulunmuyor.")
+                                .font(.callout)
+                                .foregroundStyle(.todayScreenText)
+                                .padding()
+                        } else {
+                            VStack(spacing: 25) {
+                                ForEach(viewModel.notes, id: \.id) { note in
+                                    NoteListingView(viewModel: viewModel, note: note)
+                                }
                             }
                         }
+                        
+                        Spacer(minLength: 80)
                     }
-                    
-                    Spacer(minLength: 80)
+                }
+                .blur(radius: isLoading ? 10 : 0)
+
+                if isLoading {
+                    DayStoryLoadingView()
                 }
             }
             .overlay(alignment: .bottomTrailing) {
-                Button {
-                    
-                } label: {
+                if !isLoading {
                     NavigationLink(destination: CreateNoteView()) {
                         Image(systemName: "plus")
                             .foregroundStyle(.white)
@@ -74,7 +91,6 @@ struct TodayView: View {
             .toolbar {
                 DayStoryToolbar()
             }
-        }
     }
 }
 
