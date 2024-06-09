@@ -14,7 +14,6 @@ struct SignupPersonalView: View {
     }
     
     var body: some View {
-        NavigationStack {
             VStack {
                 ScrollView {
                     VStack {
@@ -70,7 +69,6 @@ struct SignupPersonalView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
-        }
     }
 }
 

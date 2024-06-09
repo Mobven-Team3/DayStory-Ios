@@ -7,35 +7,27 @@ struct LoginView: View {
     @State private var alertMessage = ""
     
     var body: some View {
-        NavigationStack {
-            VStack {
-                ScrollView {
-                    VStack {
-                        welcomeBannerView
-
-                        Form {
-                            DayStoryTextField(text: $viewModel.email,
-                                              title: "Email",
-                                              placeholder: "Emailinizi Yazınız",
-                                              errorMessage: viewModel.emailErrorMessage,
-                                              textLimit: 50)
-                            
-                            DayStoryTextField(text: $viewModel.password,
-                                              title: "Şifre",
-                                              placeholder: "Şifrenizi Giriniz",
-                                              isSecure: true,
-                                              errorMessage: viewModel.passwordErrorMessage,
-                                              textLimit: 50)
-                        }
-                        .formStyle(.columns)
-                    }
-                    .toolbar {
-                        DayStoryToolbar()
-                    }
-                    .padding([.trailing, .leading], 10)
-                }
-                
+        VStack {
+            ScrollView {
                 VStack {
+                    welcomeBannerView
+                    
+                    Form {
+                        DayStoryTextField(text: $viewModel.email,
+                                          title: "Email",
+                                          placeholder: "Emailinizi Yazınız",
+                                          errorMessage: viewModel.emailErrorMessage,
+                                          textLimit: 50)
+                        
+                        DayStoryTextField(text: $viewModel.password,
+                                          title: "Şifre",
+                                          placeholder: "Şifrenizi Giriniz",
+                                          isSecure: true,
+                                          errorMessage: viewModel.passwordErrorMessage,
+                                          textLimit: 50)
+                    }
+                    .formStyle(.columns)
+                    
                     NavigationLink(destination: DayStoryTabView(), isActive: $viewModel.isLoginSuccessful) {}
                     
                     Button(action: {
@@ -64,11 +56,14 @@ struct LoginView: View {
                                 linkText: "Kayıt Ol",
                                 linkDestination: SignupPersonalView())
                 }
-                .padding(.bottom, 10)
+                .toolbar {
+                    DayStoryToolbar()
+                }
+                .padding([.trailing, .leading], 10)
             }
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarBackButtonHidden(true)
         }
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
     }
 }
 
