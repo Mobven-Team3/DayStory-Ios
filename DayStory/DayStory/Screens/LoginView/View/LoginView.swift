@@ -8,18 +8,17 @@ struct LoginView: View {
     
     var body: some View {
         NavigationStack {
-            GeometryReader { geometry in
+            VStack {
                 ScrollView {
                     VStack {
-                        welcomeBannerView(geometry: geometry)
-                        
+                        welcomeBannerView
+
                         Form {
                             DayStoryTextField(text: $viewModel.email,
                                               title: "Email",
                                               placeholder: "Emailinizi Yazınız",
                                               errorMessage: viewModel.emailErrorMessage,
                                               textLimit: 50)
-                            .padding(.bottom)
                             
                             DayStoryTextField(text: $viewModel.password,
                                               title: "Şifre",
@@ -29,56 +28,58 @@ struct LoginView: View {
                                               textLimit: 50)
                         }
                         .formStyle(.columns)
-                        
-                        NavigationLink(destination: DayStoryTabView(), isActive: $viewModel.isLoginSuccessful) {}
-                        
-                        Button(action: {
-                            viewModel.validateFields()
-                            
-                            if viewModel.isValid {
-                                Task {
-                                    let model = LoginUserContract(email: viewModel.email,
-                                                                  password: viewModel.password)
-                                    await viewModel.login(model: model)
-                                    
-                                    if !viewModel.isLoginSuccessful {
-                                        showAlert = true
-                                        alertMessage = viewModel.errorMessage
-                                    }
-                                }
-                            }
-                        }) {
-                            GradientButton(title: "Giriş Yap")
-                        }
-                        .alert(isPresented: $showAlert) {
-                            Alert(title: Text("HATA"), message: Text(alertMessage), dismissButton: .default(Text("Tamam")))
-                        }
-                        
-                        LoginPrompt(promptText: "Henüz hesabın yok mu?",
-                                    linkText: "Kayıt Ol",
-                                    linkDestination: SignupPersonalView())
                     }
                     .toolbar {
                         DayStoryToolbar()
                     }
                     .padding([.trailing, .leading], 10)
                 }
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationBarBackButtonHidden(true)
+                
+                VStack {
+                    NavigationLink(destination: DayStoryTabView(), isActive: $viewModel.isLoginSuccessful) {}
+                    
+                    Button(action: {
+                        viewModel.validateFields()
+                        
+                        if viewModel.isValid {
+                            Task {
+                                let model = LoginUserContract(email: viewModel.email,
+                                                              password: viewModel.password)
+                                await viewModel.login(model: model)
+                                
+                                if !viewModel.isLoginSuccessful {
+                                    showAlert = true
+                                    alertMessage = viewModel.errorMessage
+                                }
+                            }
+                        }
+                    }) {
+                        GradientButton(title: "Giriş Yap")
+                    }
+                    .alert(isPresented: $showAlert) {
+                        Alert(title: Text("HATA"), message: Text(alertMessage), dismissButton: .default(Text("Tamam")))
+                    }
+                    
+                    LoginPrompt(promptText: "Henüz hesabın yok mu?",
+                                linkText: "Kayıt Ol",
+                                linkDestination: SignupPersonalView())
+                }
+                .padding(.bottom, 10)
             }
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
         }
     }
 }
 
 // MARK: - Views
 private extension LoginView {
-    func welcomeBannerView(geometry: GeometryProxy) -> some View {
+    var welcomeBannerView: some View {
         ZStack(alignment: .bottom) {
             Image("loginImage")
                 .resizable()
-                .scaledToFill()
-                .frame(width: geometry.size.width, height: geometry.size.height * 0.5)
-                .position(x: geometry.size.width / 2.1, y: geometry.size.height / 4.2)
+                .scaledToFit()
+                .padding(.top, -35)
             
             HStack {
                 Text("Day")
