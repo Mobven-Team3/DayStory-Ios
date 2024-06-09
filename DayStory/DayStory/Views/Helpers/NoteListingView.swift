@@ -9,7 +9,8 @@ import SwiftUI
 
 struct NoteListingView: View {
     
-    @StateObject private var viewModel = TodayViewModel()
+    @ObservedObject var viewModel: TodayViewModel
+    @State var showAlert: Bool = false
     var note: Events
     
     var body: some View {
@@ -40,9 +41,7 @@ struct NoteListingView: View {
                     }
                     
                     Button {
-                        Task {
-                            await viewModel.deleteEvent(id: note.id)
-                        }
+                        showAlert = true
                     } label: {
                         Text("Sil")
                     }
@@ -55,10 +54,21 @@ struct NoteListingView: View {
                         .padding(.trailing, 10)
                 }
             }
+            .alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text("Bu notu silmek istediğinize emin misiniz?"),
+                    primaryButton: .destructive(Text("Evet")) {
+                        Task {
+                            await viewModel.deleteEvent(id: note.id)
+                        }
+                    },
+                    secondaryButton: .cancel(Text("Hayır"))
+                )
+            }
         }
     }
 }
 
 #Preview {
-    NoteListingView(note: Events(id: 1, title: "Test title", description: "Test description", date: "", time: "", priority: ""))
+    NoteListingView(viewModel: TodayViewModel(), note: Events(id: 1, title: "Test title", description: "Test description", date: "", time: "", priority: ""))
 }
