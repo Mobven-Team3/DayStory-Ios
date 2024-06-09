@@ -11,6 +11,7 @@
 		1973E4722C0C84E6000F325F /* CreateNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1973E4712C0C84E6000F325F /* CreateNoteView.swift */; };
 		197F9F5B2C06276800D5D799 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCB7D2992BF747830017CEBC /* Assets.xcassets */; };
 		197F9F5C2C06276800D5D799 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCB7D2992BF747830017CEBC /* Assets.xcassets */; };
+		DC00989C2C15C4F300AFF75D /* DayStoryLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC00989B2C15C4F300AFF75D /* DayStoryLoadingView.swift */; };
 		DC5524E02C072A5000118CC3 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5524DF2C072A5000118CC3 /* WelcomeView.swift */; };
 		DC5524E22C072A6000118CC3 /* SignupPersonalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5524E12C072A6000118CC3 /* SignupPersonalView.swift */; };
 		DC6E213D2C109C760012FE62 /* NoteListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6E213C2C109C760012FE62 /* NoteListingView.swift */; };
@@ -84,6 +85,7 @@
 		1973E4692C0A14C6000F325F /* DetailScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenView.swift; sourceTree = "<group>"; };
 		1973E4712C0C84E6000F325F /* CreateNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoteView.swift; sourceTree = "<group>"; };
 		197F9F572C06206E00D5D799 /* Color+DayStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+DayStory.swift"; sourceTree = "<group>"; };
+		DC00989B2C15C4F300AFF75D /* DayStoryLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayStoryLoadingView.swift; sourceTree = "<group>"; };
 		DC5524DF2C072A5000118CC3 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		DC5524E12C072A6000118CC3 /* SignupPersonalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPersonalView.swift; sourceTree = "<group>"; };
 		DC6E213C2C109C760012FE62 /* NoteListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListingView.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				DC99B1962C00DDBA00CDD857 /* LoginPrompt.swift */,
 				DCE3BFE42C0A813300EC44EE /* GalleryCardView.swift */,
 				DC6E213C2C109C760012FE62 /* NoteListingView.swift */,
+				DC00989B2C15C4F300AFF75D /* DayStoryLoadingView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -773,6 +776,7 @@
 				DC99B1932C00CFC300CDD857 /* DayStoryToolbar.swift in Sources */,
 				DC8D06832C0F1F8500FA23EE /* SignupAccountResponseModel.swift in Sources */,
 				DCE3BFDD2C0A6EC800EC44EE /* DayStoryTabView.swift in Sources */,
+				DC00989C2C15C4F300AFF75D /* DayStoryLoadingView.swift in Sources */,
 				DCE3BFDB2C0A6E7D00EC44EE /* GalleryView.swift in Sources */,
 				DC99B1972C00DDBA00CDD857 /* LoginPrompt.swift in Sources */,
 			);
