@@ -42,7 +42,7 @@ struct TodayView: View {
                     } else {
                         VStack(spacing: 25) {
                             ForEach(viewModel.notes, id: \.id) { note in
-                                NoteListingView(note: note)
+                                NoteListingView(viewModel: viewModel, note: note)
                             }
                         }
                     }
