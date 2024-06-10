@@ -11,6 +11,7 @@ public extension API {
     enum User: Networkable {
         case register(user: RegisterUserContract)
         case login(user: LoginUserContract)
+        case getUser
         case eventCreate(event: CreateEventContract)
         case getEventsByDay(date: String)
         case updateEvent(event: UpdateEventContract)
@@ -20,6 +21,8 @@ public extension API {
             switch self {
             case let .register(user):
                 await postRequest(data: user, path: "api/Users/register")
+            case .getUser:
+                await getRequest(path: "api/Users/", token: TokenManager.shared.token)
             case let .login(user):
                 await postRequest(data: user, path: "api/Users/login")
             case let .eventCreate(event):
