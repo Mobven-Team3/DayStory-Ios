@@ -13,4 +13,11 @@ extension Date {
         formatter.dateFormat = format
         return formatter.string(from: self)
     }
+    
+    func formattedString(format: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "tr_TR")
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: self)
+    }
 }
