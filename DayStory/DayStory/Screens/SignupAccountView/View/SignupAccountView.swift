@@ -101,18 +101,18 @@ struct SignupAccountView: View {
         .toolbarRole(.editor)
     }
     
-    func convertGender(gender: String) -> String {
+    func convertGender(gender: String) -> Int {
         switch gender {
         case "Kadın":
-            return "Female"
+            return 2
         case "Erkek":
-            return "Male"
+            return 1
         case "Belirtme":
-            return "NotSpecified"
+            return 0
         case "Diğer":
-            return "Other"
+            return 3
         default:
-            return "NotSpecified"
+            return 0
         }
     }
 }
