@@ -8,20 +8,28 @@
 import SwiftUI
 
 struct DetailScreenView: View {
-    @Environment(\.defaultMinListRowHeight) var minRowHeight
-    
+
+    let summary: ImageModel?
+
     var body: some View {
         ScrollView {
             VStack {
                 VStack {
-                    Text("gg.aa.yy")
+                    Text(summary?.date?.replacingOccurrences(of: "-", with: "/") ?? "")
                         .font(.system(size: 16))
                         .padding()
                     
-                    Image("daystoryOnboarding")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 335, height: 335)
+                    AsyncImage(url: URL(string: summary?.imagePath ?? "")) { image in
+                        image
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 335, height: 335)
+                    } placeholder: {
+                        Image(systemName: "photo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 335, height: 335)
+                    }
                 }
                 .padding()
                 
@@ -29,12 +37,6 @@ struct DetailScreenView: View {
                     .font(.system(size: 16))
                     .fontWeight(.semibold)
                     .padding(.bottom)
-                
-                /*VStack(spacing: 25) {
-                 ForEach(0..<3) {_ in
-                 NoteListingView()
-                 }
-                 }*/
             }
         }
         .navigationBarTitleDisplayMode(.inline)
@@ -45,7 +47,7 @@ struct DetailScreenView: View {
 }
 struct DetailScreenView_Previews : PreviewProvider {
     static var previews: some View {
-        DetailScreenView()
+        DetailScreenView(summary: ImageModel(id: 0, date: "", imagePath: ""))
     }
 }
 
