@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DetailScreenView: View {
 
+    @StateObject private var viewModel = DetailScreenViewModel()
     let summary: ImageModel?
 
     var body: some View {
@@ -37,11 +38,22 @@ struct DetailScreenView: View {
                     .font(.system(size: 16))
                     .fontWeight(.semibold)
                     .padding(.bottom)
+                
+                VStack(spacing: 25) {
+                    ForEach(viewModel.notes, id: \.id) { note in
+                        NoteListingView(isEditing: false, note: note)
+                    }
+                }
             }
         }
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             DayStoryToolbar()
+        }
+        .onAppear {
+            Task {
+                await viewModel.getNotes(date: summary?.date ?? "")
+            }
         }
     }
 }

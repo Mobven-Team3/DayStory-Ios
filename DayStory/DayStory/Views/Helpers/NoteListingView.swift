@@ -9,8 +9,9 @@ import SwiftUI
 
 struct NoteListingView: View {
     
-    @ObservedObject var viewModel: TodayViewModel
+    @ObservedObject var viewModel = TodayViewModel()
     @State var showAlert: Bool = false
+    var isEditing = true
     var note: Events
     
     var body: some View {
@@ -35,23 +36,25 @@ struct NoteListingView: View {
                 .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.textFieldBorder).opacity(0.1))
                 .padding([.leading, .trailing], 20)
                 
-                Menu {
-                    NavigationLink(destination: CreateNoteView(event: note)) {
-                        Text("Düzenle")
-                    }
-                    
-                    Button {
-                        showAlert = true
+                if isEditing {
+                    Menu {
+                        NavigationLink(destination: CreateNoteView(event: note)) {
+                            Text("Düzenle")
+                        }
+                        
+                        Button {
+                            showAlert = true
+                        } label: {
+                            Text("Sil")
+                        }
                     } label: {
-                        Text("Sil")
+                        Image(systemName: "ellipsis")
+                            .imageScale(.medium)
+                            .frame(width: 44, height: 44)
+                            .foregroundStyle(.todayScreenText)
+                            .rotationEffect(.degrees(90))
+                            .padding(.trailing, 10)
                     }
-                } label: {
-                    Image(systemName: "ellipsis")
-                        .imageScale(.medium)
-                        .frame(width: 44, height: 44)
-                        .foregroundStyle(.todayScreenText)
-                        .rotationEffect(.degrees(90))
-                        .padding(.trailing, 10)
                 }
             }
             .alert(isPresented: $showAlert) {
