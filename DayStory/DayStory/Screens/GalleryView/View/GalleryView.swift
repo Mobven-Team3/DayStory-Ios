@@ -9,24 +9,25 @@ import SwiftUI
 
 struct GalleryView: View {
     
+    @StateObject private var viewModel = GalleryViewModel()
     @Binding var selectedTab: Int
     let columns: [GridItem] = [GridItem(.flexible()),
                                GridItem(.flexible()),
                                GridItem(.flexible())]
-    var itemCount = 0
+    let date = Date()
     
     var body: some View {
         ScrollView {
-            if itemCount == 0 {
+            if viewModel.summaries?.count == 0 {
                 VStack {
-                    Text("Mayıs 2024")
+                    Text(date.formattedString(format: "MMMM yyyy"))
                         .font(.title3)
                         .padding()
                     
                     Button {
                         selectedTab = 1
                     } label: {
-                        GalleryCardView(isPlaceHolder: true)
+                        GalleryCardView(summary: nil, isPlaceHolder: true)
                             .padding()
                     }
                     
@@ -45,13 +46,13 @@ struct GalleryView: View {
                 .padding()
             } else {
                 VStack(alignment: .leading) {
-                    Text("Mayıs 2024")
+                    Text("Haziran 2024")
                         .font(.title3)
                     
                     LazyVGrid(columns: columns) {
-                        ForEach(0..<self.itemCount) {_ in
-                            NavigationLink(destination: DetailScreenView()) {
-                                GalleryCardView()
+                        ForEach(viewModel.summaries ?? [], id: \.id) { summary in
+                            NavigationLink(destination: DetailScreenView(summary: summary)) {
+                                GalleryCardView(summary: summary)
                             }
                         }
                     }
@@ -62,6 +63,11 @@ struct GalleryView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             DayStoryToolbar()
+        }
+        .onAppear {
+            Task {
+                await viewModel.getAllSummaries()
+            }
         }
     }
 }
