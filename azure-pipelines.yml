@@ -7,9 +7,9 @@ steps:
 - task: Xcode@5
   inputs:
     actions: 'build'
-    scheme: 'DayStory-Ios'
+    scheme: 'DayStory'
     configuration: 'Development'
-    xcWorkspacePath: 'DayStory/DayStory.xcodeproj/project.xcworkspace'
+    xcWorkspacePath: 'DayStory-Ios/DayStory/DayStory.xcodeproj/project.xcworkspace'
     sdk: 'iphonesimulator'
     buildArguments: '-derivedDataPath Build/'
     args: '-destination "platform=iOS Simulator,name=iPhone Prod iOS17" -derivedDataPath Build/ CODE_SIGNING_ALLOWED=NO'
