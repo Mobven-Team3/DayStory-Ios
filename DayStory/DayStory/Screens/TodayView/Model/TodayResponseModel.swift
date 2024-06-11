@@ -21,3 +21,20 @@ public struct Events: Decodable {
     let time: String?
     let priority: String?
 }
+
+struct CreateDaySummaryResponse: Decodable {
+    let statusCode: Int?
+    let message: String?
+}
+
+struct GetDaySummariesByDayResponse: Decodable {
+    let statusCode: Int?
+    let message: String?
+    let data: ImageModel?
+}
+
+struct ImageModel: Decodable {
+    let id: Int?
+    let date: String?
+    let imagePath: String?
+}

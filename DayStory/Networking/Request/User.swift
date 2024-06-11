@@ -16,6 +16,9 @@ public extension API {
         case getEventsByDay(date: String)
         case updateEvent(event: UpdateEventContract)
         case deleteEvent(id: Int)
+        case createDaySummary(date: CreateDaySummaryContract)
+        case getDaySummariesByDay(date: CreateDaySummaryContract)
+        case getAllSummaries
         
         public func request() async -> URLRequest {
             switch self {
@@ -33,6 +36,12 @@ public extension API {
                 await updateRequest(data: event, path: "api/Events/", token: TokenManager.shared.token)
             case let .deleteEvent(id):
                 await deleteRequest(path: "api/Events/\(id)", token: TokenManager.shared.token)
+            case let .createDaySummary(date):
+                await postRequest(data: date, path: "api/DaySummarys/", token: TokenManager.shared.token)
+            case let .getDaySummariesByDay(date):
+                await getRequest(path: "api/DaySummarys/day?date=\(date.date)", token: TokenManager.shared.token)
+            case .getAllSummaries:
+                await getRequest(path: "api/DaySummarys/all", token: TokenManager.shared.token)
             }
         }
     }
