@@ -15,7 +15,7 @@ public struct RegisterUserContract: Encodable {
     let password: String
     let passwordConfirmed: String
     let birthDate: String
-    let gender: String
+    let gender: Int
     
     enum CodingKeys: String, CodingKey {
         case firstName, lastName, email, password, passwordConfirmed, birthDate, gender
