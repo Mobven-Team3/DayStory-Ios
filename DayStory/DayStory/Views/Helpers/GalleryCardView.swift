@@ -11,21 +11,22 @@ struct GalleryCardView: View {
     
     let summary: ImageModel?
     var isPlaceHolder = false
+    let date = Date()
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
             HStack {
-                Text(getDateComponents(for: summary?.date ?? "", component: .day))
+                Text(getDateComponents(for: summary?.date ?? date.toString(), component: .day))
                     .font(.system(size: 25))
                     .fontWeight(.semibold)
                     .foregroundStyle(.black)
                 
                 VStack(alignment: .leading) {
-                    Text(getDateComponents(for: summary?.date ?? "", component: .weekday))
+                    Text(getDateComponents(for: summary?.date ?? date.toString(), component: .weekday))
                         .font(.system(size: 10))
                         .foregroundStyle(.black)
                     
-                    Text(getDateComponents(for: summary?.date ?? "", component: .month))
+                    Text(getDateComponents(for: summary?.date ?? date.toString(), component: .month))
                         .font(.system(size: 12))
                         .fontWeight(.semibold)
                         .foregroundStyle(.black)
