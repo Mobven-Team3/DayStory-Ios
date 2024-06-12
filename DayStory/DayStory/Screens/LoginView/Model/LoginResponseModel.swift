@@ -20,3 +20,9 @@ struct LoginResponseModel: Decodable {
 struct Token: Decodable {
     let token: String?
 }
+
+struct ErrorResponse: Decodable {
+    let type: String
+    let title: String
+    let status: Int
+}

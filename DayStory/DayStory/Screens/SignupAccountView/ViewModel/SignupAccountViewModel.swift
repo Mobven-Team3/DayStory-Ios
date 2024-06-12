@@ -43,7 +43,9 @@ final class SignupAccountViewModel: ObservableObject {
                 }
             case let .failure(error):
                 self.isSignupSuccessful = false
-                self.errorMessage = error.localizedDescription
+                if error.localizedDescription.contains("@") {
+                    self.errorMessage = "Bu e-posta adresi zaten bulunmaktadır."
+                }
             }
         }
     }
