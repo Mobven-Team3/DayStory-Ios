@@ -27,8 +27,8 @@ struct TodayView: View {
                         } label: {
                             GradientButton(title: "AI Gün Özeti Oluştur")
                         }
-                        .disabled(viewModel.notes.count == 0)
-                        .opacity(viewModel.notes.count == 0 ? 0.5 : 1)
+                        .disabled(viewModel.isTodaySummaryCreated || viewModel.notes.isEmpty)
+                        .opacity(viewModel.isTodaySummaryCreated || viewModel.notes.isEmpty ? 0.5 : 1)
                     }
                     .alert(isPresented: $showAlert) {
                         Alert(
@@ -41,10 +41,10 @@ struct TodayView: View {
                             }
                         )
                     }
-
+                    
                     NavigationLink(destination: DetailScreenView(summary: viewModel.summary),
                                    isActive: $viewModel.isImageCreateSuccessful) {}
-
+                    
                     Text("Notlar")
                         .font(.callout)
                         .fontWeight(.semibold)
@@ -59,7 +59,11 @@ struct TodayView: View {
                     } else {
                         VStack(spacing: 25) {
                             ForEach(viewModel.notes, id: \.id) { note in
-                                NoteListingView(viewModel: viewModel, note: note)
+                                if viewModel.isTodaySummaryCreated {
+                                    NoteListingView(viewModel: viewModel, isEditing: false, note: note)
+                                } else {
+                                    NoteListingView(viewModel: viewModel, note: note)
+                                }
                             }
                         }
                     }
@@ -74,7 +78,7 @@ struct TodayView: View {
             }
         }
         .overlay(alignment: .bottomTrailing) {
-            if !viewModel.isLoading {
+            if !viewModel.isLoading && !viewModel.isTodaySummaryCreated {
                 NavigationLink(destination: CreateNoteView()) {
                     Image(systemName: "plus")
                         .foregroundStyle(.white)
@@ -87,7 +91,11 @@ struct TodayView: View {
         }
         .onAppear {
             Task {
-                await viewModel.getNotes(date: date.toString())
+                async let notesResult: () = viewModel.getNotes(date: date.toString())
+                async let isSummaryResult: () = viewModel.checkSummaryCreated(date: CreateDaySummaryContract(date: date.toString()))
+                
+                await notesResult
+                await isSummaryResult
             }
         }
         .navigationBarTitleDisplayMode(.inline)

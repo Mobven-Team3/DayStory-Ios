@@ -17,6 +17,7 @@ final class LoginViewModel: ObservableObject {
     @Published var passwordErrorMessage: String? = nil
     
     @Published var isLoginSuccessful: Bool = false
+    @Published var isLoading: Bool = false
     @Published var errorMessage: String = ""
     
     func validateFields() {
@@ -27,6 +28,10 @@ final class LoginViewModel: ObservableObject {
     }
     
     func login(model: LoginUserContract) async {
+        DispatchQueue.main.async {
+            self.isLoading = true
+        }
+        
         let result = await API.User.login(user: model).fetch(responseModel: LoginResponseModel.self)
         
         DispatchQueue.main.async {
@@ -38,8 +43,14 @@ final class LoginViewModel: ObservableObject {
                 }
             case let .failure(error):
                 self.isLoginSuccessful = false
-                self.errorMessage = error.localizedDescription
+                if error.localizedDescription.contains("found") {
+                    self.errorMessage = "Bu e-posta adresiyle eşleşen bir kullanıcı bulunamadı. Lütfen e-posta adresinizi kontrol edip yeniden deneyin."
+                } else if error.localizedDescription.contains("password") {
+                    self.errorMessage = "Şifre yanlış. Lütfen şifrenizi kontrol edip yeniden deneyin."
+                }
             }
+            
+            self.isLoading = false
         }
     }
 }

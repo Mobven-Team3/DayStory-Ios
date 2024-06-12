@@ -13,7 +13,8 @@ final class TodayViewModel: ObservableObject {
     @Published var summary: ImageModel?
     @Published var isImageCreateSuccessful: Bool = false
     @Published var isLoading: Bool = false
-    
+    @Published var isTodaySummaryCreated: Bool = false
+
     func getNotes(date: String) async {
         let result = await API.User.getEventsByDay(date: date).fetch(responseModel: GetEventsByDayResponse.self)
         
@@ -39,7 +40,6 @@ final class TodayViewModel: ObservableObject {
                     }
                 }
             case let .failure(error):
-                self.isLoading = false
                 print(error.localizedDescription)
             }
         }
@@ -63,6 +63,7 @@ final class TodayViewModel: ObservableObject {
             case let .failure(error):
                 print(error.localizedDescription)
             }
+            
             self.isLoading = false
         }
     }
@@ -75,6 +76,21 @@ final class TodayViewModel: ObservableObject {
             case let .success(response):
                 self.summary = response.data
                 self.isImageCreateSuccessful = true
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func checkSummaryCreated(date: CreateDaySummaryContract) async {
+        let result = await API.User.getDaySummariesByDay(date: date).fetch(responseModel: GetDaySummariesByDayResponse.self)
+        
+        DispatchQueue.main.async {
+            switch result {
+            case let .success(response):
+                if let imagePath = response.data?.imagePath, !imagePath.isEmpty {
+                    self.isTodaySummaryCreated = true
+                }
             case let .failure(error):
                 print(error.localizedDescription)
             }
