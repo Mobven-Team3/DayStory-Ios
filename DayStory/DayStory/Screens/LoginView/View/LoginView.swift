@@ -7,7 +7,7 @@ struct LoginView: View {
     @State private var alertMessage = ""
     
     var body: some View {
-        VStack {
+        ZStack {
             ScrollView {
                 VStack {
                     welcomeBannerView
@@ -60,6 +60,12 @@ struct LoginView: View {
                     DayStoryToolbar()
                 }
                 .padding([.trailing, .leading], 10)
+            }
+            .blur(radius: viewModel.isLoading ? 10 : 0)
+            
+            if viewModel.isLoading {
+                DayStoryLoadingView()
+                    .edgesIgnoringSafeArea(.all)
             }
         }
         .navigationBarTitleDisplayMode(.inline)
