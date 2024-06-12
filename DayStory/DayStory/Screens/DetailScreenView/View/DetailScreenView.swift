@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct DetailScreenView: View {
-
+    
     @StateObject private var viewModel = DetailScreenViewModel()
     let summary: ImageModel?
-
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -25,6 +25,12 @@ struct DetailScreenView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 335, height: 335)
+                            .background(Color.white)
+                            .cornerRadius(10)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color.gray.opacity(0.1), lineWidth: 10)
+                            )
                     } placeholder: {
                         Image(systemName: "photo")
                             .resizable()
