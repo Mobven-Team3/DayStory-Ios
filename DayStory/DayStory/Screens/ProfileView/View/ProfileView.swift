@@ -58,7 +58,7 @@ struct ProfileView: View {
             Button {
                 showLoadingView = true
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                    UIApplication.shared.windows.first?.rootViewController = UIHostingController(rootView: LoginView())
+                    UIApplication.shared.windows.first?.rootViewController = UIHostingController(rootView: WelcomeView())
                 }
             } label: {
                 Text("Çıkış Yap")
