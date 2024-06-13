@@ -52,7 +52,7 @@ struct TodayView: View {
                         .padding(.bottom, 20)
                     
                     if viewModel.notes.count == 0 {
-                        Text("Bu gün için notunuz bulunmuyor.")
+                        Text("Bugün için notunuz bulunmuyor.")
                             .font(.callout)
                             .foregroundStyle(.todayScreenText)
                             .padding()
