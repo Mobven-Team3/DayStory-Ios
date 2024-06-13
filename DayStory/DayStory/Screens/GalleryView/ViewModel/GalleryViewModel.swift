@@ -17,7 +17,7 @@ final class GalleryViewModel: ObservableObject {
         DispatchQueue.main.async {
             switch result {
             case let .success(response):
-                self.summaries = response.data
+                self.summaries = response.data?.reversed()
             case let .failure(error):
                 print(error.localizedDescription)
             }
