@@ -10,7 +10,8 @@ import SwiftUI
 struct ProfileView: View {
     
     @StateObject private var viewModel = ProfileViewModel()
-
+    @State private var showLoadingView = false
+    
     var body: some View {
         VStack {
             ScrollView {
@@ -53,9 +54,12 @@ struct ProfileView: View {
                     .stroke(Color.gray, lineWidth: 1))
                 .padding(.all, 30)
             }
-                        
+            
             Button {
-                
+                showLoadingView = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    UIApplication.shared.windows.first?.rootViewController = UIHostingController(rootView: LoginView())
+                }
             } label: {
                 Text("Çıkış Yap")
                     .foregroundStyle(.todayScreenText)
@@ -73,6 +77,9 @@ struct ProfileView: View {
         }
         .toolbar {
             DayStoryToolbar()
+        }
+        .fullScreenCover(isPresented: $showLoadingView) {
+            DayStoryLoadingView()
         }
     }
     
